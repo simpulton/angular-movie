@@ -1,0 +1,63 @@
+html { 
+  background: url(../images/clouds-bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+	font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
+  font-size: 2.5em;
+	color: #fff;
+	background: transparent;
+}
+.nav {
+  float: none;
+  margin: 0 auto;
+}
+.nav li {
+  float: none;
+  display: inline-block;
+}
+.nav a {
+	color: #fff;
+  letter-spacing: 1px;
+}
+.nav a:hover {
+	color: #10476E;
+}
+
+.megatron {
+  margin-top: 10%;
+}
+.megatron h1 {
+  font-size: 800%;
+  max-height: 200px;
+  margin-bottom: 0;
+}
+.megatron h1 .big {
+  width: 100%;
+  display: block;
+  line-height: 80%;
+}
+.megatron h1 .byline {
+  font-family: "Helvetica";
+  font-size: 10%;
+  vertical-align: top;
+}
+.megatron h3 {
+  margin-top: 0;
+}
+
+.home-trailer {
+  margin-top: 10%;
+  min-height: 220px;
+  background: transparent url(../images/trailer-box.png) no-repeat center center;
+  background-size: contain;
+}
+.home-trailer iframe {
+  position: relative;
+  top: 30px;
+  display: block;
+  margin: 0 auto;
+}
