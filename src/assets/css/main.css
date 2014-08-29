@@ -24,6 +24,9 @@ a:hover {
   text-decoration: none;
   color:#00ccff;
 }
+a.active {
+  color:#00ccff;
+}
 .nav {
   float: none;
   margin: 0 auto;
@@ -175,4 +178,35 @@ html.trailers {
   font-size: 54%;
   list-style: none;
   padding-left: 30px;
+}
+
+/********* Gallery *********/
+
+.back-button.btn-left {
+  position: relative;
+  top: 0;
+  left: -65px;
+}
+.gallery {
+  margin-top: 10%;
+  width: auto;
+  background: rgba(0,0,0,0.2);
+  padding: 40px;
+}
+.gallery ul {
+  margin-bottom: 0;
+  padding: 0;
+}
+.gallery li {
+  display: inline-block;
+}
+.gallery-spacer {
+  height: 500px;
+}
+.arrow {
+  padding-top: 13%
+}
+.arrow a {
+  padding: 20px;
+  background-color: rgba(0,0,0,0.3);
 }
