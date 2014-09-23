@@ -138,7 +138,7 @@ a.active {
 
 /********* Trailers *********/
 
-html.trailers {
+.trailers {
   background: black;
 }
 .trailers .back-button {
