@@ -35,12 +35,13 @@ a.active {
   float: none;
   display: inline-block;
 }
-.nav a {
+.nav li a {
 	color: #fff;
   letter-spacing: 1px;
+  background-color: transparent;
 }
-.nav a:hover {
-	color: #10476E;
+.nav li a:hover {
+  background-color: transparent;
 }
 .nav .back-button {
   border-top: 50px solid black;
@@ -55,6 +56,10 @@ a.active {
 }
 .nav .back-button a:hover {
   background: transparent;
+}
+
+.main-content {
+  opacity:0;
 }
 
 /********* Movie Details Home Page **********/
