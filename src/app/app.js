@@ -7,7 +7,9 @@ angular.module('Movie', [
 	'Movie.cast',
 	'Movie.trailer',
 	'Movie.directives.nav',
-	'Movie.directives.cast'
+	'Movie.directives.cast',
+	'Movie.directives.thumbnail',
+	'Movie.services.preload'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 

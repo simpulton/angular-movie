@@ -1,27 +1,31 @@
-<div class="container-fluid">
-	<ul class="nav">
-    <li class="back-button btn-left"><a href ui-sref="movie.home">BACK</a></li>
-	</ul>
-</div>
+<div >
+  <div class="container-fluid">
+    <ul class="nav">
+      <li class="back-button btn-left"><a href ui-sref="movie.home">BACK</a></li>
+    </ul>
+  </div>
 
-<div class="arrow pull-right">
-  <a href="" class="fa fa-arrow-right"></a>
-</div>
+  <div class="arrow pull-right">
+    <a href="" ng-click="gallery.setCurrentIndex(gallery.currentIndex+1)" class="fa fa-arrow-right"></a>
+  </div>
 
-<div class="arrow pull-left">
-  <a href="" class="fa fa-arrow-left"></a>
-</div>
+  <div class="arrow pull-left">
+    <a href="" ng-click="gallery.setCurrentIndex(gallery.currentIndex-1)" class="fa fa-arrow-left"></a>
+  </div>
 
-<div class="container-fluid text-center">
-  <img width="50%" src="assets/images/big-thumb.jpg">
-</div>
+  <div class="container-fluid text-center">
+    <img ng-if="!gallery.loaded" width="10%" src="assets/images/circle-loading-animation.gif" alt="">
+    <img transition="gallery.reverse" index="$index" ng-show="gallery.currentIndex === $index" ng-repeat="image in gallery.images" width="50%" src="{{image.src}}">
+  </div>
 
-<div ng-include="'app/common/templates/billboard.tpl.html'"></div>
+  <div ng-include="'app/common/templates/billboard.tpl.html'"></div>
 
-<div class="pull-right gallery">
-  <ul class="">
-    <li><img height="138" src="assets/images/thumb-1.png"></li>
-    <li><img height="138" src="assets/images/thumb-2.png"></li>
-    <li><img height="138" src="assets/images/thumb-3.png"></li>
-  </ul>
+  <div class="pull-right gallery">
+    <ul class="">
+      <img ng-if="!gallery.loaded" width="10%" src="assets/images/circle-loading-animation.gif" alt="">
+      <li ng-repeat="thumb in gallery.images">
+        <img thumbnail ng-mouseenter="play()" ng-mouseleave="reverse()" ng-click="gallery.setCurrentIndex($index)" height="138" src="{{thumb.src}}">
+      </li>
+    </ul>
+  </div>
 </div>

@@ -192,6 +192,14 @@ a.active {
   top: 0;
   left: -65px;
 }
+.slider {
+  list-style: none;
+  padding-left: 0;
+}
+.slider img {
+  width: 95%;
+  display: inline-block;
+}
 .gallery {
   margin-top: 10%;
   width: auto;
@@ -204,6 +212,12 @@ a.active {
 }
 .gallery li {
   display: inline-block;
+}
+.gallery img {
+  border: 5px solid rgba(0,0,0,0.4);
+}
+.gallery img:hover {
+  cursor: pointer; 
 }
 .gallery-spacer {
   height: 500px;
