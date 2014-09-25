@@ -26,12 +26,12 @@ angular.module('Movie', [
 	return {
 		enter: function(element, done) {
 			// animation for inbound page
-			TweenMax.to(element, 1, { opacity: '1', onComplete: done});
+			TweenMax.fromTo(element, 1, {x:'-2500px'}, { x:0, opacity: '1', onComplete: done});
 		},
 		leave: function(element, done) {
 			// animation for outbound page
 			element.css({position:'absolute', top: 0});
-			TweenMax.to(element, 1, { x: '1500px', opacity: '0', onComplete: done });
+			TweenMax.to(element, 1, { x: '2000px', opacity: '0', onComplete: done });
 		}
 	};
 

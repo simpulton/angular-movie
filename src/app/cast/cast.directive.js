@@ -2,8 +2,8 @@ angular.module('Movie.directives.cast', [])
 .directive('castContainer', function() {
 	var linker = function(scope, element, attrs) {
 		// animation for the cast section
-		
-		var tl = new TimelineLite(),
+
+		var tl = new TimelineLite();
 		var reverse = function() {
 			tl.reverse();
 		};
