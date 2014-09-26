@@ -27,15 +27,17 @@ angular.module('Movie.gallery', [
 	gallery.loaded = false;
 
 	gallery.direction = 'forward';
-	gallery.setCurrentIndex =  function(index, direction) {
-		gallery.direction = direction;
 
-		$timeout(function() {
-			if (index >= 0 && index < gallery.images.length ) {
-				gallery.currentIndex = index;
-				$scope.$broadcast('animation', index);
-			}
-		}, 1);
+	gallery.setCurrentIndex =  function(index) {
+
+		gallery.direction = (index >= gallery.currentIndex) ? 'forward' : 'reverse';
+
+		if (index >= 0 && index < gallery.images.length ) {
+			$timeout(function() {
+					gallery.currentIndex = index;
+					$scope.$broadcast('animation', index);
+			}, 1);
+		}
 	};
 
 	gallery.load = function() {
