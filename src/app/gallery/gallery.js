@@ -15,7 +15,7 @@ angular.module('Movie.gallery', [
 		}
 	);
 })
-.controller('GalleryCtrl', function($scope, PreloadService) {
+.controller('GalleryCtrl', function($scope, PreloadService, $timeout) {
 	var gallery = this;
 
 	var images = [
@@ -26,12 +26,16 @@ angular.module('Movie.gallery', [
 
 	gallery.loaded = false;
 
-	gallery.reverse = false;
-	gallery.setCurrentIndex =  function(index, reverse) {
-		if (index >= 0 && index < gallery.images.length ) {
-			gallery.currentIndex = index;
-			$scope.$broadcast('animation', index);
-		}
+	gallery.direction = 'forward';
+	gallery.setCurrentIndex =  function(index, direction) {
+		gallery.direction = direction;
+
+		$timeout(function() {
+			if (index >= 0 && index < gallery.images.length ) {
+				gallery.currentIndex = index;
+				$scope.$broadcast('animation', index);
+			}
+		}, 1);
 	};
 
 	gallery.load = function() {
@@ -48,32 +52,26 @@ angular.module('Movie.gallery', [
 
   gallery.load();
 })
-.directive('transition', function($animate) {
-	var linker = function(scope, element, attrs) {
-		scope.$on('animation', function(event, index) {
-			$animate.removeClass(element, 'current-image');
-			$animate.addClass(element, 'current-image');
-		});
-	};
-
-	return {
-		link: linker,
-		scope: {
-			transition: '=',
-			index: '='
-		}
-	};
-})
 .animation('.current-image', function($window) {
 
 	return {
 
-		addClass: function(element, done) {
-			TweenMax.fromTo(element, 1, {x:-$window.innerWidth}, { x:0, onComplete: done});
+		enter: function(element, done) {
+			// inbound picture animation
+			var x = element.hasClass('forward') ? $window.innerWidth : -$window.innerWidth;
+
+			TweenMax.fromTo(element, 1, {x:x}, { x:0, onComplete: done});
+			element.css('position', 'static');
 		},
+
 		leave: function(element, done) {
+			// outbound picture animation
+			var x = element.hasClass('forward') ? -$window.innerWidth : $window.innerWidth,
+					from = element.hasClass('forward') ? 0 : -element.width();
+					time = element.hasClass('forward') ? 1 : 1.7,
+
 			element.css('position', 'absolute');
-			TweenMax.to(element, 1, {x: $window.innerWidth, onComplete: done});
+			TweenMax.fromTo(element, time, {x:from}, {x: x, onComplete: done});
 		}
 	};
 });
