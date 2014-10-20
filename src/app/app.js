@@ -14,7 +14,7 @@ angular.module('Movie', [
 .config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-		.state('movie', {
+		.state('Movie', {
 			abstract: true,
 			url: ''
 		}

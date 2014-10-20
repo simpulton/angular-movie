@@ -3,7 +3,7 @@ angular.module('Movie.synopsis', [
 ])
 .config(function($stateProvider) {
 	$stateProvider
-		.state('movie.synopsis', {
+		.state('Movie.synopsis', {
 			url: '/synopsis',
 			views: {
 				'main@': {

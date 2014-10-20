@@ -3,13 +3,13 @@ angular.module('Movie.gallery', [
 ])
 .config(function($stateProvider) {
 	$stateProvider
-		.state('movie.gallery', {
+		.state('Movie.gallery', {
 			url: '/gallery',
 			views: {
 				'main@': {
-					controller: 'GalleryCtrl',
-					controllerAs: 'gallery',
-					templateUrl: 'app/gallery/gallery.tpl.html'
+          templateUrl: 'app/gallery/gallery.tpl.html',
+          controller: 'GalleryCtrl',
+          controllerAs: 'gallery'
 				}
 			}
 		}
@@ -18,30 +18,27 @@ angular.module('Movie.gallery', [
 .controller('GalleryCtrl', function($scope, PreloadService, $timeout) {
 	var gallery = this;
 
-	var images = [
+  var images = [
 		{id: 'image00', src: 'assets/images/big-thumb.jpg'},
 		{id: 'image01', src: 'assets/images/big-thumb-2.png'},
 		{id: 'image02', src: 'assets/images/big-thumb-3.png'}
 	];
 
-	gallery.loaded = false;
+  var load = function() {
+    PreloadService.loadManifest(images);
+  };
 
+  gallery.loaded = false;
 	gallery.direction = 'forward';
 
 	gallery.setCurrentIndex =  function(index) {
-
 		gallery.direction = (index >= gallery.currentIndex) ? 'forward' : 'reverse';
 
 		if (index >= 0 && index < gallery.images.length ) {
 			$timeout(function() {
 					gallery.currentIndex = index;
-					$scope.$broadcast('animation', index);
-			}, 1);
+			});
 		}
-	};
-
-	gallery.load = function() {
-		PreloadService.loadManifest(images);
 	};
 
 	$scope.$on('queueComplete', function(event, slides) {
@@ -52,7 +49,7 @@ angular.module('Movie.gallery', [
     });
   });
 
-  gallery.load();
+  load();
 })
 .animation('.current-image', function($window) {
 

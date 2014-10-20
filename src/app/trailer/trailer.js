@@ -3,7 +3,7 @@ angular.module('Movie.trailer', [
 ])
 .config(function($stateProvider) {
 	$stateProvider
-		.state('movie.trailer', {
+		.state('Movie.trailer', {
 			url: '/trailer',
 			views: {
 				'main@': {

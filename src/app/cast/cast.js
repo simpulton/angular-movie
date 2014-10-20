@@ -3,7 +3,7 @@ angular.module('Movie.cast', [
 ])
 .config(function($stateProvider) {
 	$stateProvider
-		.state('movie.cast', {
+		.state('Movie.cast', {
 			url: '/cast',
 			views: {
 				'main@': {
