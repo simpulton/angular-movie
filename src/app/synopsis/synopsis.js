@@ -7,9 +7,11 @@ angular.module('Movie.synopsis', [
 			url: '/synopsis',
 			views: {
 				'main@': {
-					templateUrl: 'app/synopsis/synopsis.tpl.html'
+					templateUrl: 'app/synopsis/synopsis.tpl.html',
+          controller: 'AppCtrl',
+          controllerAs: 'app'
 				}
 			}
 		}
 	);
-})
+});

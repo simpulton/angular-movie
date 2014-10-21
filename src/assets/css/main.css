@@ -138,14 +138,20 @@ a.active {
   font-size: 12px;
   font-weight: 100;
   padding: 0 40px;
-  max-height: 170px;
+  max-height: 150px;
   overflow:scroll;
 }
 
 /********* Trailers *********/
-
+.background {
+    width: 100%;
+    height: 10000px;
+    position: fixed;
+    background: black;
+}
 .trailers {
-  background: transparent;
+    background-color: #000000;
+    padding: 0;
 }
 .trailers .back-button {
   border: none !important;
@@ -156,9 +162,9 @@ a.active {
 .trailers .back-button a {
   position: static;
 }
-.trailers a:hover {
+.trailers ul li a:hover {
   background-color: black !important;
-  color: #00ccff;
+  color: #00ccff !important;
 }
 .trailers iframe {
   display: block;
@@ -174,9 +180,11 @@ a.active {
   width: 900px;
   margin-right: 1%;
 }
+.cast-animate {
+    width: 700px;
+    float: left;
+}
 .cast.about p, .cast.about h4 {
-  width: 710px;
-  float: right;
   padding-left: 40px;
 }
 .cast.about ul {
