@@ -44,6 +44,7 @@ angular.module('Movie', [
 
     app.movie = movie;
 
+    // Preloading
     if (!PreloadService.getStatus()) {
       var manifest = [];
       var load = function (manifest) {
@@ -62,12 +63,14 @@ angular.module('Movie', [
 
     $scope.$on('queueComplete', function(event, slides) {
       $scope.$apply(function(){
-        console.log('compltet');
+        console.log('complete');
       });
     });
 
+    // Init cast
     app.currentCast = 0;
 
+    // Init slideshow
     app.direction = 'forward';
     app.currentIndex = 0;
     app.setCurrentIndex = function(index) {
