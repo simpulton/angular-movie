@@ -43,6 +43,7 @@ angular.module('Movie', [
     var app = this;
 
     app.movie = movie;
+    app.showIframe = false;
 
     // Preloading
     if (!PreloadService.getStatus()) {
@@ -82,14 +83,24 @@ angular.module('Movie', [
       }
     };
 
+    $scope.$on('animation-done', function() {
+      $scope.$apply(function() {
+        app.showIframe = true;
+      });
+    });
+
 
 })
 .animation('.main-content', function($rootScope) {
-
-	return {
+  return {
 		enter: function(element, done) {
 			// animation for inbound page
-			TweenMax.fromTo(element, 1, {x:'-2500px'}, { x:0, opacity: '1', onComplete: done});
+      var finished = function() {
+        $rootScope.$broadcast('animation-done');
+        done();
+      };
+
+			TweenMax.fromTo(element, 1, {x:'-2500px'}, { x:0, opacity: '1', onComplete: finished});
 		},
 		leave: function(element, done) {
 			// animation for outbound page
