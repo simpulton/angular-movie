@@ -1,6 +1,7 @@
 angular.module('Movie', [
 	'ngAnimate',
 	'ui.router',
+  'Movie.admin',
 	'Movie.home',
 	'Movie.gallery',
 	'Movie.synopsis',
@@ -11,7 +12,7 @@ angular.module('Movie', [
 	'Movie.services.preload',
   'Movie.services.movie'
 ])
-.constant('ENDPOINT_URI', 'app/data/movie.json')
+.constant('ENDPOINT_URI', 'http://localhost:3001/api')
 .config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
 	$stateProvider

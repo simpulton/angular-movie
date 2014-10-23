@@ -1,17 +1,21 @@
 /********* Defaults *********/
 
-html { 
-  background: url(../images/clouds-bg.jpg) no-repeat center center fixed; 
+html {
+  background: url(../images/clouds-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 body {
-	font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
+  font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
   font-size: 2.5em;
-	color: #fff;
-	background: transparent;
+  color: #fff;
+  background: transparent;
+}
+label, .btn, th {
+  letter-spacing: 1px;
+  font-weight: 100;
 }
 small {
   color:#fff !important;
@@ -36,7 +40,7 @@ a.active {
   display: inline-block;
 }
 .nav li a {
-	color: #fff;
+  color: #fff;
   letter-spacing: 1px;
   background-color: transparent;
 }
@@ -61,6 +65,48 @@ a.active {
 
 .main-content {
   opacity:0;
+}
+
+/********* Admin **********/
+li.admin {
+  position: absolute;
+  right: 0;
+  font-size: 14px;
+}
+form {
+  font-size: 24px;
+}
+form .thumbnail img {
+  height: 140px;
+}
+
+form .thumbnail a {
+  position: absolute;
+  right: 25px;
+}
+form .thumbnail a span {
+  background-color: #000000;
+  padding: 0 7px;
+}
+textarea {
+  width: 100% !important;
+}
+th {
+  font-size: 18px;
+}
+.cast-form.form-inline .form-control {
+  width: 28%;
+}
+.well {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+}
+form .alert {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-bottom: 0;
 }
 
 /********* Movie Details Home Page **********/
@@ -144,14 +190,14 @@ a.active {
 
 /********* Trailers *********/
 .background {
-    width: 100%;
-    height: 10000px;
-    position: fixed;
-    background: black;
+  width: 100%;
+  height: 10000px;
+  position: fixed;
+  background: black;
 }
 .trailers {
-    background-color: #000000;
-    padding: 0;
+  background-color: #000000;
+  padding: 0;
 }
 .trailers .back-button {
   border: none !important;
@@ -181,13 +227,14 @@ a.active {
   margin-right: 1%;
 }
 .cast-animate {
-    width: 700px;
-    float: left;
+  width: 700px;
+  float: left;
 }
 .cast.about p, .cast.about h4 {
-  padding-left: 40px;
+  padding-left: 10px;
 }
 .cast.about ul {
+  width: 22%;
   margin-top: 45px;
   font-size: 54%;
   list-style: none;
@@ -226,7 +273,7 @@ a.active {
   border: 5px solid rgba(0,0,0,0.4);
 }
 .gallery img:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 .gallery-spacer {
   height: 500px;

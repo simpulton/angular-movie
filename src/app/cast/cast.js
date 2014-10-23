@@ -4,7 +4,7 @@ angular.module('Movie.cast', [
 .config(function($stateProvider) {
 	$stateProvider
 		.state('Movie.home.cast', {
-			url: '/cast',
+			url: 'cast',
 			views: {
 				'main@': {
 					templateUrl: 'app/cast/cast.tpl.html',

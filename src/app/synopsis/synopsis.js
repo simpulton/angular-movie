@@ -4,7 +4,7 @@ angular.module('Movie.synopsis', [
 .config(function($stateProvider) {
 	$stateProvider
 		.state('Movie.home.synopsis', {
-			url: '/synopsis',
+			url: 'synopsis',
 			views: {
 				'main@': {
 					templateUrl: 'app/synopsis/synopsis.tpl.html',

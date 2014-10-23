@@ -4,7 +4,7 @@ angular.module('Movie.gallery', [
 .config(function($stateProvider) {
 	$stateProvider
 		.state('Movie.home.gallery', {
-			url: '/gallery',
+			url: 'gallery',
 			views: {
 				'main@': {
           templateUrl: 'app/gallery/gallery.tpl.html',

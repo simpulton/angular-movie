@@ -5,9 +5,12 @@ angular.module('Movie.home', [
 	$stateProvider
 		.state('Movie.home', {
       resolve: {
-        movie: function(MovieService) {
-          return MovieService.getMovie()
+        movie: function(MovieService, $location) {
+          return MovieService.fetch()
             .then(function(response) {
+              if (response.data.length == 0) {
+                $location.path('/admin');
+              }
               return response.data[0];
             });
         }
@@ -27,6 +30,7 @@ angular.module('Movie.home', [
   var app = this;
 
   app.movie = movie;
+  app.movie.release = moment(app.movie.release).format('MM[.]DD[.]YYYY');
   app.showIframe = false;
 
   // Preloading
@@ -36,12 +40,14 @@ angular.module('Movie.home', [
       PreloadService.loadManifest(manifest);
     };
 
-    app.movie.images.filter(function (image) {
-      manifest.push(image);
-    });
-    app.movie.trailers.filter(function (trailer) {
+    if (app.movie.images) {
+      app.movie.images.filter(function (image) {
+        manifest.push(image);
+      });
+    };
+    /*app.movie.trailers.filter(function (trailer) {
       manifest.push(trailer);
-    });
+    });*/
 
     load(manifest);
   }
