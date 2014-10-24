@@ -17,6 +17,33 @@ angular.module('Movie', [
 
 	$stateProvider
 		.state('Movie', {
+      resolve: {
+        movie: function(MovieService, $location) {
+          return MovieService.fetch()
+            .then(function(response) {
+              if (response.data.length == 0) {
+                $location.path('/admin');
+              }
+              MovieService.setCurrentMovie(response.data[0]);
+              MovieService.getCurrentMovie();
+              return response.data[0];
+            });
+        },
+        loaded: function(PreloadService, movie) {
+          var manifest = [];
+
+          if (movie && movie.images) {
+            movie.images.filter(function (image) {
+              manifest.push(image);
+            });
+          }
+
+          return PreloadService.loadManifest(manifest)
+            .then(function(response) {
+              return response;
+            });
+        }
+      },
       abstract: true,
 			url: ''
 		});

@@ -21,20 +21,12 @@ angular.module('Movie.gallery', [
 
 		enter: function(element, done) {
 			// inbound picture animation
-			var x = element.hasClass('forward') ? $window.innerWidth : -$window.innerWidth;
-
-			TweenMax.fromTo(element, 1, {x:x}, { x:0, onComplete: done});
-			element.css('position', 'static');
+			TweenMax.fromTo(element, 1, {opacity: 0}, { opacity: 1, onComplete: done});
 		},
 
 		leave: function(element, done) {
 			// outbound picture animation
-			var x = element.hasClass('forward') ? -$window.innerWidth : $window.innerWidth,
-					from = element.hasClass('forward') ? 0 : -element.width();
-					time = element.hasClass('forward') ? 1 : 1.7,
-
-			element.css('position', 'absolute');
-			TweenMax.fromTo(element, time, {x:from}, {x: x, onComplete: done});
+			TweenMax.fromTo(element, time, {opacity: 1}, {opacity: 0, onComplete: done});
 		}
 	};
 });

@@ -4,14 +4,6 @@ angular.module('Movie.admin', [
 .config(function($stateProvider) {
   $stateProvider
     .state('Movie.admin', {
-      resolve: {
-        movie: function(MovieService) {
-          return MovieService.fetch()
-            .then(function(response) {
-              return response.data[0];
-            });
-        }
-      },
       url: '/admin',
       views: {
         'main@': {
@@ -22,14 +14,16 @@ angular.module('Movie.admin', [
       }
     })
 })
-.controller('AdminCtrl', function(MovieService, movie, $rootScope) {
+.controller('AdminCtrl', function(PreloadService, MovieService, $scope) {
   var admin = this,
-      add = false;
+      add = false,
+      movie = MovieService.getCurrentMovie();
 
   var datify = function(date) {
     return new Date(date);
   };
 
+  // Initialize movie
   if (movie) {
     admin.movieId = movie.id;
   } else {
@@ -46,6 +40,7 @@ angular.module('Movie.admin', [
   admin.editedMovie.release = datify(admin.editedMovie.release);
 
   // Methods on the form and scope
+  // TODO: Preload images (and perhaps trailers) when added
   admin.addImage = function(newImage) {
     admin.editedMovie.images.push(newImage);
     admin.newImage = {};
@@ -82,81 +77,82 @@ angular.module('Movie.admin', [
         trailers: [],
         cast: []
       };
-    };
+    }
     admin.newImage = {};
     admin.newTrailer = {};
     admin.castMember = {};
     admin.editedMovie.release = datify(admin.editedMovie.release);
   };
 
+  admin.populate = function() {
+    admin.editedMovie = MovieService.populate();
+    admin.editedMovie.release = datify(admin.editedMovie.release);
+  };
+  // Load iframe
+  admin.showIframe = false;
+
+  $scope.$on('animation-done', function() {
+    $scope.$apply(function() {
+      admin.showIframe = true;
+    });
+  });
 
   // CRUD methods
   admin.response = null;
   admin.deleted = null;
 
-  admin.getMovie = function() {
+  var getMovie = function() {
     MovieService.fetch()
       .then(function(response) {
-        admin.editedMovie = response.data[0];
+        admin.editedMovie = movie = response.data[0];
         if (admin.editedMovie) admin.editedMovie.release = datify(admin.editedMovie.release);
-        movie = response.data[0];
         if (movie) admin.movieId = movie.id;
+        MovieService.setCurrentMovie(movie);
       });
+  };
+
+  var createMovie = function(editMovie) {
+    MovieService.create(editMovie)
+      .then(function(response) {
+        admin.response = { type: 'success', message: 'Movie created successfully!' };
+        admin.resetForm();
+        getMovie();
+        add = false;
+      }, function(error) {
+        admin.response = { type: 'danger', message: error.data.error.message };
+      })
+    ;
+  };
+
+  var updateMovie = function(movieId, editMovie) {
+    MovieService.update(movieId, editMovie)
+      .then(function(response) {
+        admin.response = { type: 'success', message: 'Movie updated successfully!' };
+        admin.resetForm();
+        getMovie();
+      }, function(error) {
+        admin.response = { type: 'danger', message: error.data.error.message };
+      })
+    ;
   };
 
   admin.submitMovie = function(movieId, editMovie) {
     if (add) {
-      MovieService.create(editMovie)
-        .then(function(response) {
-          admin.response = {
-            type: 'success',
-            message: 'Movie created successfully!'
-          };
-          admin.getMovie();
-          admin.resetForm();
-          add = false;
-        }, function(error) {
-          admin.response = {
-            type: 'danger',
-            message: error.data.error.message
-          };
-        })
-      ;
+      createMovie(editMovie);
     } else {
-      MovieService.update(movieId, editMovie)
-        .then(function(response) {
-          admin.response = {
-            type: 'success',
-            message: 'Movie updated successfully!'
-          };
-          admin.getMovie();
-          admin.resetForm(admin.editedMovie);
-        }, function(error) {
-          admin.response = {
-            type: 'danger',
-            message: error.data.error.message
-          };
-        })
-      ;
+      updateMovie(movieId, editMovie);
     }
-
   };
 
   admin.deleteMovie = function(id) {
     MovieService.destroy(id)
       .then(function(response) {
-        admin.response = {
-          type: 'success',
-          message: 'Movie deleted successfully!'
-        };
-        admin.getMovie();
+        admin.response = { type: 'success', message: 'Movie deleted successfully!' };
+        MovieService.setCurrentMovie(null);
+        getMovie();
         add = true;
       }, function(error) {
-        admin.response = {
-          type: 'danger',
-          message: error.data.error.message
-        };
+        admin.response = { type: 'danger', message: error.data.error.message };
       });
   };
-
 });

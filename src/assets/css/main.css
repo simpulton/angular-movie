@@ -29,7 +29,7 @@ a:hover {
   color:#00ccff;
 }
 a.active {
-  color:#00ccff;
+  color:#00ccff !important;
 }
 .nav {
   float: none;
@@ -51,6 +51,10 @@ a.active {
   border-top: 50px solid black;
   border-right: 50px solid transparent;
   border-left: 50px solid transparent;
+}
+
+.ng-hide {
+  display: block !important;
 }
 
 .nav .back-button a {
@@ -95,7 +99,7 @@ th {
   font-size: 18px;
 }
 .cast-form.form-inline .form-control {
-  width: 28%;
+  width: 28% !important;
 }
 .well {
   background-color: rgba(0,0,0,0.5);
@@ -193,6 +197,7 @@ form .alert {
   width: 100%;
   height: 10000px;
   position: fixed;
+  left: 0;
   background: black;
 }
 .trailers {
@@ -215,6 +220,15 @@ form .alert {
 .trailers iframe {
   display: block;
   margin: 0 auto;
+  z-index: 10;
+  position: absolute;
+}
+.trailers .arrow {
+  position: absolute;
+  z-index: 1;
+}
+.trailers .arrow.pull-right {
+  right: 0;
 }
 
 /********* Cast *********/

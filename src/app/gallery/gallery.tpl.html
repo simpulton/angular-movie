@@ -6,11 +6,11 @@
   </div>
 
   <div class="arrow pull-right">
-    <a href="" ng-click="app.setCurrentIndex(app.currentIndex+1)" class="fa fa-arrow-right"></a>
+    <a href="" ng-click="app.setCurrentIndex(app.movie.images, app.currentIndex+1)" class="fa fa-arrow-right"></a>
   </div>
 
   <div class="arrow pull-left">
-    <a href="" ng-click="app.setCurrentIndex(app.currentIndex-1)" class="fa fa-arrow-left"></a>
+    <a href="" ng-click="app.setCurrentIndex(app.movie.images, app.currentIndex-1)" class="fa fa-arrow-left"></a>
   </div>
 
   <div class="container-fluid text-center">
@@ -22,7 +22,7 @@
   <div class="pull-right gallery">
     <ul class="">
       <li ng-repeat="thumb in app.movie.images">
-        <img thumbnail ng-mouseenter="play()" ng-mouseleave="reverse()" ng-click="app.setCurrentIndex($index, 'forward')" height="138" src="{{thumb.src}}">
+        <img thumbnail ng-mouseenter="play()" ng-mouseleave="reverse()" ng-click="app.setCurrentIndex(app.movie.images, $index)" height="138" src="{{thumb.src}}">
       </li>
     </ul>
   </div>

@@ -4,6 +4,7 @@
 <form class="col-lg-6 col-sm-8 col-lg-offset-3 col-sm-offset-2 well" ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
   <div class="form-group">
     <label for="title">Title</label>
+    <p class="pull-right"><a href ng-click="admin.populate()">I'm Lazy</a></p>
     <input ng-required="required" class="form-control" name="title" type="text" ng-model="admin.editedMovie.title" placeholder="Title"/>
   </div>
   <div class="form-group">
@@ -36,7 +37,7 @@
       <div ng-repeat="(index, trailer) in admin.editedMovie.trailers" class="col-sm-4">
         <div class="thumbnail">
           <a href ng-click="admin.removeTrailer(index)"><span>&times;</span></a>
-          <iframe src="{{trailer.src}}" width="100%" frameborder="0"></iframe>
+          <iframe ng-if="admin.showIframe" src="{{trailer.src}}" width="100%" frameborder="0"></iframe>
           <input class="form-control" type="text" ng-model="trailer.src"/>
         </div>
       </div>
@@ -65,7 +66,7 @@
     <div class="form-inline cast-form text-center">
       <input class="form-control" type="text" name="cast" placeholder="Name" ng-model="admin.castMember.name"/>
       <input class="form-control" type="text" name="cast" placeholder="Character" ng-model="admin.castMember.character"/>
-      <input class="form-control" type="text" name="cast" placeholder="Description" ng-model="admin.castMember.description"/>
+      <textarea class="form-control" name="cast" rows="1" placeholder="Description" ng-model="admin.castMember.description"><textarea/>
       <button type="button" class="btn btn-primary" ng-click="admin.addMember(admin.castMember)">Add</button>
     </div>
   </div>
@@ -76,5 +77,5 @@
     <span>{{admin.response.message}}</span>
     <button type="button" class="close" ng-click="admin.response = null"><span aria-hidden="true">&times;</span>
   </div>
-  <label class="pull-right"><a href ng-click="admin.deleteMovie(admin.movieId)">&times; Delete Movie</a></label>
+  <p class="pull-right"><a href ng-click="admin.deleteMovie(admin.movieId)">&times; Delete Movie</a></p>
 </form>

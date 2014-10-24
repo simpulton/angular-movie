@@ -5,14 +5,11 @@ angular.module('Movie.home', [
 	$stateProvider
 		.state('Movie.home', {
       resolve: {
-        movie: function(MovieService, $location) {
-          return MovieService.fetch()
-            .then(function(response) {
-              if (response.data.length == 0) {
-                $location.path('/admin');
-              }
-              return response.data[0];
-            });
+        currentMovie: function(MovieService, movie) {
+          if (MovieService.getCurrentMovie() == null) {
+            $location.path('/admin');
+          }
+          return MovieService.getCurrentMovie()
         }
       },
 			url: '/',
@@ -26,53 +23,30 @@ angular.module('Movie.home', [
 		}
 	);
 })
-.controller('AppCtrl', function(PreloadService, movie, $timeout, $scope) {
+.controller('AppCtrl', function(PreloadService, currentMovie, $timeout, $scope) {
   var app = this;
 
-  app.movie = movie;
+  app.movie = currentMovie;
   app.movie.release = moment(app.movie.release).format('MM[.]DD[.]YYYY');
-  app.showIframe = false;
 
-  // Preloading
-  if (!PreloadService.getStatus()) {
-    var manifest = [];
-    var load = function (manifest) {
-      PreloadService.loadManifest(manifest);
-    };
-
-    if (app.movie.images) {
-      app.movie.images.filter(function (image) {
-        manifest.push(image);
-      });
-    };
-    /*app.movie.trailers.filter(function (trailer) {
-      manifest.push(trailer);
-    });*/
-
-    load(manifest);
-  }
-
-  $scope.$on('queueComplete', function(event, slides) {
-    $scope.$apply(function(){
-      console.log('complete');
-    });
-  });
 
   // Init cast
   app.currentCast = 0;
 
-  // Init slideshow
+  // Init carousels
   app.direction = 'forward';
   app.currentIndex = 0;
-  app.setCurrentIndex = function(index) {
+  app.setCurrentIndex = function(carousel, index) {
     app.direction = (index >= app.currentIndex) ? 'forward' : 'reverse';
-    if (index >= 0 && index < app.movie.images.length ) {
+    if (index >= 0 && index < carousel.length ) {
       $timeout(function() {
         app.currentIndex = index;
-      });
+      },1);
     }
   };
 
+  // Load iframe
+  app.showIframe = false;
   $scope.$on('animation-done', function() {
     $scope.$apply(function() {
       app.showIframe = true;
