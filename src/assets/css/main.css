@@ -53,10 +53,6 @@ a.active {
   border-left: 50px solid transparent;
 }
 
-.ng-hide {
-  display: block !important;
-}
-
 .nav .back-button a {
   position: relative;
   top: -50px;
@@ -275,6 +271,7 @@ form .alert {
   width: auto;
   background: rgba(0,0,0,0.2);
   padding: 40px;
+  max-width: 70%;
 }
 .gallery ul {
   margin-bottom: 0;

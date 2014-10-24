@@ -12,7 +12,7 @@ angular.module('Movie', [
 	'Movie.services.preload',
   'Movie.services.movie'
 ])
-.constant('ENDPOINT_URI', 'http://localhost:3001/api')
+.constant('ENDPOINT_URI', 'http://angularmovieapi-31190.onmodulus.net/api')
 .config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
 	$stateProvider
