@@ -18,11 +18,10 @@ angular.module('Movie', [
 	$stateProvider
 		.state('Movie', {
       resolve: {
-        movie: function(MovieService, $location) {
+        movie: function(MovieService) {
           return MovieService.fetch()
             .then(function(response) {
               MovieService.setCurrentMovie(response.data[0]);
-              MovieService.getCurrentMovie();
               return response.data[0];
             });
         },
@@ -54,6 +53,14 @@ angular.module('Movie', [
     'https://www.youtube.com/**'
   ]);
 
+})
+.run(function(MovieService, $rootScope, $state) {
+  $rootScope.$on('$stateChangeStart', function(event, toState, fromState) {
+    if (MovieService.getCurrentMovie() == null && toState.name == 'Movie.home') {
+      event.preventDefault();
+      $state.go('Movie.admin');
+    }
+  });
 })
 .animation('.main-content', function($rootScope) {
   return {

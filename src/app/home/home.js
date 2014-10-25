@@ -5,11 +5,8 @@ angular.module('Movie.home', [
 	$stateProvider
 		.state('Movie.home', {
       resolve: {
-        currentMovie: function($location, MovieService, movie) {
-          if (MovieService.getCurrentMovie() == null) {
-            $location.path('/admin');
-          }
-          return MovieService.getCurrentMovie()
+        currentMovie: function(MovieService, movie) {
+           return MovieService.getCurrentMovie();
         }
       },
 			url: '/',
@@ -23,7 +20,7 @@ angular.module('Movie.home', [
 		}
 	);
 })
-.controller('AppCtrl', function(PreloadService, currentMovie, $timeout, $scope) {
+.controller('AppCtrl', function(PreloadService, currentMovie, $timeout, $scope, $state) {
   var app = this;
 
   app.movie = currentMovie;
@@ -41,7 +38,7 @@ angular.module('Movie.home', [
     if (index >= 0 && index < carousel.length ) {
       $timeout(function() {
         app.currentIndex = index;
-      },1);
+      });
     }
   };
 
