@@ -1,6 +1,6 @@
 angular.module('Movie.services.movie', [])
 .service('MovieService', function($http, ENDPOINT_URI) {
-    var currentMovie = {};
+    var currentMovie = null;
     var resource = '/movies/';
 
     var getUrl = function() {

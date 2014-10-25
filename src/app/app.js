@@ -55,6 +55,10 @@ angular.module('Movie', [
 
 })
 .run(function(MovieService, $rootScope, $state) {
+  if (MovieService.getCurrentMovie() == null) {
+    $state.go('Movie.admin');
+  }
+
   $rootScope.$on('$stateChangeStart', function(event, toState, fromState) {
     if (MovieService.getCurrentMovie() == null && toState.name == 'Movie.home') {
       event.preventDefault();
