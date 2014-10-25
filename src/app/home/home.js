@@ -5,7 +5,7 @@ angular.module('Movie.home', [
 	$stateProvider
 		.state('Movie.home', {
       resolve: {
-        currentMovie: function(MovieService, movie) {
+        currentMovie: function($location, MovieService, movie) {
           if (MovieService.getCurrentMovie() == null) {
             $location.path('/admin');
           }

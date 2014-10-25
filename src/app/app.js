@@ -21,9 +21,6 @@ angular.module('Movie', [
         movie: function(MovieService, $location) {
           return MovieService.fetch()
             .then(function(response) {
-              if (response.data.length == 0) {
-                $location.path('/admin');
-              }
               MovieService.setCurrentMovie(response.data[0]);
               MovieService.getCurrentMovie();
               return response.data[0];
