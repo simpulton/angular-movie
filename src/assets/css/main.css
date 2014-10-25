@@ -76,8 +76,10 @@ li.admin {
 form {
   font-size: 24px;
 }
-form .thumbnail img {
-  height: 140px;
+form .unit {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
 }
 
 form .thumbnail a {
@@ -107,6 +109,9 @@ form .alert {
   font-size: 14px;
   padding: 6px 12px;
   margin-bottom: 0;
+}
+form iframe {
+  min-height: 225px;
 }
 
 /********* Movie Details Home Page **********/

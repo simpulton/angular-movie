@@ -1,7 +1,7 @@
 <ul class="text-center nav">
-  <li class="back-button"><a href="#/" disabled="admin.add" ui-sref="Movie.home">SITE</a></li>
+  <li class="back-button"><a href="#/" ui-sref="Movie.home">SITE</a></li>
 </ul>
-<form class="col-lg-6 col-sm-8 col-lg-offset-3 col-sm-offset-2 well" ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
+<form class="col-lg-10 col-xs-12 col-lg-offset-1 well" ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
   <div class="form-group">
     <label for="title">Title</label>
     <p class="pull-right"><a href ng-click="admin.populate()">I'm Lazy</a></p>
@@ -18,7 +18,7 @@
   <div class="form-group">
     <label for="images">Images</label>
     <div class="container-fluid">
-      <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-sm-4">
+      <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-sm-4 col-md-3 unit">
         <div class="thumbnail">
           <a href ng-click="admin.removeImage(index)"><span>&times;</span></a>
           <img height="140" src="{{image.src}}" alt="Movie Image {{index}}"/>
@@ -34,7 +34,7 @@
   <div class="form-group">
     <label for="trailers">Trailers</label>
     <div class="container-fluid">
-      <div ng-repeat="(index, trailer) in admin.editedMovie.trailers" class="col-sm-4">
+      <div ng-repeat="(index, trailer) in admin.editedMovie.trailers" class="col-sm-4 col-md-3">
         <div class="thumbnail">
           <a href ng-click="admin.removeTrailer(index)"><span>&times;</span></a>
           <iframe ng-if="admin.showIframe" src="{{trailer.src}}" width="100%" frameborder="0"></iframe>
