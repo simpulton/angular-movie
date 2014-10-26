@@ -25,7 +25,7 @@ angular.module('Movie', [
               return response.data[0];
             });
         },
-        loaded: function(PreloadService, movie) {
+        loaded: function(PreloadService, movie, $rootScope) {
           var manifest = [];
 
           if (movie && movie.images) {
@@ -36,6 +36,7 @@ angular.module('Movie', [
 
           return PreloadService.loadManifest(manifest)
             .then(function(response) {
+              $rootScope.loaded = true;
               return response;
             });
         }
@@ -55,11 +56,19 @@ angular.module('Movie', [
 
 })
 .run(function(MovieService, $rootScope, $state) {
+  $rootScope.loaded = false;
+
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     if (MovieService.getCurrentMovie() == null && toState.name == 'Movie.home') {
       event.preventDefault();
       $state.go('Movie.admin');
     }
+  });
+
+  $rootScope.$on('queueProgress', function(event, mainEvent) {
+    $rootScope.$apply(function() {
+      $rootScope.progress = mainEvent.progress * 100;
+    });
   });
 })
 .animation('.main-content', function($rootScope) {

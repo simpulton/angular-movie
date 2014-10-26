@@ -11,7 +11,7 @@ angular.module('Movie.services.preload', [])
     queue.loadManifest(manifest);
 
     queue.on('progress', function(event) {
-        $rootScope.$broadcast('queueProgress', event);
+      $rootScope.$broadcast('queueProgress', event);
     });
 
     queue.on('complete', function() {
