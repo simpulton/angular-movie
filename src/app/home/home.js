@@ -43,10 +43,10 @@ angular.module('Movie.home', [
   };
 
   // Load iframe
-  app.showIframe = false;
+  app.showAssets = false;
   $scope.$on('animation-done', function() {
     $scope.$apply(function() {
-      app.showIframe = true;
+      app.showAssets = true;
     });
   });
 

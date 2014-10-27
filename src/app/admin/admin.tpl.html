@@ -21,7 +21,7 @@
       <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-sm-4 col-md-3 unit">
         <div class="thumbnail">
           <a href ng-click="admin.removeImage(index)"><span>&times;</span></a>
-          <img height="140" src="{{image.src}}" alt="Movie Image {{index}}"/>
+          <img ng-if="admin.showAssets" height="140" src="{{image.src}}" alt="Movie Image {{index}}"/>
           <input class="form-control" type="text" ng-model="image.src"/>
         </div>
       </div>

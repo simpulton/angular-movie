@@ -14,7 +14,7 @@ angular.module('Movie.admin', [
       }
     })
 })
-.controller('AdminCtrl', function(PreloadService, MovieService, $scope) {
+.controller('AdminCtrl', function(PreloadService, MovieService, $scope, $timeout) {
   var admin = this,
       add = false,
       movie = MovieService.getCurrentMovie();
@@ -88,13 +88,16 @@ angular.module('Movie.admin', [
     admin.editedMovie = MovieService.populate();
     admin.editedMovie.release = datify(admin.editedMovie.release);
   };
+
   // Load iframe
-  admin.showIframe = false;
+  admin.showAssets = false;
 
   $scope.$on('animation-done', function() {
-    $scope.$apply(function() {
-      admin.showIframe = true;
-    });
+    $timeout(function() {
+      $scope.$apply(function() {
+        admin.showAssets = true;
+      });
+    })
   });
 
   // CRUD methods
