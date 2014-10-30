@@ -104,6 +104,10 @@ angular.module('Movie.admin', [
   admin.response = null;
   admin.deleted = null;
 
+  var parseErrors = function(errors) {
+
+  }
+
   var getMovie = function() {
     MovieService.fetch()
       .then(function(response) {
@@ -122,6 +126,7 @@ angular.module('Movie.admin', [
         getMovie();
         add = false;
       }, function(error) {
+        console.log(error);
         admin.response = { type: 'danger', message: error.data.error.message };
       })
     ;
@@ -134,12 +139,15 @@ angular.module('Movie.admin', [
         admin.resetForm();
         getMovie();
       }, function(error) {
+        console.log(error);
         admin.response = { type: 'danger', message: error.data.error.message };
       })
     ;
   };
 
   admin.submitMovie = function(movieId, editMovie) {
+    editMovie = {"movie": editMovie};
+
     if (add) {
       createMovie(editMovie);
     } else {
