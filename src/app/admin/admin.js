@@ -15,6 +15,7 @@ angular.module('Movie.admin', [
     })
 })
 .controller('AdminCtrl', function(PreloadService, MovieService, $scope, $timeout) {
+  // TODO: Remove unnecessary code
   var admin = this,
       add = false,
       movie = MovieService.getCurrentMovie();
@@ -40,7 +41,6 @@ angular.module('Movie.admin', [
   admin.editedMovie.release = datify(admin.editedMovie.release);
 
   // Methods on the form and scope
-  // TODO: Preload images (and perhaps trailers) when added
   admin.addImage = function(newImage) {
     admin.editedMovie.images.push(newImage);
     admin.newImage = {};
@@ -104,14 +104,10 @@ angular.module('Movie.admin', [
   admin.response = null;
   admin.deleted = null;
 
-  var parseErrors = function(errors) {
-
-  }
-
   var getMovie = function() {
     MovieService.fetch()
       .then(function(response) {
-        admin.editedMovie = movie = response.data[0];
+        admin.editedMovie = movie = response.data[0] || { images: [], trailers: [], cast: [] };
         if (admin.editedMovie) admin.editedMovie.release = datify(admin.editedMovie.release);
         if (movie) admin.movieId = movie.id;
         MovieService.setCurrentMovie(movie);
@@ -126,7 +122,6 @@ angular.module('Movie.admin', [
         getMovie();
         add = false;
       }, function(error) {
-        console.log(error);
         admin.response = { type: 'danger', message: error.data.error.message };
       })
     ;
@@ -139,15 +134,12 @@ angular.module('Movie.admin', [
         admin.resetForm();
         getMovie();
       }, function(error) {
-        console.log(error);
         admin.response = { type: 'danger', message: error.data.error.message };
       })
     ;
   };
 
   admin.submitMovie = function(movieId, editMovie) {
-    editMovie = {"movie": editMovie};
-
     if (add) {
       createMovie(editMovie);
     } else {
@@ -159,7 +151,7 @@ angular.module('Movie.admin', [
     MovieService.destroy(id)
       .then(function(response) {
         admin.response = { type: 'success', message: 'Movie deleted successfully!' };
-        MovieService.setCurrentMovie(null);
+        MovieService.setCurrentMovie();
         getMovie();
         add = true;
       }, function(error) {

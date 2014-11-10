@@ -12,7 +12,7 @@ angular.module('Movie', [
 	'Movie.services.preload',
   'Movie.services.movie'
 ])
-.constant('ENDPOINT_URI', 'https://angular-movie-api-php.herokuapp.com/api')
+.constant('ENDPOINT_URI', 'http://angular-movie-api-node.herokuapp.com/api')
 .config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
 	$stateProvider
