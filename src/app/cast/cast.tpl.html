@@ -4,20 +4,18 @@
   </ul>
 </div>
 
-<div class="spacer"></div>
-
 <div ng-include="'app/common/templates/billboard.tpl.html'"></div>
 
-<div class="pull-right cast about">
-  <ul class="pull-left">
+<div class="cast">
+  <ul>
     <li ng-repeat="(index, member) in app.movie.cast"><a href ng-class="{active: app.currentCast == index}" ng-click="app.currentCast = index">{{member.name | uppercase}}</a></li>
   </ul>
   <div class="cast-animate" ng-if="app.currentCast == index" ng-repeat="(index, member) in app.movie.cast">
     <h4>{{member.name | uppercase}}
       <small>as {{member.character | uppercase}}</small>
     </h4>
-    <p>
+    <div class="content">
       {{member.description}}
-    </p>
+    </div>
   </div>
 </div>

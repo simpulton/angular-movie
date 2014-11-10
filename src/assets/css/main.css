@@ -1,7 +1,7 @@
 /********* Defaults *********/
 
 html { 
-  background: url(../images/clouds-bg.jpg) no-repeat center center fixed; 
+  background: url(../images/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +9,7 @@ html {
 }
 body {
 	font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
-  font-size: 2.5em;
+	font-size: 2.5em;
 	color: #fff;
 	background: transparent;
 }
@@ -19,13 +19,14 @@ small {
 a {
   text-decoration: none;
   color: #fff;
+				
 }
 a:hover {
   text-decoration: none;
-  color:#00ccff;
+  color:#ffcc66;
 }
 a.active {
-  color:#00ccff;
+  color:#ffcc66;
 }
 .nav {
   float: none;
@@ -36,9 +37,9 @@ a.active {
   display: inline-block;
 }
 .nav li a {
-	color: #fff;
-  letter-spacing: 1px;
-  background-color: transparent;
+	color: #000;
+	letter-spacing: 1px;
+	background-color: transparent;
 }
 .nav li a:hover {
   background-color: transparent;
@@ -50,23 +51,52 @@ a.active {
 }
 
 .nav .back-button a {
+	color: #fff;
   position: relative;
   top: -50px;
   background: transparent;
+  
+		-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+			-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+			 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+				transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
 }
 .nav .back-button a:hover {
   background: transparent;
-  color: #09456D;
+  color: #ffcc66;
+}
+
+#wrapper {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	min-width: 1280px;
+	min-height: 720px;
+	overflow: hidden;
 }
 
 .main-content {
-  opacity:0;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0;
 }
 
 /********* Movie Details Home Page **********/
 
 .megatron {
-  margin-top: 10%;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 .megatron h1 {
   font-size: 800%;
@@ -86,21 +116,33 @@ a.active {
 }
 
 /********* Movie Details Aside *********/
+.movie-details {
+	position: absolute;
+	width: 400px;
+	left: 10px;
+	bottom: 130px;
+	text-align: center;
+}
+.movie-details h1 {
+  font-size: 200%;
+}
+.movie-details h1 .big {
+  width: 100%;
+  display: block;
+  line-height: 80%;
+}
+.movie-details .byline {
+  font-family: "Helvetica";
 
-.movie-details.megatron {
-  font-size: 33%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 20%;
+
 }
-.movie-details.megatron h1 {
-  padding-left: 5%;
-}
-.movie-details.megatron .byline {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  font-size: 25%;
-}
-.movie-details.megatron .date {
+.movie-details .date {
   font-size: 35%;
 }
+
 
 /********* Home Page *********/
 
@@ -123,23 +165,34 @@ a.active {
   height: 300px;
 }
 .about {
-  background: transparent url(../images/about-container.png) no-repeat top right;
-  min-height: 10em;
-  margin-top: 10%;
-  width: 720px;
-  margin-right: 1%;
+  background: transparent url(../images/about-container.png) no-repeat top left;
+  position: absolute;
+  width: 710px;
+  height: 235px;
+  right: 20px;
+  bottom: 50px;
+  margin: 0;
 }
 .about h3 {
-  margin-top: 1%;
-  padding-left: 40px;
+	position: absolute;
+	top: 20px;
+	left: 40px;
+	margin: 0;
 }
-.about p {
-  font-family: sans-serif;
-  font-size: 12px;
-  font-weight: 100;
-  padding: 0 40px;
-  max-height: 150px;
-  overflow:scroll;
+.about .content {
+	position: absolute;
+	top: 50px;
+	left: 40px;
+	width: 650px;
+	margin: 0;
+	max-height: 150px;
+	padding: 0;
+	
+	font-family: sans-serif;
+	font-size: 11px;
+	font-weight: 100;
+	
+	overflow-y: scroll;
 }
 
 /********* Trailers *********/
@@ -164,7 +217,7 @@ a.active {
 }
 .trailers ul li a:hover {
   background-color: black !important;
-  color: #00ccff !important;
+  color: #ffcc66 !important;
 }
 .trailers iframe {
   display: block;
@@ -173,29 +226,64 @@ a.active {
 
 /********* Cast *********/
 
-.cast.about {
-  background: transparent url(../images/cast-container.png) no-repeat top right;
-  min-height: 10em;
-  margin-top: 10%;
+.cast {
+  background: transparent url(../images/cast-container.png) no-repeat top left;
+  position: absolute;
   width: 900px;
-  margin-right: 1%;
+  height: 235px;
+  right: 20px;
+  bottom: 50px;
+  margin: 0;
 }
 .cast-animate {
     width: 700px;
     float: left;
 }
-.cast.about p, .cast.about h4 {
-  padding-left: 40px;
+.cast h4 {
+	position: absolute;
+	top: 20px;
+	left: 230px;
+	margin: 0;
 }
-.cast.about ul {
-  margin-top: 45px;
-  font-size: 54%;
-  list-style: none;
-  padding-left: 30px;
+.cast ul {
+	position: absolute;
+	top: 45px;
+	left: 30px;
+	margin: 0;
+	padding: 0;
+	
+	font-size: 54%;
+	list-style: none;
+}
+
+.cast .content {
+	position: absolute;
+	top: 50px;
+	left: 230px;
+	width: 650px;
+	margin: 0;
+	max-height: 150px;
+	padding: 0;
+	
+	font-family: sans-serif;
+	font-size: 11px;
+	font-weight: 100;
+	
+	overflow-y: scroll;
 }
 
 /********* Gallery *********/
-
+.gallery-wrapper {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+}
 .back-button.btn-left {
   position: relative;
   top: 0;
@@ -210,20 +298,29 @@ a.active {
   display: inline-block;
 }
 .gallery {
-  margin-top: 10%;
-  width: auto;
-  background: rgba(0,0,0,0.2);
-  padding: 40px;
+  display: block;
+  background: transparent url(../images/gallery-container.png) no-repeat top left;
+  position: absolute;
+  width: 800px;
+  height: 105px;
+  right: 20px;
+  bottom: 130px;
+  margin: 0;
 }
+
 .gallery ul {
-  margin-bottom: 0;
-  padding: 0;
+	position: absolute;
+	left: 65px;
+	top: 10px;
+	margin: 0;
+	padding: 0;
 }
 .gallery li {
   display: inline-block;
 }
 .gallery img {
-  border: 5px solid rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  margin: 0px 10px 0px 0px;
 }
 .gallery img:hover {
   cursor: pointer; 
@@ -231,10 +328,122 @@ a.active {
 .gallery-spacer {
   height: 500px;
 }
-.arrow {
-  padding-top: 13%
+.galleryimage {
+	position: absolute;
+	width: 100%;
 }
-.arrow a {
-  padding: 20px;
-  background-color: rgba(0,0,0,0.3);
-}
+.arrow-right {
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 105px;
+	right: 0;
+	top: 45%;
+	background: transparent url(../images/bg-galleryright.png) no-repeat top left;
+	}
+.arrow-left {
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 105px;
+	left: 0;
+	top: 45%;
+	background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
+	}
+	.arrow {
+		display: block;
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		}
+		.arrow-left .arrow {
+			top: 25px;
+			left: 15px;
+			background: transparent url(../images/arrow-left.png) no-repeat top left;
+	
+			-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+			   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+				-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+				 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+					transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+			}
+		.arrow-right .arrow {
+			top: 25px;
+			right: 15px;
+			background: transparent url(../images/arrow-right.png) no-repeat top left;
+	
+			-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+			   -moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+				-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+				 -o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+					transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+			}
+			
+		.arrow-left:hover .arrow {
+			background-position: top right;
+			left: 10px;
+		}
+		.arrow-right:hover .arrow {
+			background-position: top right;
+			right: 10px;
+		}
+		
+
+.miniarrow-left {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	width: 20px;
+	height: 20px;
+	}
+.miniarrow-right {
+	position: absolute;
+	top: 40px;
+	right: 20px;
+	width: 20px;
+	height: 20px;
+	}
+	.miniarrow {
+		display: block;
+		position: absolute;
+		width: 20px;
+		height: 20px;
+	
+		-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+		   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+			-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+			 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+				transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+		}
+		.miniarrow-left .miniarrow {
+			top: 0;
+			left: 0;
+			background: transparent url(../images/miniarrow-left.png) no-repeat top left;
+	
+			-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+			   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+				-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+				 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+					transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+			}
+		.miniarrow-right .miniarrow {
+			right: 0;
+			top: 0;
+			background: transparent url(../images/miniarrow-right.png) no-repeat top left;
+	
+			-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+			   -moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+				-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+				 -o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+					transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+			}
+			
+		.miniarrow-left:hover .miniarrow {
+			background-position: top right;
+			left: -5px;
+		}
+		.miniarrow-right:hover .miniarrow {
+			background-position: top right;
+			right: -5px;
+		}
+		
