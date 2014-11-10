@@ -6,7 +6,7 @@ angular.module('Movie.directives.nav', [])
 		
 		var tl = new TimelineLite();
 
-		tl.add(TweenMax.to(element, 1, {backgroundColor: '#eee', color: '#10476E'}));
+		tl.add(TweenMax.to(element, .5, {backgroundColor: '#000', color: '#ffcc66'}));
 		tl.stop();
 
 		scope.play = function() {

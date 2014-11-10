@@ -3,7 +3,7 @@ angular.module('Movie.directives.thumbnail', [])
 	var linker = function(scope, element, attrs) {
 		var tl = new TimelineLite();
 
-		tl.add(TweenMax.to(element, 1, {border: '5px solid rgba(255, 255, 255, 0.4)'}));
+		tl.add(TweenMax.to(element, .25, {border: '1px solid rgba(255, 204, 102, 1)'}));
 		tl.stop();
 
 		scope.play = function() {
