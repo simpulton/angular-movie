@@ -96,8 +96,13 @@ a.active {
 /********* Admin **********/
 li.admin {
   position: absolute;
-  right: 0;
+  left: 0;
   font-size: 14px;
+}
+li.admin a {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 form {
   font-size: 24px;

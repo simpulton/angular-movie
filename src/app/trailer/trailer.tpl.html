@@ -4,13 +4,13 @@
     <li class="back-button"><a href ui-sref="Movie.home">BACK</a></li>
 	</ul>
 
-  <div class="arrow pull-right">
+  <!--<div class="arrow pull-right">
     <a href="" ng-click="app.setCurrentIndex(app.movie.trailers, app.currentIndex+1)" class="fa fa-arrow-right"></a>
   </div>
 
   <div class="arrow pull-left">
     <a href="" ng-click="app.setCurrentIndex(app.movie.trailers, app.currentIndex-1)" class="fa fa-arrow-left"></a>
-  </div>
+  </div>-->
 
   <div class="text-center col-sm-8 col-sm-offset-2">
     <iframe ng-class="{'current-trailer': app.currentIndex === $index}" ng-repeat="trailer in app.movie.trailers" ng-if="app.showAssets" ng-show="app.currentIndex === $index" width="100%" height="720" ng-src="{{trailer.src}}" frameborder="0" allowfullscreen></iframe>
