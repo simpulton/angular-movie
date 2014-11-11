@@ -94,6 +94,9 @@ a.active {
 }
 
 /********* Admin **********/
+#movie-admin #wrapper {
+  position: static;
+}
 li.admin {
   position: absolute;
   left: 0;

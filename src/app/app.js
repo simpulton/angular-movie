@@ -63,6 +63,8 @@ angular.module('Movie', [
       event.preventDefault();
       $state.go('Movie.admin');
     }
+
+    $rootScope.state = toState.name.split('.').join('-').toLowerCase();
   });
 
   $rootScope.$on('queueProgress', function(event, mainEvent) {
