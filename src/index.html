@@ -24,7 +24,9 @@
   </head>
   <body>
     <h1 ng-if="!loaded" class="text-center">{{progress|number:0}}%</h1>
-    <div ui-view="main" class="main-content"></div>
+    <div id="wrapper">
+      <div ui-view="main" class="main-content"></div>
+    </div>
 
     <script src="vendor/jquery-1.11.1.min.js"></script>
     <script src="vendor/bootstrap.min.js"></script>

@@ -69,25 +69,19 @@ angular.module('Movie.services.movie', [])
         ],
         "images": [
           {
-            "src": "assets/images/big-thumb.jpg"
+            "src": "assets/images/thumb1.jpg"
           },
           {
-            "src": "assets/images/big-thumb-2.png"
+            "src": "assets/images/thumb2.jpg"
           },
           {
-            "src": "assets/images/big-thumb-3.png"
+            "src": "assets/images/thumb3.jpg"
           },
           {
-            "src": "assets/images/big-thumb-4.png"
+            "src": "assets/images/thumb4.jpg"
           },
           {
-            "src": "assets/images/big-thumb-5.png"
-          },
-          {
-            "src": "assets/images/big-thumb-6.png"
-          },
-          {
-            "src": "assets/images/big-thumb-7.png"
+            "src": "assets/images/thumb5.jpg"
           }
         ],
         "trailers": [
