@@ -4,7 +4,7 @@ angular.module('Movie.trailer', [
 .config(function($stateProvider) {
 	$stateProvider
 		.state('Movie.home.trailer', {
-			url: '/trailer',
+			url: 'trailer',
 			views: {
 				'main@': {
 					templateUrl: 'app/trailer/trailer.tpl.html',
