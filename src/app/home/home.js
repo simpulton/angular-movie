@@ -23,8 +23,12 @@ angular.module('Movie.home', [
 		}
 	);
 })
-.controller('AppCtrl', function(PreloadService, movie, $timeout, $scope) {
+.controller('AppCtrl', function(PreloadService, movie, $timeout, $scope, $sce) {
   var app = this;
+
+  app.renderHtml = function(html) {
+    return $sce.trustAsHtml(html);
+  };
 
   app.movie = movie;
   app.showIframe = false;
