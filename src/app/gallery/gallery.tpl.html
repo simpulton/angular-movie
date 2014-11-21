@@ -1,4 +1,4 @@
-<div >
+<div id="gallery">
   
   <div class="gallery-wrapper">
     <img class="{{app.direction}} galleryimage" ng-class="{'current-image': app.currentIndex === $index}" ng-if="app.currentIndex === $index" ng-repeat="image in app.movie.images" src="{{image.src}}">

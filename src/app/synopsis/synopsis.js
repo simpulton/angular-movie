@@ -8,8 +8,8 @@ angular.module('Movie.synopsis', [
 			views: {
 				'main@': {
 					templateUrl: 'app/synopsis/synopsis.tpl.html',
-          controller: 'AppCtrl',
-          controllerAs: 'app'
+          			controller: 'AppCtrl',
+         			controllerAs: 'app'
 				}
 			}
 		}

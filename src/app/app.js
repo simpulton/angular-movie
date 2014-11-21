@@ -1,3 +1,6 @@
+var currentSection = "";
+var lastSection = "";
+	
 angular.module('Movie', [
 	'ngAnimate',
 	'ui.router',
@@ -37,11 +40,92 @@ angular.module('Movie', [
 				$rootScope.$broadcast('animation-done');
 				done();
 			};
-			TweenMax.fromTo( element, 1, { x: -2000, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+			
+			var elementWidth = element.width();
+			var elementHeight = element.height();
+			
+			// HACK TO FIGURE OUT WHAT SECTION IS ENTERING
+			var targetSection = element.find('div').eq(0).attr('id');
+			
+			lastSection = currentSection;
+			currentSection = targetSection;
+			
+			if (targetSection == "home") {
+				switch(lastSection) {
+					case "synopsis":
+					case "cast":
+						TweenMax.fromTo( element, 1, { x: 0, y: elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+					case "gallery":
+						TweenMax.fromTo( element, 1, { x: elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+					case "trailer":
+						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+					case "":
+					default:
+						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+				}
+			} else {
+				switch(targetSection) {
+					case "synopsis":
+					case "cast":
+						TweenMax.fromTo( element, 1, { x: 0, y: -elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+					case "gallery":
+						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+					case "trailer":
+						TweenMax.fromTo( element, 1, { x: elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+						break;
+				}
+			}
+			
+			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + currentSection);
+
 		},
 		leave: function(element, done) {
 			// animation for outbound page
-			TweenMax.to( element, 1, { x: 2000, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done });
+			
+			var elementWidth = element.width();
+			var elementHeight = element.height();
+			
+			// HACK TO FIGURE OUT WHAT SECTION YOU ARE LEAVING
+			if (lastSection != "home") {
+				switch(lastSection) {
+					case "synopsis":
+					case "cast":
+						TweenMax.to( element, 1, { x: 0, y: -elementHeight, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+						break;
+					case "gallery":
+						TweenMax.to( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+						break;
+					case "trailer":
+						TweenMax.to( element, 1, { x: elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+						break;
+					case "":
+					default:
+						TweenMax.to( element, 1, { autoAlpha: 0, ease: Expo.easeInOut, onComplete: done });
+						break;
+				}
+				
+			} else {
+				switch(currentSection) {
+					case "synopsis":
+					case "cast":
+						TweenMax.to( element, 1, { x: 0, y: elementHeight, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+						break;
+					case "gallery":
+						TweenMax.to( element, 1, { x: elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+						break;
+					case "trailer":
+						TweenMax.to( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+						break;
+				}
+				
+			}
+			
 		}
 	};
 
