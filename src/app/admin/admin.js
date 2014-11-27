@@ -13,6 +13,27 @@ angular.module('Movie.admin', [
         }
       }
     })
+    .state('Movie.admin.info', {
+      url: '/info',
+      templateUrl: 'app/admin/templates/info.tpl.html'
+    })
+    .state('Movie.admin.images', {
+      url: '/images',
+      templateUrl: 'app/admin/templates/images.tpl.html'
+    })
+    .state('Movie.admin.trailers', {
+      url: '/trailers',
+      templateUrl: 'app/admin/templates/trailers.tpl.html'
+    })
+    .state('Movie.admin.cast', {
+      url: '/cast',
+      templateUrl: 'app/admin/templates/cast.tpl.html'
+    })
+    .state('Movie.admin.cast.member', {
+      url:'/:id',
+      templateUrl: 'app/admin/templates/cast-member.tpl.html'
+    })
+  ;
 })
 .controller('AdminCtrl', function(PreloadService, MovieService, $scope, $timeout) {
   // TODO: Remove unnecessary code

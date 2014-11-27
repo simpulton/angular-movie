@@ -1,5 +1,4 @@
 /********* Defaults *********/
-
 html { 
   background: url(../images/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -48,6 +47,9 @@ a.active {
 .nav li a:hover {
   background-color: transparent;
 }
+.nav>li>a:focus {
+  background-color: transparent;
+}
 .nav .back-button {
   border-top: 50px solid black;
   border-right: 50px solid transparent;
@@ -94,8 +96,36 @@ a.active {
 }
 
 /********* Admin **********/
-#movie-admin #wrapper {
+[id*="movie-admin"] #wrapper {
   position: static;
+}
+#movie-admin .well {
+  display: none;
+}
+.master {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background: rgba(0,0,0,0.8);
+  padding: 30px 20px;
+  height: 100%;
+}
+.master .nav li {
+  display: block;
+  margin-bottom: 30px;
+}
+.master .nav li a {
+  color: #fff;
+}
+.master .nav li a:hover, .master .nav li a.active {
+  color: #ffcc66;
+}
+.semi-detail {
+  left: 125px;
+  background: rgba(0,0,0,0.6);
+}
+.main-content:not(.ng-animate) {
+  transform:none !important;
 }
 li.admin {
   position: absolute;

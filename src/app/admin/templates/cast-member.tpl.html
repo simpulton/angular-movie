@@ -1,0 +1,27 @@
+<div class="col-sm-7 col-sm-offset-3 well">
+  <div class="form-group">
+    <label for="cast">Cast Members</label>
+    <table class="table">
+      <tr>
+        <th width="22%">Name</th>
+        <th width="22%">Character</th>
+        <th width="50%">Description</th>
+        <th width="6%"></th>
+      </tr>
+      <tr ng-repeat="(index, member) in admin.editedMovie.cast">
+        <td><input class="form-control" type="text" ng-model="member.name"/></td>
+        <td><input class="form-control" type="text" ng-model="member.character"/></td>
+        <td><textarea class="form-control" rows="1" ng-model="member.description"></textarea></td>
+        <td><a href ng-click="admin.removeMember(index)"><span>&times;</span></a></td>
+      </tr>
+    </table>
+    <div class="form-inline cast-form text-center">
+      <input class="form-control" type="text" name="cast" placeholder="Name" ng-model="admin.castMember.name"/>
+      <input class="form-control" type="text" name="cast" placeholder="Character"
+             ng-model="admin.castMember.character"/>
+      <textarea class="form-control" name="cast" rows="1" placeholder="Description"
+                ng-model="admin.castMember.description"></textarea>
+      <button type="button" class="btn btn-primary" ng-click="admin.addMember(admin.castMember)">Add</button>
+    </div>
+  </div>
+</div>

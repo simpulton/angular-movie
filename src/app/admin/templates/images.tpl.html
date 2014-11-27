@@ -1,0 +1,19 @@
+<div class="col-lg-10 col-xs-12 col-lg-offset-1 well">
+  <div class="form-group">
+    <label for="images">Images</label>
+
+    <div>
+      <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-sm-4 col-md-3 unit">
+        <div class="thumbnail">
+          <a href ng-click="admin.removeImage(index)"><span>&times;</span></a>
+          <img ng-if="admin.showAssets" height="140" src="{{image.src}}" alt="Movie Image {{index}}"/>
+          <input class="form-control" type="text" ng-model="image.src"/>
+        </div>
+      </div>
+    </div>
+    <div class="input-group">
+      <input class="form-control" name="images" type="text" placeholder="Image URL" ng-model="admin.newImage.src"/>
+      <span class="input-group-addon btn btn-primary" ng-click="admin.addImage(admin.newImage)">Add</span>
+    </div>
+  </div>
+</div>

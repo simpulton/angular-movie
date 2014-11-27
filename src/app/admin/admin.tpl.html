@@ -1,7 +1,28 @@
+<div class="master">
+  <ul class="nav">
+    <li>
+      <a href ui-sref="Movie.admin.info" ui-sref-active="active"><i class="fa fa-pencil fa-2x"></i></a>
+    </li>
+    <li>
+      <a href ui-sref="Movie.admin.images" ui-sref-active="active"><i class="fa fa fa-picture-o fa-2x"></i></a>
+    </li>
+    <li>
+      <a href ui-sref="Movie.admin.trailers" ui-sref-active="active"><i class="fa fa fa-film fa-2x"></i></a>
+    </li>
+    <li>
+      <a href ui-sref="Movie.admin.cast" ui-sref-active="active"><i class="fa fa-users fa-2x"></i></a>
+    </li>
+  </ul>
+</div>
 <ul class="text-center nav">
   <li class="back-button"><a href="#/" ui-sref="Movie.home">SITE</a></li>
 </ul>
-<form class="col-lg-10 col-xs-12 col-lg-offset-1 well" ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
+<form ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
+  <div ui-view></div>
+</form>
+
+
+<!--<form class="col-lg-10 col-xs-12 col-lg-offset-1 well" ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
   <div class="form-group">
     <label for="title">Title</label>
     <p class="pull-right"><a href ng-click="admin.populate()">I'm Lazy</a></p>
@@ -67,7 +88,7 @@
       <input class="form-control" type="text" name="cast" placeholder="Name" ng-model="admin.castMember.name"/>
       <input class="form-control" type="text" name="cast" placeholder="Character" ng-model="admin.castMember.character"/>
       <textarea class="form-control" name="cast" rows="1" placeholder="Description" ng-model="admin.castMember.description"><textarea/>
-      <button type="button" class="btn btn-primary" ng-click="admin.addMember(admin.castMember)">Add</button>
+        <button type="button" class="btn btn-primary" ng-click="admin.addMember(admin.castMember)">Add</button>
     </div>
   </div>
   <hr/>
@@ -75,7 +96,7 @@
   <button type="button" class="btn btn-warning" ng-click="admin.resetForm(admin.editedMovie)">Reset Form</button>
   <div ng-if="admin.response" class="alert alert-{{admin.response.type}}">
     <span>{{admin.response.message}}</span>
-    <button type="button" class="close" ng-click="admin.response = null"><span aria-hidden="true">&times;</span>
+    <button type="button" class="close" ng-click="admin.response = null"><span aria-hidden="true">&times;</span></button>
   </div>
   <p class="pull-right"><a href ng-click="admin.deleteMovie(admin.movieId)">&times; Delete Movie</a></p>
-</form>
+</form>-->
