@@ -85,16 +85,25 @@ a.active {
 	overflow: hidden;
 }
 
-.main-content {
+.main-content, .admin-portal {
 	display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity:0;
+	/*opacity:0;*/
 }
-
+.main-content > .nav {
+  position: relative;
+  z-index: 1;
+}
+.admin-portal {
+  opacity: 1;
+}
+.admin-content {
+  margin-top: 8%;
+}
 /********* Admin **********/
 [id*="movie-admin"] #wrapper {
   position: static;
@@ -105,10 +114,11 @@ a.active {
 .master {
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   background: rgba(0,0,0,0.8);
   padding: 30px 20px;
   height: 100%;
+  text-align: center;
 }
 .master .nav li {
   display: block;
@@ -121,10 +131,14 @@ a.active {
   color: #ffcc66;
 }
 .semi-detail {
-  left: 125px;
+  left: 107px;
   background: rgba(0,0,0,0.6);
+  max-width: 300px;
 }
-.main-content:not(.ng-animate) {
+.semi-detail .nav li a {
+  font-size: 20px;
+}
+.main-content:not(.ng-animate), .admin-portal:not(.ng-animate) {
   transform:none !important;
 }
 li.admin {

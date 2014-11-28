@@ -1,8 +1,7 @@
-<div class="col-lg-10 col-xs-12 col-lg-offset-1 well">
+  <div class="col-lg-9 col-xs-12 col-lg-offset-2 well admin-content">
   <div class="form-group">
     <label for="title">Title</label>
 
-    <p class="pull-right"><a href ng-click="admin.populate()">I'm Lazy</a></p>
     <input ng-required="required" class="form-control" name="title" type="text" ng-model="admin.editedMovie.title"
            placeholder="Title"/>
   </div>
@@ -15,5 +14,11 @@
     <label for="synopsis">Synopsis</label>
     <textarea ng-required="required" class="form-control" ng-model="admin.editedMovie.synopsis" placeholder="Synopsis"
               name="synopsis" cols="30" rows="10"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="button" class="btn btn-warning" ng-click="admin.resetForm(admin.editedMovie)">Reset Form</button>
+  <div ng-if="admin.response" class="alert alert-{{admin.response.type}}">
+    <span>{{admin.response.message}}</span>
+    <button type="button" class="close" ng-click="admin.response = null"><span aria-hidden="true">&times;</span></button>
   </div>
 </div>

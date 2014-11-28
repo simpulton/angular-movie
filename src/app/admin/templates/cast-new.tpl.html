@@ -1,0 +1,18 @@
+<div class="well col-sm-offset-4 col-sm-7 admin-content">
+  <div class="cast-form form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="cast" placeholder="Name" ng-model="admin.castMember.name"/>
+    <label for="character">Character</label>
+    <input class="form-control" type="text" name="cast" placeholder="Character"
+           ng-model="admin.castMember.character"/>
+    <label for="description">Description</label>
+    <textarea class="form-control" name="cast" rows="10" placeholder="Description"
+              ng-model="admin.castMember.description"></textarea>
+  </div>
+  <button type="button" class="btn btn-primary" ng-click="admin.addMember(admin.castMember)">Add</button>
+  <button type="button" class="btn btn-warning" ng-click="admin.resetForm(admin.editedMovie)">Reset Form</button>
+  <div ng-if="admin.response" class="alert alert-{{admin.response.type}}">
+    <span>{{admin.response.message}}</span>
+    <button type="button" class="close" ng-click="admin.response = null"><span aria-hidden="true">&times;</span></button>
+  </div>
+</div>

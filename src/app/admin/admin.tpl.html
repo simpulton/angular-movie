@@ -1,16 +1,22 @@
-<div class="master">
+<div class="master" id="admin">
   <ul class="nav">
     <li>
-      <a href ui-sref="Movie.admin.info" ui-sref-active="active"><i class="fa fa-pencil fa-2x"></i></a>
+      <a href ui-sref="Movie.admin.info" ui-sref-active="active"><i class="fa fa-pencil fa-lg"></i></a>
     </li>
     <li>
-      <a href ui-sref="Movie.admin.images" ui-sref-active="active"><i class="fa fa fa-picture-o fa-2x"></i></a>
+      <a href ui-sref="Movie.admin.images" ui-sref-active="active"><i class="fa fa fa-picture-o fa-lg"></i></a>
     </li>
     <li>
-      <a href ui-sref="Movie.admin.trailers" ui-sref-active="active"><i class="fa fa fa-film fa-2x"></i></a>
+      <a href ui-sref="Movie.admin.trailers" ui-sref-active="active"><i class="fa fa fa-film fa-lg"></i></a>
     </li>
     <li>
-      <a href ui-sref="Movie.admin.cast" ui-sref-active="active"><i class="fa fa-users fa-2x"></i></a>
+      <a href ui-sref="Movie.admin.cast" ui-sref-active="active"><i class="fa fa-users fa-lg"></i></a>
+    </li>
+    <li>
+      <br/>
+    </li>
+    <li>
+      <a href ui-sref="Movie.admin.all" ui-sref-active="active"><i class="fa fa-bars fa-lg"></i></a>
     </li>
   </ul>
 </div>
@@ -18,7 +24,7 @@
   <li class="back-button"><a href="#/" ui-sref="Movie.home">SITE</a></li>
 </ul>
 <form ng-submit="admin.submitMovie(admin.movieId, admin.editedMovie)">
-  <div ui-view></div>
+  <div ui-view class="admin-portal"></div>
 </form>
 
 

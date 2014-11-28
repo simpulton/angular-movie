@@ -1,9 +1,11 @@
 <div class="master semi-detail text-center">
   <ul class="nav">
+    <li>
+      <a href ui-sref="Movie.admin.cast.new" ui-sref-active="active">Create New</a>
+    </li>
     <li ng-repeat="(index, member) in admin.editedMovie.cast">
-      <a href ui-sref="Movie.admin.cast.member({id: index})" ui-sref-active="active">{{member.name}}</i></a>
+      <a href ui-sref="Movie.admin.cast.member({id: index})" ui-sref-active="active">{{member.name}}</a>
     </li>
   </ul>
 </div>
-<div ui-view></div>
-
+<div ui-view class="admin-portal"></div>

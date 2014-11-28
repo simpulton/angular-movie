@@ -105,7 +105,9 @@ angular.module('Movie', [
 					case "trailer":
 						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
 						break;
-					case "":
+          case "admin":
+            TweenMax.fromTo( element, 1, { x: 0, y: elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+          case "":
 					default:
 						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
 						break;
@@ -121,7 +123,9 @@ angular.module('Movie', [
 						break;
 					case "trailer":
 						TweenMax.fromTo( element, 1, { x: elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
-						break;
+          case "admin":
+            TweenMax.fromTo( element, 1, { x: 0, y: elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+            break;
 				}
 			}
 			
@@ -147,7 +151,9 @@ angular.module('Movie', [
 					case "trailer":
 						TweenMax.to( element, 1, { x: elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
 						break;
-					case "":
+          case "admin":
+            TweenMax.to( element, 1, { x: elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+          case "":
 					default:
 						TweenMax.to( element, 1, { autoAlpha: 0, ease: Expo.easeInOut, onComplete: done });
 						break;
@@ -164,7 +170,9 @@ angular.module('Movie', [
 						break;
 					case "trailer":
 						TweenMax.to( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
-						break;
+          case "admin":
+            TweenMax.to( element, 1, { x: 0, y: elementHeight, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+            break;
 				}
 				
 			}

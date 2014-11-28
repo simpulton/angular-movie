@@ -13,6 +13,10 @@ angular.module('Movie.admin', [
         }
       }
     })
+    .state('Movie.admin.all', {
+      url: "/all",
+      templateUrl: 'app/admin/templates/all.tpl.html'
+    })
     .state('Movie.admin.info', {
       url: '/info',
       templateUrl: 'app/admin/templates/info.tpl.html'
@@ -29,13 +33,20 @@ angular.module('Movie.admin', [
       url: '/cast',
       templateUrl: 'app/admin/templates/cast.tpl.html'
     })
+    .state('Movie.admin.cast.new', {
+      url:'/new',
+      templateUrl: 'app/admin/templates/cast-new.tpl.html'
+    })
     .state('Movie.admin.cast.member', {
       url:'/:id',
-      templateUrl: 'app/admin/templates/cast-member.tpl.html'
+      templateUrl: 'app/admin/templates/cast-member.tpl.html',
+      controller: function($stateParams, $scope) {
+        $scope.memberId = $stateParams.id;
+      }
     })
   ;
 })
-.controller('AdminCtrl', function(PreloadService, MovieService, $scope, $timeout) {
+.controller('AdminCtrl', function(PreloadService, MovieService, $scope, $timeout, $state) {
   // TODO: Remove unnecessary code
   var admin = this,
       add = false,
@@ -83,10 +94,13 @@ angular.module('Movie.admin', [
   admin.addMember = function(castMember) {
     admin.editedMovie.cast.push(castMember);
     admin.castMember = {};
+    admin.submitMovie(admin.movieId, admin.editedMovie);
   };
 
   admin.removeMember = function(index) {
     admin.editedMovie.cast.splice(index, 1);
+    admin.submitMovie(admin.movieId, admin.editedMovie);
+    $state.go('Movie.admin.cast');
   };
 
   admin.resetForm = function() {
@@ -179,4 +193,20 @@ angular.module('Movie.admin', [
         admin.response = { type: 'danger', message: error.data.error.message };
       });
   };
+})
+.animation('.admin-portal', function($rootScope) {
+  return {
+    enter: function(element, done) {
+      var finished = function() {
+        $rootScope.$broadcast('animation-done');
+        done();
+      };
+      TweenMax.fromTo( element, 1, { x: -2000, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
+    },
+    leave: function(element, done) {
+      // animation for outbound page
+      TweenMax.to( element, 1, { x: 2000, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done });
+    }
+  };
+
 });

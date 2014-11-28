@@ -1,19 +1,29 @@
-<div class="col-lg-10 col-xs-12 col-lg-offset-1 well">
+<div class="col-lg-9 col-xs-12 col-lg-offset-2 well admin-content">
   <div class="form-group">
     <label for="images">Images</label>
 
     <div>
-      <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-sm-4 col-md-3 unit">
+      <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-md-4 col-sm-3 unit">
         <div class="thumbnail">
-          <a href ng-click="admin.removeImage(index)"><span>&times;</span></a>
+          <a href ng-click="admin.removeImage(index)" class="pull-right"><span>&times;</span></a>
           <img ng-if="admin.showAssets" height="140" src="{{image.src}}" alt="Movie Image {{index}}"/>
           <input class="form-control" type="text" ng-model="image.src"/>
         </div>
       </div>
+      <div class="col-sm-4 col-md-3 unit">
+        <div class="input-group">
+          <input class="form-control" name="images" type="text" placeholder="Image URL" ng-model="admin.newImage.src"/>
+          <span class="input-group-addon btn btn-primary" ng-click="admin.addImage(admin.newImage)">Add</span>
+        </div>
+      </div>
     </div>
-    <div class="input-group">
-      <input class="form-control" name="images" type="text" placeholder="Image URL" ng-model="admin.newImage.src"/>
-      <span class="input-group-addon btn btn-primary" ng-click="admin.addImage(admin.newImage)">Add</span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-warning" ng-click="admin.resetForm(admin.editedMovie)">Reset Form</button>
+    <div ng-if="admin.response" class="alert alert-{{admin.response.type}}">
+      <span>{{admin.response.message}}</span>
+      <button type="button" class="close" ng-click="admin.response = null"><span aria-hidden="true">&times;</span></button>
     </div>
   </div>
 </div>
