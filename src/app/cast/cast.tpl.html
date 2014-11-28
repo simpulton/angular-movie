@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="cast">
   <ul class="text-center nav">
     <li class="back-button"><a href ui-sref="Movie.home">BACK</a></li>
   </ul>
@@ -14,8 +14,7 @@
     <h4>{{member.name | uppercase}}
       <small>as {{member.character | uppercase}}</small>
     </h4>
-    <div class="content">
-      {{member.description}}
+    <div ng-bind-html="app.renderHtml(member.description)" class="content">
     </div>
   </div>
 </div>

@@ -20,12 +20,15 @@ angular.module('Movie.home', [
 		}
 	);
 })
-.controller('AppCtrl', function(PreloadService, currentMovie, $timeout, $scope, $state) {
+.controller('AppCtrl', function(PreloadService, currentMovie, $timeout, $scope, $state, $sce) {
   var app = this;
+
+   app.renderHtml = function(html) {
+    return $sce.trustAsHtml(html);
+  };
 
   app.movie = currentMovie;
   app.movie.release = moment(app.movie.release).format('MM[.]DD[.]YYYY');
-
 
   // Init cast
   app.currentCast = 0;

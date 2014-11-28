@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="synopsis">
 	<ul class="text-center nav">
     <li class="back-button"><a href ui-sref="Movie.home">BACK</a></li>
 	</ul>
@@ -8,5 +8,5 @@
 
 <div class="about">
   <h3>ABOUT THE FILM</h3>
-  <div class="content">{{app.movie.synopsis}}</div>
+  <div ng-bind-html="app.renderHtml(app.movie.synopsis)" class="content"></div>
 </div>

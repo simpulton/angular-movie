@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="home">
 	<ul class="text-center nav nav-pills">
     <li class="admin"><a nav-button ng-mouseenter="play()" ng-mouseleave="reverse()" href ui-sref="Movie.admin">Admin</a></li>
 		<li><a nav-button ng-mouseenter="play()" ng-mouseleave="reverse()" href ui-sref="Movie.home.synopsis">SYNOPSIS</a></li>
@@ -11,8 +11,7 @@
 <div class="text-center megatron">
   <h1>
     <div class="big">{{app.movie.title | uppercase}}</div>
-    <div class="byline">
-      SEE IT IN realD 3D, HFR 3D AND IMAX 3D</div>
+    <div class="byline">SEE IT IN realD 3D, HFR 3D AND IMAX 3D</div>
     <div class="date">{{app.movie.release}}</div>
   </h1>
 </div>
