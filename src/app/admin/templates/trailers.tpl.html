@@ -5,7 +5,7 @@
     <div>
       <div ng-repeat="(index, trailer) in admin.editedMovie.trailers" class="col-sm-3 col-md-4">
         <div class="thumbnail">
-          <a href ng-click="admin.removeTrailer(index)" class="pull-right"><span>&times;</span></a>
+          <a href ng-click="admin.removeTrailer(index)" class="pull-right"><span class="fa fa-trash-o"></span></a>
           <iframe ng-if="admin.showAssets" src="{{trailer.src}}" width="100%" frameborder="0"></iframe>
           <input class="form-control" type="text" ng-model="trailer.src"/>
         </div>

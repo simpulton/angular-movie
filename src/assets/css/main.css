@@ -162,11 +162,12 @@ form .unit {
 
 form .thumbnail a {
   position: absolute;
-  right: 25px;
+  right: 20px;
 }
 form .thumbnail a span {
   background-color: #000000;
-  padding: 0 7px;
+  padding: 7px;
+  border-bottom-left-radius: 2px;
 }
 textarea {
   width: 100% !important;

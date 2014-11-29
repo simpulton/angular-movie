@@ -1,6 +1,6 @@
 <div class="col-sm-7 col-sm-offset-4 well admin-content">
   <div class="form-group">
-    <a href ng-click="admin.removeMember(index)" class="pull-right"><span class="fa fa-trash"></span></a>
+    <a href ng-click="admin.removeMember(memberId, true)" class="pull-right"><span class="fa fa-trash"></span></a>
     <label for="cast">Name</label>
     <input class="form-control" type="text" ng-model="admin.editedMovie.cast[memberId].name"/>
     <label for="character">Character</label>

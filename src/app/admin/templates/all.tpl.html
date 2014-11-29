@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <div ng-repeat="(index, image) in admin.editedMovie.images" class="col-sm-4 col-md-3 unit">
           <div class="thumbnail">
-            <a href ng-click="admin.removeImage(index)"><span>&times;</span></a>
+            <a href ng-click="admin.removeImage(index)"><span class="fa fa-trash-o"></span></a>
             <img ng-if="admin.showAssets" height="140" src="{{image.src}}" alt="Movie Image {{index}}"/>
             <input class="form-control" type="text" ng-model="image.src"/>
           </div>
@@ -41,7 +41,7 @@
       <div class="container-fluid">
         <div ng-repeat="(index, trailer) in admin.editedMovie.trailers" class="col-sm-4 col-md-3">
           <div class="thumbnail">
-            <a href ng-click="admin.removeTrailer(index)"><span>&times;</span></a>
+            <a href ng-click="admin.removeTrailer(index)"><span class="fa fa-trash-o"></span></a>
             <iframe ng-if="admin.showAssets" src="{{trailer.src}}" width="100%" frameborder="0"></iframe>
             <input class="form-control" type="text" ng-model="trailer.src"/>
           </div>
@@ -66,7 +66,7 @@
           <td><input class="form-control" type="text" ng-model="member.name"/></td>
           <td><input class="form-control" type="text" ng-model="member.character"/></td>
           <td><textarea class="form-control" rows="1" ng-model="member.description"></textarea></td>
-          <td><a href ng-click="admin.removeMember(index)"><span>&times;</span></a></td>
+          <td><a href ng-click="admin.removeMember(index, false)"><span class="fa fa-trash-o"></span></a></td>
         </tr>
       </table>
       <div class="form-inline cast-form text-center">

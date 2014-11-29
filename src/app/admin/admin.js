@@ -97,10 +97,11 @@ angular.module('Movie.admin', [
     admin.submitMovie(admin.movieId, admin.editedMovie);
   };
 
-  admin.removeMember = function(index) {
+  admin.removeMember = function(index, refresh) {
     admin.editedMovie.cast.splice(index, 1);
     admin.submitMovie(admin.movieId, admin.editedMovie);
-    $state.go('Movie.admin.cast');
+
+    if (refresh) $state.go('Movie.admin.cast');
   };
 
   admin.resetForm = function() {
