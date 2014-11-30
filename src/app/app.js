@@ -63,7 +63,7 @@ angular.module('Movie', [
 						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
 						break;
 					case "":
-					default:
+					default:						 
 						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
 						break;
 				}
@@ -71,9 +71,11 @@ angular.module('Movie', [
 				switch(targetSection) {
 					case "synopsis":
 					case "cast":
+						TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5 });
 						TweenMax.fromTo( element, 1, { x: 0, y: -elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
 						break;
 					case "gallery":
+						TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5 });
 						TweenMax.fromTo( element, 1, { x: -elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: finished});
 						break;
 					case "trailer":
@@ -81,8 +83,6 @@ angular.module('Movie', [
 						break;
 				}
 			}
-			
-			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + currentSection);
 
 		},
 		leave: function(element, done) {

@@ -14,4 +14,17 @@ angular.module('Movie.synopsis', [
 			}
 		}
 	);
+})
+.animation('.about', function($rootScope) {
+
+	return {
+
+		enter: function(element, done) {
+			console.log("WTF");
+		},
+
+		leave: function(element, done) {
+			console.log("WTF");
+		}
+	};
 });
