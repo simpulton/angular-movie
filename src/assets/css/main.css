@@ -26,8 +26,13 @@ a:hover {
   color:#ffcc66;
 }
 a.active {
+  text-decoration: none;
   color:#ffcc66;
 }
+a:visited {
+	text-decoration: none;
+}
+
 .nav {
   float: none;
   margin: 0 auto;
@@ -48,23 +53,46 @@ a.active {
   border-top: 50px solid black;
   border-right: 50px solid transparent;
   border-left: 50px solid transparent;
+	-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+	   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+			transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
 }
 
 .nav .back-button a {
-	color: #fff;
-  position: relative;
-  top: -50px;
-  background: transparent;
-  
-		-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-				transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+	color: #FFFFFF;
+	position: relative;
+	top: -50px;
+	background: transparent;
+	-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+	   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+			transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+			
 }
 .nav .back-button a:hover {
-  background: transparent;
-  color: #ffcc66;
+	background: transparent;
+	color: #ffcc66;
+	/*margin: -5px 0px 0px 0px;*/
+}
+
+#synopsis .nav .back-button a:hover,
+#cast .nav .back-button a:hover {
+	margin: -5px 0px 0px 0px;
+}
+
+#gallery .nav .back-button a:hover {
+	margin: 0px 0px 0px -5px;
+}
+
+#trailer .nav .back-button a:hover {
+	margin: 0px -5px 0px 0px;
+}
+
+.nav .back-button a:hover > .nav .back-button {
+	margin-top: -5px;
 }
 
 #wrapper {
@@ -266,6 +294,15 @@ a.active {
 	
 	overflow-y: scroll;
 }
+
+.cast ul li a {
+	-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+	   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+		 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+			transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
+}
+
 
 /********* Gallery *********/
 .gallery-wrapper {
