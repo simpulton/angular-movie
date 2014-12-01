@@ -1,274 +1,142 @@
-/********* Defaults *********/
-html { 
-  background: url(../images/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-body {
-  font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
-  font-size: 2.5em;
-  color: #fff;
-  background: transparent;
-}
-label, .btn, th {
-  letter-spacing: 1px;
-  font-weight: 100;
-}
-small {
-  color:#fff !important;
-}
-a {
-  text-decoration: none;
-  color: #fff;
-				
-}
-a:hover {
-  text-decoration: none;
-  color:#ffcc66;
-}
-a.active {
-  color:#ffcc66;
-}
-.nav {
-  float: none;
-  margin: 0 auto;
-}
-.nav li {
-  float: none;
-  display: inline-block;
-}
-.nav li a {
-	color: #000;
-	letter-spacing: 1px;
-	background-color: transparent;
-}
-.nav li a:hover {
-  background-color: transparent;
-}
-.nav>li>a:focus {
-  background-color: transparent;
-}
-.nav .back-button {
-  border-top: 50px solid black;
-  border-right: 50px solid transparent;
-  border-left: 50px solid transparent;
-}
-
-.nav .back-button a {
-	color: #fff;
-  position: relative;
-  top: -50px;
-  background: transparent;
-  
-		-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-				transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-}
-.nav .back-button a:hover {
-  background: transparent;
-  color: #ffcc66;
-}
-
-#wrapper {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	min-width: 1280px;
-	min-height: 720px;
-	overflow: hidden;
-}
-
-.main-content, .admin-portal {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/*opacity:0;*/
-}
-.main-content > .nav {
-  position: relative;
-  z-index: 1;
-}
-.admin-portal {
-  opacity: 1;
-}
-.admin-content {
-  margin-top: 8%;
-}
-/********* Admin **********/
 [id*="movie-admin"] #wrapper {
   position: static;
 }
 #movie-admin .well {
   display: none;
 }
-.master {
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background: rgba(0,0,0,0.8);
-  padding: 30px 20px;
-  height: 100%;
-  text-align: center;
+html {
+  background: url(../images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.master .nav li {
-  display: block;
-  margin-bottom: 30px;
+html body {
+  font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
+  font-size: 2.5em;
+  color: #fff;
+  background: transparent;
 }
-.master .nav li a {
+html body label,
+html body .btn,
+html body th {
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+html body small {
+  color: #fff !important;
+}
+html body a {
+  text-decoration: none;
   color: #fff;
 }
-.master .nav li a:hover, .master .nav li a.active {
+html body a:hover {
+  text-decoration: none;
   color: #ffcc66;
 }
-.semi-detail {
-  left: 107px;
-  background: rgba(0,0,0,0.6);
-  max-width: 300px;
+html body a.active {
+  color: #ffcc66;
 }
-.semi-detail .nav li a {
-  font-size: 20px;
-}
-.main-content:not(.ng-animate), .admin-portal:not(.ng-animate) {
-  transform:none !important;
-}
-li.admin {
-  position: absolute;
-  left: 0;
-  font-size: 14px;
-}
-li.admin a {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-form {
-  font-size: 24px;
-}
-form .unit {
-  display: inline-block;
+html body .nav {
   float: none;
-  vertical-align: top;
+  margin: 0 auto;
 }
-
-form .thumbnail a {
-  position: absolute;
-  right: 20px;
-}
-form .thumbnail a span {
-  background-color: #000000;
-  padding: 7px;
-  border-bottom-left-radius: 2px;
-}
-textarea {
-  width: 100% !important;
-}
-th {
-  font-size: 18px;
-}
-.cast-form.form-inline .form-control {
-  width: 28% !important;
-}
-.well {
-  background-color: rgba(0,0,0,0.5);
-  border: none;
-}
-form .alert {
-  vertical-align: middle;
+html body .nav li {
+  float: none;
   display: inline-block;
-  font-size: 14px;
-  padding: 6px 12px;
-  margin-bottom: 0;
 }
-form iframe {
-  min-height: 225px;
+html body .nav li a {
+  color: #000;
+  letter-spacing: 1px;
+  background-color: transparent;
 }
-
-/********* Movie Details Home Page **********/
-
-.megatron {
+html body .nav li a:hover,
+html body .nav li a:focus {
+  background-color: transparent;
+}
+html body .nav .back-button {
+  border-top: 50px solid black;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+}
+html body .nav .back-button a {
+  color: #fff;
+  position: relative;
+  top: -50px;
+  background: transparent;
+  -webkit-transition: all 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -moz-transition: all 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -o-transition: all 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+html body .nav .back-button a:hover {
+  background: transparent;
+  color: #ffcc66;
+}
+html body #wrapper {
+  display: block;
   position: absolute;
-  top: 40%;
+  top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+  min-width: 1280px;
+  min-height: 720px;
+  overflow: hidden;
+  opacity: 1;
+}
+html body #wrapper .admin-portal {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+html body #wrapper .admin-portal:not(.ng-animate) {
+  transform: none !important;
+}
+html body #wrapper .admin-portal .admin-content {
+  margin-top: 8%;
+}
+html body #wrapper .main-content {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+html body #wrapper .main-content .movie-details {
+  position: absolute;
+  width: 400px;
+  left: 10px;
+  bottom: 130px;
   text-align: center;
 }
-.megatron h1 {
-  font-size: 800%;
-}
-.megatron h1 .big {
-  width: 100%;
-  display: block;
-  line-height: 80%;
-}
-.megatron h1 .byline {
-  font-family: "Helvetica";
-  font-size: 8%;
-  margin-bottom: 0.5%;
-}
-.megatron .date {
-  font-size: 15%;
-}
-
-/********* Movie Details Aside *********/
-.movie-details {
-	position: absolute;
-	width: 400px;
-	left: 10px;
-	bottom: 130px;
-	text-align: center;
-}
-.movie-details h1 {
+html body #wrapper .main-content .movie-details h1 {
   font-size: 200%;
 }
-.movie-details h1 .big {
+html body #wrapper .main-content .movie-details h1 .big {
   width: 100%;
   display: block;
   line-height: 80%;
 }
-.movie-details .byline {
+html body #wrapper .main-content .movie-details .byline {
   font-family: "Helvetica";
-
   margin-top: 1%;
   margin-bottom: 1%;
   font-size: 20%;
-
 }
-.movie-details .date {
+html body #wrapper .main-content .movie-details .date {
   font-size: 35%;
 }
-
-
-/********* Home Page *********/
-
-.home-trailer {
-  margin-top: 10%;
-  min-height: 220px;
-  background: transparent url(../images/trailer-box.png) no-repeat center center;
-  background-size: contain;
-}
-.home-trailer iframe {
-  position: relative;
-  top: 30px;
-  display: block;
-  margin: 0 auto;
-}
-
-/********* Synopsis *********/
-
-.spacer {
+html body #wrapper .main-content .spacer {
   height: 300px;
 }
-.about {
+html body #wrapper .main-content .about {
   background: transparent url(../images/about-container.png) no-repeat top left;
   position: absolute;
   width: 710px;
@@ -277,30 +145,26 @@ form iframe {
   bottom: 50px;
   margin: 0;
 }
-.about h3 {
-	position: absolute;
-	top: 20px;
-	left: 40px;
-	margin: 0;
+html body #wrapper .main-content .about h3 {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  margin: 0;
 }
-.about .content {
-	position: absolute;
-	top: 50px;
-	left: 40px;
-	width: 650px;
-	margin: 0;
-	max-height: 150px;
-	padding: 0;
-	
-	font-family: sans-serif;
-	font-size: 11px;
-	font-weight: 100;
-	
-	overflow-y: scroll;
+html body #wrapper .main-content .about .content {
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  width: 650px;
+  margin: 0;
+  max-height: 150px;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 100;
+  overflow-y: scroll;
 }
-
-/********* Trailers *********/
-.background {
+html body #wrapper .main-content .background {
   width: 100%;
   height: 10000px;
   position: fixed;
@@ -308,41 +172,38 @@ form iframe {
   background: black;
   z-index: 0;
 }
-.trailers {
+html body #wrapper .main-content .trailers {
   background-color: #000000;
   padding: 0;
 }
-.trailers .back-button {
+html body #wrapper .main-content .trailers .back-button {
   border: none !important;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
 }
-.trailers .back-button a {
+html body #wrapper .main-content .trailers .back-button a {
   position: static;
 }
-.trailers ul li a:hover {
+html body #wrapper .main-content .trailers ul li a:hover {
   background-color: black !important;
   color: #ffcc66 !important;
 }
-.trailers iframe {
+html body #wrapper .main-content .trailers iframe {
   display: block;
   margin: 0 auto;
   z-index: 10;
   position: absolute;
 }
-.trailers .arrow {
+html body #wrapper .main-content .trailers .arrow {
   position: absolute;
   z-index: 1;
 }
-.trailers .arrow.pull-right {
+html body #wrapper .main-content .trailers .arrow.pull-right {
   right: 0;
 }
-
-/********* Cast *********/
-
-.cast {
+html body #wrapper .main-content .cast {
   background: transparent url(../images/cast-container.png) no-repeat top left;
   position: absolute;
   width: 900px;
@@ -351,69 +212,59 @@ form iframe {
   bottom: 50px;
   margin: 0;
 }
-.cast-animate {
+html body #wrapper .main-content .cast .cast-animate {
   width: 700px;
   float: left;
 }
-.cast h4 {
-	position: absolute;
-	top: 20px;
-	left: 230px;
-	margin: 0;
+html body #wrapper .main-content .cast h4 {
+  position: absolute;
+  top: 20px;
+  left: 230px;
+  margin: 0;
 }
-.cast ul {
-	position: absolute;
-	top: 45px;
-	left: 30px;
-	margin: 0;
-	padding: 0;
-	
-	font-size: 54%;
-	list-style: none;
+html body #wrapper .main-content .cast ul {
+  position: absolute;
+  top: 45px;
+  left: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 54%;
+  list-style: none;
 }
-
-.cast .content {
-	position: absolute;
-	top: 50px;
-	left: 230px;
-	width: 650px;
-	margin: 0;
-	max-height: 150px;
-	padding: 0;
-	
-	font-family: sans-serif;
-	font-size: 11px;
-	font-weight: 100;
-	
-	overflow-y: scroll;
+html body #wrapper .main-content .cast .content {
+  position: absolute;
+  top: 50px;
+  left: 230px;
+  width: 650px;
+  margin: 0;
+  max-height: 150px;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 100;
+  overflow-y: scroll;
 }
-
-/********* Gallery *********/
-.gallery-wrapper {
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	background-color: #000;
+html body #wrapper .main-content #gallery .gallery-wrapper {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
 }
-.back-button.btn-left {
+html body #wrapper .main-content #gallery .gallery-wrapper .galleryimage {
+  position: absolute;
+  width: 100%;
+}
+html body #wrapper .main-content #gallery .back-button {
   position: relative;
   top: 0;
   left: -65px;
 }
-.slider {
-  list-style: none;
-  padding-left: 0;
-}
-.slider img {
-  width: 95%;
-  display: inline-block;
-}
-.gallery {
+html body #wrapper .main-content #gallery .gallery {
   display: block;
   background: transparent url(../images/gallery-container.png) no-repeat top left;
   position: absolute;
@@ -423,143 +274,233 @@ form iframe {
   bottom: 130px;
   margin: 0;
 }
-
-.gallery ul {
-	position: absolute;
-	left: 65px;
-	top: 10px;
-	margin: 0;
-	padding: 0;
+html body #wrapper .main-content #gallery .gallery .miniarrow {
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -moz-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -ms-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -o-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
 }
-.gallery li {
+html body #wrapper .main-content #gallery .gallery .miniarrow-left {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+}
+html body #wrapper .main-content #gallery .gallery .miniarrow-left .miniarrow {
+  top: 0;
+  left: 0;
+  background: transparent url(../images/miniarrow-left.png) no-repeat top left;
+  -webkit-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -moz-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -ms-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -o-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+html body #wrapper .main-content #gallery .gallery .miniarrow-left:hover .miniarrow {
+  background-position: top right;
+  left: -5px;
+}
+html body #wrapper .main-content #gallery .gallery .miniarrow-right {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+}
+html body #wrapper .main-content #gallery .gallery .miniarrow-right .mini-arrow {
+  right: 0;
+  top: 0;
+  background: transparent url(../images/miniarrow-right.png) no-repeat top left;
+  -webkit-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -moz-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -ms-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -o-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+html body #wrapper .main-content #gallery .gallery .miniarrow-right:hover .miniarrow {
+  background-position: top right;
+  right: -5px;
+}
+html body #wrapper .main-content #gallery .gallery ul {
+  position: absolute;
+  left: 65px;
+  top: 10px;
+  margin: 0;
+  padding: 0;
+}
+html body #wrapper .main-content #gallery .gallery ul li {
   display: inline-block;
 }
-.gallery img {
-  border: 1px solid rgba(255,255,255,0.2);
+html body #wrapper .main-content #gallery .gallery ul li img {
+  border: 1px solid rgba(255, 255, 255, 0.2);
   margin: 0px 10px 0px 0px;
 }
-.gallery img:hover {
+html body #wrapper .main-content #gallery .gallery ul li img:hover {
   cursor: pointer;
 }
-.gallery-spacer {
-  height: 500px;
+html body #wrapper .main-content #gallery .arrow {
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
 }
-.galleryimage {
-	position: absolute;
-	width: 100%;
+html body #wrapper .main-content #gallery .arrow-right {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 105px;
+  right: 0;
+  top: 45%;
+  background: transparent url(../images/bg-galleryright.png) no-repeat top left;
 }
-.arrow-right {
-	display: block;
-	position: absolute;
-	width: 50px;
-	height: 105px;
-	right: 0;
-	top: 45%;
-	background: transparent url(../images/bg-galleryright.png) no-repeat top left;
-	}
-.arrow-left {
-	display: block;
-	position: absolute;
-	width: 50px;
-	height: 105px;
-	left: 0;
-	top: 45%;
-	background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
-	}
-	.arrow {
-		display: block;
-		position: absolute;
-		width: 25px;
-		height: 25px;
-		}
-		.arrow-left .arrow {
-			top: 25px;
-			left: 15px;
-			background: transparent url(../images/arrow-left.png) no-repeat top left;
-	
-			-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			}
-		.arrow-right .arrow {
-			top: 25px;
-			right: 15px;
-			background: transparent url(../images/arrow-right.png) no-repeat top left;
-	
-			-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-			}
-			
-		.arrow-left:hover .arrow {
-			background-position: top right;
-			left: 10px;
-		}
-		.arrow-right:hover .arrow {
-			background-position: top right;
-			right: 10px;
-		}
-		
-
-.miniarrow-left {
-	position: absolute;
-	top: 40px;
-	left: 40px;
-	width: 20px;
-	height: 20px;
-	}
-.miniarrow-right {
-	position: absolute;
-	top: 40px;
-	right: 20px;
-	width: 20px;
-	height: 20px;
-	}
-	.miniarrow {
-		display: block;
-		position: absolute;
-		width: 20px;
-		height: 20px;
-	
-		-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-		   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-		}
-		.miniarrow-left .miniarrow {
-			top: 0;
-			left: 0;
-			background: transparent url(../images/miniarrow-left.png) no-repeat top left;
-	
-			-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			}
-		.miniarrow-right .miniarrow {
-			right: 0;
-			top: 0;
-			background: transparent url(../images/miniarrow-right.png) no-repeat top left;
-	
-			-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-			}
-			
-		.miniarrow-left:hover .miniarrow {
-			background-position: top right;
-			left: -5px;
-		}
-		.miniarrow-right:hover .miniarrow {
-			background-position: top right;
-			right: -5px;
-		}
-		
+html body #wrapper .main-content #gallery .arrow-right .arrow {
+  top: 25px;
+  right: 15px;
+  background: transparent url(../images/arrow-right.png) no-repeat top left;
+  -webkit-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -moz-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -ms-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -o-transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: right 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+html body #wrapper .main-content #gallery .arrow-right:hover .arrow {
+  background-position: top right;
+  right: 10px;
+}
+html body #wrapper .main-content #gallery .arrow-left {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 105px;
+  left: 0;
+  top: 45%;
+  background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
+}
+html body #wrapper .main-content #gallery .arrow-left .arrow {
+  top: 25px;
+  left: 15px;
+  background: transparent url(../images/arrow-left.png) no-repeat top left;
+  -webkit-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -moz-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -ms-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  -o-transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+html body #wrapper .main-content #gallery .arrow-left:hover .arrow {
+  background-position: top right;
+  left: 10px;
+}
+html body #wrapper .main-content li.admin {
+  position: absolute;
+  left: 0;
+  font-size: 14px;
+}
+html body #wrapper .main-content li.admin a {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+html body #wrapper .main-content:not(.ng-animate) {
+  transform: none !important;
+}
+html body #wrapper .main-content > .nav {
+  position: relative;
+  z-index: 1;
+}
+html body #wrapper .main-content .master {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px 20px;
+  height: 100%;
+  text-align: center;
+}
+html body #wrapper .main-content .master .nav li {
+  display: block;
+  margin-bottom: 30px;
+}
+html body #wrapper .main-content .master .nav li a {
+  color: #fff;
+}
+html body #wrapper .main-content .master .nav li a:hover,
+html body #wrapper .main-content .master .nav li a.active {
+  color: #ffcc66;
+}
+html body #wrapper .main-content .semi-detail {
+  left: 107px;
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 300px;
+}
+html body #wrapper .main-content .semi-detail .nav li a {
+  font-size: 20px;
+}
+html body #wrapper .main-content form {
+  font-size: 24px;
+}
+html body #wrapper .main-content form .unit {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+html body #wrapper .main-content form .thumbnail a {
+  position: absolute;
+  right: 20px;
+}
+html body #wrapper .main-content form .thumbnail a span {
+  background-color: #000000;
+  padding: 7px;
+  border-bottom-left-radius: 2px;
+}
+html body #wrapper .main-content form textarea {
+  width: 100% !important;
+}
+html body #wrapper .main-content form th {
+  font-size: 18px;
+}
+html body #wrapper .main-content form .cast-form.form-inline .form-control {
+  width: 28% !important;
+}
+html body #wrapper .main-content form .well {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+html body #wrapper .main-content form .alert {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+}
+html body #wrapper .main-content form iframe {
+  min-height: 225px;
+}
+html body #wrapper .main-content .megatron {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+html body #wrapper .main-content .megatron h1 {
+  font-size: 800%;
+}
+html body #wrapper .main-content .megatron h1 .big {
+  width: 100%;
+  display: block;
+  line-height: 80%;
+}
+html body #wrapper .main-content .megatron h1 .byline {
+  font-family: "Helvetica";
+  font-size: 8%;
+  margin-bottom: 0.5%;
+}
+html body #wrapper .main-content .megatron .date {
+  font-size: 15%;
+}
