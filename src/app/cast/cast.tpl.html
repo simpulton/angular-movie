@@ -1,20 +1,22 @@
-<div class="container-fluid" id="cast">
-  <ul class="text-center nav">
-    <li class="back-button"><a href ui-sref="Movie.home">BACK</a></li>
-  </ul>
-</div>
-
-<div ng-include="'app/common/templates/billboard.tpl.html'"></div>
-
-<div class="cast">
-  <ul>
-    <li ng-repeat="(index, member) in app.movie.cast"><a href ng-class="{active: app.currentCast == index}" ng-click="app.currentCast = index">{{member.name | uppercase}}</a></li>
-  </ul>
-  <div class="cast-animate" ng-if="app.currentCast == index" ng-repeat="(index, member) in app.movie.cast">
-    <h4>{{member.name | uppercase}}
-      <small>as {{member.character | uppercase}}</small>
-    </h4>
-    <div ng-bind-html="app.renderHtml(member.description)" class="content">
+<div id="cast">
+    <div class="cast-bg"></div>
+    <div class="container-fluid">
+		<ul class="text-center nav">
+			<li class="back-button"><a href ui-sref="Movie.home">BACK</a></li>
+		</ul>
     </div>
-  </div>
+    
+    <div ng-include="'app/common/templates/billboard.tpl.html'"></div>
+    
+    <div class="content">
+		<ul>
+			<li ng-repeat="(index, member) in app.movie.cast"><a href ng-class="{active: app.currentCast == index}" ng-click="app.currentCast = index">{{member.name | uppercase}}</a></li>
+		</ul>
+		<div class="cast-animate" ng-if="app.currentCast == index" ng-repeat="(index, member) in app.movie.cast">
+			<h4>{{member.name | uppercase}}
+				<small>as {{member.character | uppercase}}</small>
+			</h4>
+			<div ng-bind-html="app.renderHtml(member.description)" class="copy"></div>
+        </div>
+    </div>
 </div>
