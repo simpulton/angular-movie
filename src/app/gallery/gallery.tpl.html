@@ -1,7 +1,7 @@
 <div id="gallery">
   
     <div class="gallery-wrapper">
-    	<img class="{{app.direction}} galleryimage" ng-class="{'current-image': app.currentIndex === $index}" ng-if="app.currentIndex === $index" ng-repeat="image in app.movie.images" src="{{image.src}}">
+    	<img class="{{app.direction}} galleryimage" ng-class="{'current-image': app.currentIndex === $index}" ng-if="app.currentIndex === $index" ng-repeat="image in app.movie.images" ng-src="{{image.src}}">
     </div>
     
     <div class="container-fluid">
@@ -15,7 +15,7 @@
     <div class="gallery">
         <ul>
             <li ng-repeat="thumb in app.movie.images">
-            	<img thumbnail ng-mouseenter="play()" ng-mouseleave="reverse()" ng-click="app.setCurrentIndex($index, 'forward')" width="130" height="85" src="{{thumb.src}}">
+            	<img thumbnail ng-mouseenter="play()" ng-mouseleave="reverse()" ng-click="app.setCurrentIndex($index, 'forward')" width="130" height="85" ng-src="{{thumb.src}}">
             </li>
         </ul>
         <a href="" class="miniarrow-right">
