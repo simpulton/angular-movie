@@ -23,7 +23,7 @@ angular.module('Movie.animations', ['ngAnimate'])
       "from-home-to-synopsis": {
         enter: function(element, done, props) {
           $timeout(function() {
-            TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5, onComplete:done });
+//            TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5, onComplete:done });
           }, 500);
           TweenMax.fromTo( element, 1, { x: 0, y: -props.elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
         },
@@ -42,7 +42,7 @@ angular.module('Movie.animations', ['ngAnimate'])
       "from-home-to-gallery": {
         enter: function(element, done, props) {
           $timeout(function() {
-            TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5 });
+//            TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5 });
           }, 500);
           TweenMax.fromTo( element, 1, { x: -props.elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
         },
@@ -119,11 +119,4 @@ angular.module('Movie.animations', ['ngAnimate'])
       animations[$rootScope.animation].leave(element, done, props);
     }
   }
-})
-  .animation('.movie-details', function() {
-    return {
-      enter: function(element, done) {
-        TweenMax.fromTo( element, 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5 });
-      }
-    }
-  });
+});

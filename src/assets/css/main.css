@@ -148,7 +148,7 @@ a:visited {
 }
 
 /********* Movie Details Aside *********/
-.movie-details {
+.billboard {
 	position: absolute;
 	width: 400px;
 	left: 10px;

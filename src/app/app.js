@@ -10,6 +10,7 @@ angular.module('Movie', [
 	'Movie.trailer',
 	'Movie.directives.nav',
 	'Movie.directives.thumbnail',
+  'Movie.directives.billboard',
 	'Movie.services.preload',
 	'Movie.services.movie',
   'Movie.animations'
