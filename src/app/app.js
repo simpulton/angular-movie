@@ -20,7 +20,30 @@ angular.module('Movie', [
 
 	$stateProvider
 		.state('Movie', {
-      		abstract: true,
+      resolve: {
+        movie: function(MovieService) {
+          return MovieService.getMovie()
+            .then(function(response) {
+              return response.data[0];
+            });
+        },
+        loaded: function(PreloadService, movie, $rootScope) {
+          var manifest = [];
+
+          if (movie && movie.images) {
+            movie.images.filter(function (image) {
+              manifest.push(image);
+            });
+          }
+
+          return PreloadService.loadManifest(manifest)
+            .then(function(response) {
+              $rootScope.loaded = true;
+              return response;
+            });
+        }
+      },
+      abstract: true,
 			url: ''
 		});
 
@@ -50,5 +73,11 @@ angular.module('Movie', [
       var fromstate = fState[fLastIndex];
 
       $rootScope.animation = "from-" + fromstate + "-to-" + tostate;
+    });
+
+    $rootScope.$on('queueProgress', function(event, mainEvent) {
+      $rootScope.$apply(function() {
+        $rootScope.progress = mainEvent.progress * 100;
+      });
     });
 });

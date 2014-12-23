@@ -20,14 +20,15 @@ angular.module('Movie.cast', [
 
   return {
     enter: function(element, done) {
-		var tempElement = element.find('h4');
-		
-		TweenMax.fromTo( element, 0.75, { autoAlpha: 0 }, { autoAlpha: 1, delay: .25 });
-		TweenMax.fromTo( element.find('h4'), 0.75, { x: 50 }, { x: 0, ease: Expo.easeOut, delay: .25 });
-		TweenMax.fromTo( element.find('.content'), 0.75, { y: 50 }, { y: 0, ease: Expo.easeOut, delay: .25, onComplete: done });
+      var h4 = element.find('h4'),
+          content = element.find('.copy');
+
+      TweenMax.fromTo( element, 0.75, { autoAlpha: 0 }, { autoAlpha: 1, delay: .25 });
+      TweenMax.fromTo( h4, 0.75, { x: 50 }, { x: 0, ease: Expo.easeOut, delay: .25 });
+      TweenMax.fromTo( content, 0.75, { y: 50 }, { y: 0, ease: Expo.easeOut, delay: .25, onComplete: done });
     },
     leave: function(element, done) {
-		TweenMax.to( element, .25, { autoAlpha: 0, onComplete: done });
+		  TweenMax.to( element, .25, { autoAlpha: 0, onComplete: done });
     }
   };
 });

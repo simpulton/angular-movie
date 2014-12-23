@@ -12,7 +12,7 @@ angular.module('Movie.directives.thumbnail', [])
 
 		scope.reverse = function() {
 			tl.reverse();
-		};
+    };
 	};
 
 	return {

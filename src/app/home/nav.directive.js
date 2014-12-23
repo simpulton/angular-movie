@@ -1,5 +1,6 @@
 angular.module('Movie.directives.nav', [])
 
+//TODO: fix this somehow
 .directive('navButton', function() {
 	var linker = function(scope, element, attrs) {
 		
