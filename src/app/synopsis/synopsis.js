@@ -14,16 +14,4 @@ angular.module('Movie.synopsis', [
 			}
 		}
 	);
-})
-.animation('.about', function($rootScope) {
-// TODO: is there supposed to be an animation here?
-	return {
-		enter: function(element, done) {
-			console.log("WTF");
-		},
-
-		leave: function(element, done) {
-			console.log("WTF");
-		}
-	};
 });

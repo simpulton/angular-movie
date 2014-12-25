@@ -1,5 +1,6 @@
 angular.module('Movie.animations', ['ngAnimate'])
 .factory('AnimationsService', function($timeout) {
+
     // Note: The "leave" attribute associated with each page transition actually contains the "leave" animation
     //       for the page transition before. This is because when state is changed, the name
     //       of the page transition changes before the "leave" event is executed. Take, for example,
@@ -9,6 +10,7 @@ angular.module('Movie.animations', ['ngAnimate'])
     //       THEN the "leave" attribute is selected and the associated animation is run. This
     //       seems clunky, and perhaps in most cases it would be; however, in this case it actually
     //       saves us from having to separate out the logic for the home page "leave" animation.
+
     var animations = {
       // All page transition animations go here
 
@@ -22,9 +24,6 @@ angular.module('Movie.animations', ['ngAnimate'])
       },
       "from-home-to-synopsis": {
         enter: function(element, done, props) {
-          $timeout(function() {
-//            TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5, onComplete:done });
-          }, 500);
           TweenMax.fromTo( element, 1, { x: 0, y: -props.elementHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
         },
         leave: function(element, done, props) {
@@ -41,9 +40,6 @@ angular.module('Movie.animations', ['ngAnimate'])
       },
       "from-home-to-gallery": {
         enter: function(element, done, props) {
-          $timeout(function() {
-//            TweenMax.fromTo( $('.movie-details'), 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: .5 });
-          }, 500);
           TweenMax.fromTo( element, 1, { x: -props.elementWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
         },
         leave: function(element, done, props) {

@@ -1,17 +1,13 @@
 angular.module('Movie.directives.nav', [])
 
-//TODO: fix this somehow
 .directive('navButton', function() {
 	var linker = function(scope, element, attrs) {
 		
 		scope.play = function() {
-//      console.log('play')
 			TweenMax.to(element, .5, { y: 10, backgroundColor: '#000', color: '#ffcc66', ease: Expo.easeOut });
 		};
 
 		scope.reverse = function() {
-			//tl.reverse();
-//      console.log('reverse')
 			TweenMax.to(element, .5, { y: 0, backgroundColor: 'transparent', color: '#000', ease: Expo.easeOut });
 		};
 	};

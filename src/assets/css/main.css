@@ -36,6 +36,16 @@ a:visited {
 .spacer {
   height: 300px;
 }
+.well {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+}
+.progressbar {
+  margin-top: 20%;
+}
+.progress {
+  margin-bottom: 0;
+}
 
 .nav {
   float: none;
