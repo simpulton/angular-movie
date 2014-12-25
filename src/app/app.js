@@ -3,6 +3,7 @@ var lastSection = "";
 	
 angular.module('Movie', [
 	'ui.router',
+  'ui.bootstrap',
 	'Movie.home',
 	'Movie.gallery',
 	'Movie.synopsis',
