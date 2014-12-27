@@ -5,9 +5,9 @@ angular.module('Movie.services.preload', [])
 
   var loadBgs = function(manifest) {
     var bgs = [
-      "assets/images/background.jpg",
-      "assets/images/bg-synopsis.jpg",
-      "assets/images/bg-cast.jpg"
+      {src: "assets/images/background.jpg"},
+      {src: "assets/images/bg-synopsis.jpg"},
+      {src: "assets/images/bg-cast.jpg"}
     ];
 
     return manifest.concat(bgs);
@@ -15,21 +15,32 @@ angular.module('Movie.services.preload', [])
 
   this.loadManifest = function(manifest) {
     var deferred = $q.defer();
+    $rootScope.loadItems = [];
 
     if (manifest.length == 0) deferred.resolve();
 
     manifest = loadBgs(manifest);
 
-    queue.loadManifest(manifest);
 
-    queue.on('progress', function(event) {
-        $rootScope.$broadcast('queueProgress', event);
+    queue.on('loadstart', function(event) {
+//      $rootScope.loadItems = event.target._loadItemsBySrc;
+    });
+
+    queue.on('fileload', function(event) {
+      $rootScope.loadItems.push(event.item.src);
     });
 
     queue.on('complete', function() {
       $rootScope.$broadcast('queueComplete', manifest);
       deferred.resolve();
     });
+
+    queue.loadManifest(manifest);
+
+    queue.on('progress', function(event) {
+      $rootScope.$broadcast('queueProgress', event);
+    });
+
 
     return deferred.promise;
   };

@@ -81,4 +81,14 @@ angular.module('Movie', [
         $rootScope.progress = mainEvent.progress * 100;
       });
     });
+})
+.animation('.loaded-image', function() {
+  return {
+    enter: function(element, done) {
+      TweenMax.to( element, 1, { autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
+    },
+    leave: function(element, done) {
+      
+    }
+  }
 });

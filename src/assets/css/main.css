@@ -46,6 +46,14 @@ a:visited {
 .progress {
   margin-bottom: 0;
 }
+.progressbar img {
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 20px;
+  opacity: 0;
+  display: inline-block;
+  margin-right: 1%;
+}
 
 .nav {
   float: none;
