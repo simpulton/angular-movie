@@ -4,6 +4,22 @@ angular.module('Movie.home', [
 .config(function($stateProvider, $sceDelegateProvider) {
 	$stateProvider
 		.state('Movie.home', {
+      resolve: {
+        loaded: function(PreloadService, movie, $rootScope) {
+          $rootScope.loaded = false;
+          var manifest = PreloadService.selectImages(movie, $rootScope.toState);
+
+          return PreloadService.loadManifest(manifest)
+            .then(function(response) {
+              $rootScope.loaded = true;
+              return response;
+            }, function(error) {
+              console.log(error);
+            },function(progress) {
+              $rootScope.progress = progress;
+            });
+        }
+      },
 			url: '/',
 			views: {
 				'main@': {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Movie">
+<html ng-cloak lang="en" ng-app="Movie">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,13 +21,8 @@
   </head>
   <body>
     <div id="wrapper">
-      <div ng-if="!loaded" class="col-xs-10 col-xs-offset-1 well progressbar">
-        <progressbar class="progress-striped active" animate="true" max="100" value="progress" type="warning">
-          <i>
-            <span class="text-center">{{progress|number:0}}%</span>
-          </i>
-        </progressbar>
-        <img ng-repeat="path in loadItems" class="thumbnail loaded-image" width="24%" ng-src="{{path}}" alt=""/>
+      <div ng-if="!loaded" class="progressbar">
+        <progressbar class="progress-striped active" animate="true" max="100" value="progress" type="warning"></progressbar>
       </div>
     	<div ui-view="main" class="main-content"></div>
     </div>

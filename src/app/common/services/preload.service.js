@@ -1,34 +1,43 @@
 angular.module('Movie.services.preload', [])
 .service('PreloadService', function($rootScope, $q) {
-  var queue = new createjs.LoadQueue(true),
-      isLoaded = false;
+  var queue = new createjs.LoadQueue(true);
 
-  var loadBgs = function(manifest) {
-    var bgs = [
-      {src: "assets/images/background.jpg"},
-      {src: "assets/images/bg-synopsis.jpg"},
-      {src: "assets/images/bg-cast.jpg"}
-    ];
+  var loadBgs = function(manifest, route) {
+    var bgs = {
+      home: {
+        src: "assets/images/background.jpg"
+      }
+      ,
+      synopsis: {
+        src: "assets/images/bg-synopsis.jpg"
+      }
+      ,
+      cast: {
+        src: "assets/images/bg-cast.jpg"
+      }
+    };
 
-    return manifest.concat(bgs);
+    return manifest.concat(bgs[route]);
+  };
+
+  this.selectImages = function(movie, route) {
+    var manifest = [];
+
+    if (route == 'gallery') {
+      movie.images.filter(function(image) {
+        manifest.push(image);
+      });
+    }
+
+    manifest = loadBgs(manifest, route);
+
+    return manifest;
   };
 
   this.loadManifest = function(manifest) {
     var deferred = $q.defer();
-    $rootScope.loadItems = [];
 
     if (manifest.length == 0) deferred.resolve();
-
-    manifest = loadBgs(manifest);
-
-
-    queue.on('loadstart', function(event) {
-//      $rootScope.loadItems = event.target._loadItemsBySrc;
-    });
-
-    queue.on('fileload', function(event) {
-      $rootScope.loadItems.push(event.item.src);
-    });
 
     queue.on('complete', function() {
       $rootScope.$broadcast('queueComplete', manifest);
@@ -38,14 +47,10 @@ angular.module('Movie.services.preload', [])
     queue.loadManifest(manifest);
 
     queue.on('progress', function(event) {
-      $rootScope.$broadcast('queueProgress', event);
+      var progress = event.progress * 100;
+      deferred.notify(progress);
     });
 
-
     return deferred.promise;
-  };
-
-  this.getStatus = function () {
-    return isLoaded;
   };
 });

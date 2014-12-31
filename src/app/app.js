@@ -27,21 +27,6 @@ angular.module('Movie', [
             .then(function(response) {
               return response.data[0];
             });
-        },
-        loaded: function(PreloadService, movie, $rootScope) {
-          var manifest = [];
-
-          if (movie && movie.images) {
-            movie.images.filter(function (image) {
-              manifest.push(image);
-            });
-          }
-
-          return PreloadService.loadManifest(manifest)
-            .then(function(response) {
-              $rootScope.loaded = true;
-              return response;
-            });
         }
       },
       abstract: true,
@@ -58,7 +43,7 @@ angular.module('Movie', [
 	]);
 
 })
-.run(function($rootScope, $timeout) {
+.run(function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       // State handling for animations
 
@@ -74,21 +59,16 @@ angular.module('Movie', [
       var fromstate = fState[fLastIndex];
 
       $rootScope.animation = "from-" + fromstate + "-to-" + tostate;
-    });
-
-    $rootScope.$on('queueProgress', function(event, mainEvent) {
-      $rootScope.$apply(function() {
-        $rootScope.progress = mainEvent.progress * 100;
-      });
+      $rootScope.toState = tostate;
     });
 })
-.animation('.loaded-image', function() {
+.animation('.progressbar', function() {
   return {
     enter: function(element, done) {
-      TweenMax.to( element, 1, { autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
+      TweenMax.fromTo( element, 1, {autoAlpha: 0}, { autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
     },
     leave: function(element, done) {
-      
+      TweenMax.to( element, 1, { autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
     }
   }
 });

@@ -1,11 +1,10 @@
 /********* Defaults *********/
 
-html { 
-  background: url(../images/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+html {
+  background-color: rgba(0,0,0,0.5);
+}
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
 }
 body {
 	font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
@@ -41,18 +40,19 @@ a:visited {
   border: none;
 }
 .progressbar {
-  margin-top: 20%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+  z-index: 1;
 }
 .progress {
-  margin-bottom: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
 }
-.progressbar img {
-  margin-left:auto;
-  margin-right: auto;
-  margin-top: 20px;
-  opacity: 0;
-  display: inline-block;
-  margin-right: 1%;
+.progress i {
+  display: none;
 }
 
 .nav {
@@ -116,6 +116,14 @@ a:visited {
 .nav .back-button a:hover > .nav .back-button {
 	margin-top: -5px;
 }
+.loader-bg {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(255, 204, 102);
+}
 
 #wrapper {
 	display: block;
@@ -140,7 +148,15 @@ a:visited {
 }
 
 /********* Movie Details Home Page **********/
-
+.home-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: transparent url(../images/background.jpg) no-repeat center center;
+  background-size: cover;
+}
 .megatron {
   position: absolute;
   top: 40%;

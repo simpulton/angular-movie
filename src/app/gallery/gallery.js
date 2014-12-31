@@ -3,8 +3,24 @@ angular.module('Movie.gallery', [
 ])
 .config(function($stateProvider) {
 	$stateProvider
-		.state('Movie.home.gallery', {
-			url: 'gallery',
+		.state('Movie.gallery', {
+      resolve: {
+        loaded: function(PreloadService, movie, $rootScope) {
+          $rootScope.loaded = false;
+          var manifest = PreloadService.selectImages(movie, $rootScope.toState);
+
+          return PreloadService.loadManifest(manifest)
+            .then(function(response) {
+              $rootScope.loaded = true;
+              return response;
+            }, function(error) {
+              console.log(error);
+            },function(progress) {
+              $rootScope.progress = progress;
+            });
+        }
+      },
+			url: '/gallery',
 			views: {
 				'main@': {
           templateUrl: 'app/gallery/gallery.tpl.html',

@@ -3,8 +3,24 @@ angular.module('Movie.cast', [
 ])
 .config(function($stateProvider) {
 	$stateProvider
-		.state('Movie.home.cast', {
-			url: 'cast',
+		.state('Movie.cast', {
+      resolve: {
+        loaded: function(PreloadService, movie, $rootScope) {
+          $rootScope.loaded = false;
+          var manifest = PreloadService.selectImages(movie, $rootScope.toState);
+
+          return PreloadService.loadManifest(manifest)
+            .then(function(response) {
+              $rootScope.loaded = true;
+              return response;
+            }, function(error) {
+              console.log(error);
+            },function(progress) {
+              $rootScope.progress = progress;
+            });
+        }
+      },
+			url: '/cast',
 			views: {
 				'main@': {
 					templateUrl: 'app/cast/cast.tpl.html',
