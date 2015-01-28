@@ -39,20 +39,10 @@ a:visited {
   background-color: rgba(0, 0, 0, 0.7);
   border: none;
 }
-.progressbar {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 0;
-  z-index: 1;
-}
-.progress {
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-}
-.progress i {
-  display: none;
+.spinner img {
+	position: absolute;
+	left: 45%;
+	bottom: 45%;
 }
 
 .nav {
@@ -115,14 +105,6 @@ a:visited {
 
 .nav .back-button a:hover > .nav .back-button {
 	margin-top: -5px;
-}
-.loader-bg {
-  position: absolute;
-  width: 0;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: rgb(255, 204, 102);
 }
 
 #wrapper {

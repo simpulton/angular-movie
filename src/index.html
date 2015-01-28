@@ -21,10 +21,10 @@
   </head>
   <body>
     <div id="wrapper">
-      <div ng-if="!loaded" class="progressbar">
-        <progressbar class="progress-striped active" animate="true" max="100" value="progress" type="warning"></progressbar>
+      <div ng-if="!loaded" class="spinner">
+        <img src="assets/images/preloader.GIF" alt=""/>
       </div>
-    	<div ui-view="main" class="main-content"></div>
+      <div ui-view="main" class="main-content"></div>
     </div>
 
     <script src="vendor/jquery-1.11.1.min.js"></script>
