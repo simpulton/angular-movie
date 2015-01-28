@@ -21,8 +21,12 @@
   </head>
   <body>
     <div id="wrapper">
-      <div ng-if="!loaded" class="spinner">
-        <img src="assets/images/preloader.GIF" alt=""/>
+      <div ng-if="!loaded" class="preloader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       <div ui-view="main" class="main-content"></div>
     </div>
