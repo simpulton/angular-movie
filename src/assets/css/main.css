@@ -1,7 +1,7 @@
 /********* Defaults *********/
 
 html {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,1);
 }
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
@@ -41,58 +41,47 @@ a:visited {
 }
 
 /********* Preloader *********/
-.preloader{
-	height: 100px;
-	position:absolute;
-	left: 48%;
-	bottom: 48%;
+.preloader {
+	display: block;
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -35px 0px 0px -35px;
+	background-image: url(../images/preloader.png);
+	
+	-webkit-animation: play 1.5s steps(65) infinite;
+	-moz-animation: play 1.5s steps(65) infinite;
+	-ms-animation: play 1.5s steps(65) infinite;
+	-o-animation: play 1.5s steps(65) infinite;
+	animation: play 1.5s steps(65) infinite;
 }
-.preloader span{
-	display:block;
-	bottom:0px;
-	width: 9px;
-	height: 50px;
-	background:#fff;
-	position:absolute;
-	animation: wave 1.5s infinite ease-in-out;
-	-webkit-animation: wave 1.5s  infinite ease-in-out;
-}
-
-.preloader span:nth-child(2){
-	left:11px;
-	-webkit-animation-delay: .2s;
-	animation-delay: .2s;
-
-}
-.preloader span:nth-child(3){
-	left:22px;
-	-webkit-animation-delay: .4s;
-	animation-delay: .4s;
-}
-.preloader span:nth-child(4){
-	left:33px;
-	-webkit-animation-delay: .6s;
-	animation-delay: .6s;
-}
-.preloader span:nth-child(5){
-	left:44px;
-	-webkit-animation-delay: .8s;
-	animation-delay: .8s;
-}
-@-webkit-keyframes wave {
-	0% {height:50px;transform:translateY(0px);background:#fff;}
-	25% {height:100px;transform:translateY(15px);background:#ffcc66;}
-	50% {height:50px;transform:translateY(0px);background:#fff;}
-	100% {height:50px;transform:translateY(0px);background:#fff;}
-}
-@keyframes wave {
-	0% {height:50px;transform:translateY(0px);background:#fff;}
-	25% {height:100px;transform:translateY(15px);background:#ffcc66;}
-	50% {height:50px;transform:translateY(0px);background:#fff;}
-	100% {height:50px;transform:translateY(0px);background:#fff;}
+			
+@-webkit-keyframes play {
+	from { background-position: 0px 0px; }
+	to { background-position: -4550px 0px }
 }
 
+@-moz-keyframes play {
+	from { background-position: 0px 0px; }
+	to { background-position: -4550px 0px }
+}
 
+@-ms-keyframes play {
+	from { background-position: 0px 0px; }
+	to { background-position: -4550px 0px }
+}
+
+@-o-keyframes play {
+	from { background-position: 0px 0px; }
+	to { background-position: -4550px 0px }
+}
+
+@keyframes play {
+	from { background-position: 0px 0px; }
+	to { background-position: -4550px 0px }
+}
 .nav {
   float: none;
   margin: 0 auto;
