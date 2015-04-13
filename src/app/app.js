@@ -4,6 +4,7 @@ var lastSection = "";
 angular.module('Movie', [
     'ui.router',
     'ui.bootstrap',
+    'ngAudio',
     'Movie.home',
     'Movie.gallery',
     'Movie.synopsis',
@@ -33,6 +34,7 @@ angular.module('Movie', [
                         return PreloadService.loadManifest(movie)
                             .then(function (response) {
                                 $rootScope.loaded = true;
+                                $rootScope.$broadcast('loaded');
                                 return response;
                             }, function (error) {
                                 console.log(error);
@@ -56,10 +58,20 @@ angular.module('Movie', [
         ]);
 
     })
-    .run(function ($rootScope, $state) {
+    .run(function ($rootScope, $state, ngAudio, $timeout, $window) {
+        $rootScope.showAudio = true;
+        $rootScope.$on('loaded', function() {
+            ngAudio.setUnlock(false);
+
+            $rootScope.audio = ngAudio.load('assets/audio/war-path_ambient.mp3');
+            $rootScope.audio.play();
+
+            $rootScope.handleAudio = function () {
+                $rootScope.audio.paused ? $rootScope.audio.play() : $rootScope.audio.pause();
+            };
+        });
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             // State handling for animations
-
             // Set Default from state to "home"
             fromState = (fromState.name) ? fromState : {name: "home"};
 
@@ -73,6 +85,16 @@ angular.module('Movie', [
 
             $rootScope.animation = "from-" + fromstate + "-to-" + tostate;
             $rootScope.toState = tostate;
+        });
+
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {
+            if (toState.name == 'Movie.trailer') {
+                $rootScope.audio.pause();
+                $rootScope.showAudio = false;
+            } else if (fromState.name == "Movie.trailer") {
+                $rootScope.audio.play();
+                $rootScope.showAudio = true;
+            }
         });
     })
     .animation('.progressbar', function () {

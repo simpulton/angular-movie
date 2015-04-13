@@ -25,6 +25,14 @@
   <body>
     <div id="wrapper">
       <div ng-if="!loaded" class="preloader"></div>
+      <div ng-if="loaded && showAudio" class="play-container">
+          <ul class="nav">
+              <li class="back-button">
+                  <a href ng-class="{'fa fa-play-circle': audio.paused, 'fa fa-pause':!audio.paused}" ng-click="handleAudio()"></a>
+              </li>
+
+          </ul>
+      </div>
       <div ui-view="main" class="main-content"></div>
     </div>
 	
@@ -37,6 +45,7 @@
     <script src="vendor/preloadjs.min.js" type="text/javascript"></script>
     <script src="vendor/ui-bootstrap.min.js"></script>
     <script src="vendor/ui-bootstrap-tpls.js"></script>
+    <script src="vendor/angular.audio.js"></script>
 
     <script src="app/app.js" type="text/javascript"></script>
     <script src="app/home/home.js" type="text/javascript"></script>

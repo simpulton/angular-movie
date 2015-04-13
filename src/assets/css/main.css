@@ -159,6 +159,15 @@ a:visited {
 	/*margin: -5px 0px 0px 0px;*/
 }
 
+.play-container {
+  position: absolute;
+  right: -50px;
+  z-index: 1;
+}
+.play-container .back-button a:focus {
+  background-color: transparent;
+}
+
 #synopsis .nav .back-button a:hover,
 #cast .nav .back-button a:hover {
 	margin: -5px 0px 0px 0px;
