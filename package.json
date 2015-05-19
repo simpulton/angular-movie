@@ -1,0 +1,10 @@
+{
+  "name": "angular-movie",
+  "version": "1.0.0",
+  "description": "Server to serve the angular-movie app.",
+  "main": "server/app.js",
+  "author": "Jonathan Garvey <jon.d.garvey@gmail.com>",
+  "dependencies": {
+    "express": "^4.8.5"
+  }
+}
