@@ -15,13 +15,13 @@ angular.module('Movie', [
     'Movie.services.animations',
     'Movie.animations'
 ])
-    .constant('ENDPOINT_URI', 'app/data/movie.json')
+    .constant('ENDPOINT_URI', 'http://angular-movie-api-node.herokuapp.com/api')
     .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
         $stateProvider
             .state('Movie', {
                 resolve: {
                     movie: function (MovieService) {
-                        return MovieService.getMovie()
+                        return MovieService.fetch()
                             .then(function (response) {
                                 return response.data[0];
                             });
@@ -47,7 +47,9 @@ angular.module('Movie', [
             // Allow same origin resource loads
             'self',
             // Allow loading from youtube
-            'https://www.youtube.com/**'
+            'https://www.youtube.com/**',
+            'https://fast.wistia.net/**'
+
         ]);
 
     })

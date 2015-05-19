@@ -1,10 +1,12 @@
 angular.module('Movie.services.movie', [])
 .service('MovieService', function($http, ENDPOINT_URI) {
+    var resource = '/movies';
+
     var getUrl = function() {
-      return ENDPOINT_URI;
+        return ENDPOINT_URI + resource;
     };
 
-    this.getMovie = function() {
-      return $http.get(getUrl());
+    this.fetch = function() {
+        return $http.get(getUrl());
     };
-  })
+  });
