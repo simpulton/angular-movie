@@ -1,6 +1,4 @@
-angular.module('Movie.home', [
-    'ui.router'
-])
+angular.module('Movie.home', [])
     .config(function ($stateProvider, $sceDelegateProvider) {
         $stateProvider
             .state('Movie.home', {

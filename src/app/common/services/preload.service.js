@@ -31,11 +31,6 @@ angular.module('Movie.services.preload', [])
 
             queue.loadManifest(manifest);
 
-            queue.on('progress', function (event) {
-                var progress = event.progress * 100;
-                deferred.notify(progress);
-            });
-
             return deferred.promise;
         };
     });

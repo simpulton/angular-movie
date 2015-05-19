@@ -1,6 +1,4 @@
-angular.module('Movie.trailer', [
-    'ui.router'
-])
+angular.module('Movie.trailer', [])
     .config(function ($stateProvider) {
         $stateProvider
             .state('Movie.trailer', {

@@ -1,6 +1,3 @@
-var currentSection = "";
-var lastSection = "";
-
 angular.module('Movie', [
     'ui.router',
     'ui.bootstrap',
@@ -15,6 +12,7 @@ angular.module('Movie', [
     'Movie.directives.billboard',
     'Movie.services.preload',
     'Movie.services.movie',
+    'Movie.services.animations',
     'Movie.animations'
 ])
     .constant('ENDPOINT_URI', 'app/data/movie.json')
@@ -29,17 +27,12 @@ angular.module('Movie', [
                             });
                     },
                     loaded: function (PreloadService, movie, $rootScope) {
-                        $rootScope.loaded = false;
-
                         return PreloadService.loadManifest(movie)
                             .then(function (response) {
-                                $rootScope.loaded = true;
                                 $rootScope.$broadcast('loaded');
                                 return response;
                             }, function (error) {
                                 console.log(error);
-                            }, function (progress) {
-                                $rootScope.progress = progress;
                             });
                     }
 
@@ -58,18 +51,25 @@ angular.module('Movie', [
         ]);
 
     })
-    .run(function ($rootScope, $state, ngAudio, $timeout, $window) {
-        $rootScope.showAudio = true;
+    .controller('MainCtrl', function (AnimationsService, $rootScope, $state, ngAudio, $timeout, $window) {
+        var main = this;
+
+        main.showAudio = true;
+        main.loaded = false;
+
         $rootScope.$on('loaded', function() {
+            main.loaded = true;
+
             ngAudio.setUnlock(false);
 
-            $rootScope.audio = ngAudio.load('assets/audio/war-path_ambient.mp3');
-            $rootScope.audio.play();
+            main.audio = ngAudio.load('assets/audio/war-path_ambient.mp3');
+            main.audio.play();
 
-            $rootScope.handleAudio = function () {
-                $rootScope.audio.paused ? $rootScope.audio.play() : $rootScope.audio.pause();
+            main.handleAudio = function () {
+                main.audio.paused ? main.audio.play() : main.audio.pause();
             };
         });
+
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             // State handling for animations
             // Set Default from state to "home"
@@ -83,27 +83,21 @@ angular.module('Movie', [
             var tostate = tState[lastIndex];
             var fromstate = fState[fLastIndex];
 
-            $rootScope.animation = "from-" + fromstate + "-to-" + tostate;
-            $rootScope.toState = tostate;
+            var currentAnimation = "from-" + fromstate + "-to-" + tostate;
+
+            AnimationsService.setCurrentAnimation(currentAnimation);
+
+            main.toState = tostate;
+
         });
 
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {
             if (toState.name == 'Movie.trailer') {
-                $rootScope.audio.pause();
-                $rootScope.showAudio = false;
+                main.audio.pause();
+                main.showAudio = false;
             } else if (fromState.name == "Movie.trailer") {
-                $rootScope.audio.play();
-                $rootScope.showAudio = true;
+                main.audio.play();
+                main.showAudio = true;
             }
         });
-    })
-    .animation('.progressbar', function () {
-        return {
-            enter: function (element, done) {
-                TweenMax.fromTo(element, 1, {autoAlpha: 0}, {autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
-            },
-            leave: function (element, done) {
-                TweenMax.to(element, 1, {autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
-            }
-        }
     });

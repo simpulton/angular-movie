@@ -1,6 +1,4 @@
-angular.module('Movie.cast', [
-    'ui.router'
-])
+angular.module('Movie.cast', [])
     .config(function ($stateProvider) {
         $stateProvider
             .state('Movie.cast', {
