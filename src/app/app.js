@@ -15,13 +15,13 @@ angular.module('Movie', [
     'Movie.services.animations',
     'Movie.animations'
 ])
-    .constant('ENDPOINT_URI', 'app/data/movie.json')
+    .constant('ENDPOINT_URI', 'app/data')
     .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
         $stateProvider
             .state('Movie', {
                 resolve: {
                     movie: function (MovieService) {
-                        return MovieService.getMovie()
+                        return MovieService.fetch()
                             .then(function (response) {
                                 return response.data[0];
                             });
@@ -29,7 +29,7 @@ angular.module('Movie', [
                     loaded: function (PreloadService, movie, $rootScope) {
                         return PreloadService.loadManifest(movie)
                             .then(function (response) {
-                                $rootScope.$broadcast('loaded');
+                                $rootScope.$broadcast('loaded', movie);
                                 return response;
                             }, function (error) {
                                 console.log(error);
@@ -47,7 +47,8 @@ angular.module('Movie', [
             // Allow same origin resource loads
             'self',
             // Allow loading from youtube
-            'https://www.youtube.com/**'
+            'https://www.youtube.com/**',
+            'https://fast.wistia.net/**'
         ]);
 
     })
@@ -57,12 +58,12 @@ angular.module('Movie', [
         main.showAudio = true;
         main.loaded = false;
 
-        $rootScope.$on('loaded', function() {
+        $rootScope.$on('loaded', function(event, movie) {
             main.loaded = true;
 
             ngAudio.setUnlock(false);
 
-            main.audio = ngAudio.load('assets/audio/war-path_ambient.mp3');
+            main.audio = ngAudio.load(movie.audio[0].src);
             main.audio.play();
 
             main.handleAudio = function () {
