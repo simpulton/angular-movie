@@ -14,15 +14,19 @@ angular.module('Movie.home', [])
             }
         );
     })
-    .controller('AppCtrl', function (PreloadService, movie, $timeout, $scope, $sce) {
+    .controller('AppCtrl', function ($scope, $sce, $timeout, MovieService) {
         var app = this;
+
+        app.showIframe = true;
 
         app.renderHtml = function (html) {
             return $sce.trustAsHtml(html);
         };
 
-        app.movie = movie;
-        app.showIframe = false;
+        MovieService.fetch()
+            .then(function (response) {
+                app.movie = response.data[0];
+            });
 
         // Init cast
         app.currentCast = 0;
@@ -38,13 +42,6 @@ angular.module('Movie.home', [])
                 });
             }
         };
-
-        $scope.$on('animation-done', function () {
-            $scope.$apply(function () {
-                app.showIframe = true;
-            });
-        });
-
 
     });
 

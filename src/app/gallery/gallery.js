@@ -13,19 +13,3 @@ angular.module('Movie.gallery', [])
             }
         );
     })
-    .animation('.current-image', function ($window) {
-
-        return {
-            enter: function (element, done) {
-                // inbound picture animation
-                var x = element.hasClass('forward') ? $window.innerWidth : -$window.innerWidth;
-                TweenMax.fromTo(element, 1, {x: x}, {x: 0, ease: Expo.easeInOut, onComplete: done});
-            },
-
-            leave: function (element, done) {
-                // outbound picture animation
-                var x = element.hasClass('forward') ? -$window.innerWidth : $window.innerWidth;
-                TweenMax.to(element, 1, {x: x, ease: Expo.easeInOut, onComplete: done});
-            }
-        };
-    });

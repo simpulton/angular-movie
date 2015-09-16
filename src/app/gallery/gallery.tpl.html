@@ -18,10 +18,10 @@
             	<img thumbnail ng-mouseenter="play()" ng-mouseleave="reverse()" ng-click="app.setCurrentIndex($index, 'forward')" width="130" height="85" ng-src="{{thumb.src}}">
             </li>
         </ul>
-        <a href="" class="miniarrow-right">
+        <a href="" class="miniarrow-right" ng-click="app.setCurrentIndex(app.currentIndex+1)">
             <div class="miniarrow"></div>
         </a>
-        <a href="" class="miniarrow-left">
+        <a href="" class="miniarrow-left" ng-click="app.setCurrentIndex(app.currentIndex-1)">
             <div class="miniarrow"></div>
         </a>
     </div>

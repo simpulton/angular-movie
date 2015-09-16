@@ -1,10 +1,6 @@
 /********* Defaults *********/
 .fade-in {
-  -webkit-animation: fadeIn 2s;
-  -moz-animation: fadeIn 2s;
-  -ms-animation: fadeIn 2s;
-  -o-animation: fadeIn 2s;
-  animation: fadeIn 2s;
+
 }
 
 @-webkit-keyframes fadeIn {
@@ -82,12 +78,6 @@ a:visited {
 	top: 50%;
 	margin: -35px 0px 0px -35px;
 	background-image: url(../images/preloader.png);
-	
-	-webkit-animation: play 1.5s steps(65) infinite;
-	-moz-animation: play 1.5s steps(65) infinite;
-	-ms-animation: play 1.5s steps(65) infinite;
-	-o-animation: play 1.5s steps(65) infinite;
-	animation: play 1.5s steps(65) infinite;
 }
 			
 @-webkit-keyframes play {
@@ -128,17 +118,13 @@ a:visited {
 	background-color: transparent;
 }
 .nav li a:hover {
-  background-color: transparent;
+  background-color: #000;
+  color: #ffcc66;
 }
 .nav .back-button {
   border-top: 50px solid black;
   border-right: 50px solid transparent;
   border-left: 50px solid transparent;
-	-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-	   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
 }
 
 .nav .back-button a {
@@ -146,11 +132,6 @@ a:visited {
 	position: relative;
 	top: -50px;
 	background: transparent;
-	-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-	   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
 			
 }
 .nav .back-button a:hover {
@@ -166,23 +147,6 @@ a:visited {
 }
 .play-container .back-button a:focus {
   background-color: transparent;
-}
-
-#synopsis .nav .back-button a:hover,
-#cast .nav .back-button a:hover {
-	margin: -5px 0px 0px 0px;
-}
-
-#gallery .nav .back-button a:hover {
-	margin: 0px 0px 0px -5px;
-}
-
-#trailer .nav .back-button a:hover {
-	margin: 0px -5px 0px 0px;
-}
-
-.nav .back-button a:hover > .nav .back-button {
-	margin-top: -5px;
 }
 
 #wrapper {
@@ -204,7 +168,8 @@ a:visited {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity:0;
+	/* changed when removing animations */
+	opacity:1;
 }
 
 /********* Movie Details Home Page **********/
@@ -396,14 +361,6 @@ a:visited {
 	overflow-y: scroll;
 }
 
-#cast .content ul li a {
-	-webkit-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-	   -moz-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		-ms-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-		 -o-transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-			transition: all 0.5s cubic-bezier(0.25,1,0.25,1);
-}
-
 
 /********* Gallery *********/
 .gallery-wrapper {
@@ -493,23 +450,11 @@ a:visited {
 			top: 25px;
 			left: 15px;
 			background: transparent url(../images/arrow-left.png) no-repeat top left;
-	
-			-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
 			}
 		.arrow-right .arrow {
 			top: 25px;
 			right: 15px;
 			background: transparent url(../images/arrow-right.png) no-repeat top left;
-	
-			-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
 			}
 			
 		.arrow-left:hover .arrow {
@@ -541,34 +486,16 @@ a:visited {
 		position: absolute;
 		width: 20px;
 		height: 20px;
-	
-		-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-		   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
 		}
 		.miniarrow-left .miniarrow {
 			top: 0;
 			left: 0;
 			background: transparent url(../images/miniarrow-left.png) no-repeat top left;
-	
-			-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
 			}
 		.miniarrow-right .miniarrow {
 			right: 0;
 			top: 0;
 			background: transparent url(../images/miniarrow-right.png) no-repeat top left;
-	
-			-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-			   -moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-				 -o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
-					transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
 			}
 			
 		.miniarrow-left:hover .miniarrow {
