@@ -327,6 +327,7 @@ a:visited {
 #cast .cast-animate {
     width: 700px;
     float: left;
+    display: none;
 }
 #cast .content h4 {
 	position: absolute;
@@ -421,6 +422,7 @@ a:visited {
 .galleryimage {
 	position: absolute;
 	width: 100%;
+	display: none;
 }
 .arrow-right {
 	display: block;
