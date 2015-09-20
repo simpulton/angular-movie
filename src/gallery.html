@@ -99,46 +99,40 @@
 
     <script>
       var count = 1;
-      jQuery('#' + count).show();
 
-      jQuery('.gallery img').on('click', function(e){
+      function moveRight(){
+        jQuery('.galleryimage').hide();
+        if(count < 5){
+          count++
+        }
+        jQuery('#' + count).show();
+      }
+
+      function moveLeft(){
+        jQuery('.galleryimage').hide();
+        if(count > 1){
+          count--
+        }
+        jQuery('#' + count).show();
+      }
+
+      function selectSlide(e){
         count = e.target.dataset.thumb;
         jQuery('.galleryimage').hide();
         jQuery('#' + count).show();
+      }
 
-      })
+      jQuery('#' + count).show();
 
-      jQuery('.arrow-right').on('click', function(e){
-        jQuery('.galleryimage').hide();
-        if(count < 5){
-          count++
-        }
-        jQuery('#' + count).show();
-      });
+      jQuery('.gallery img').on('click', selectSlide)
 
-      jQuery('.miniarrow-right').on('click', function(e){
-        jQuery('.galleryimage').hide();
-        if(count < 5){
-          count++
-        }
-        jQuery('#' + count).show();
-      });
+      jQuery('.arrow-right').on('click', moveRight);
 
-      jQuery('.arrow-left').on('click', function(e){
-        jQuery('.galleryimage').hide();
-        if(count > 1){
-          count--
-        }
-        jQuery('#' + count).show();
-      });
+      jQuery('.miniarrow-right').on('click', moveRight);
 
-      jQuery('.miniarrow-left').on('click', function(e){
-        jQuery('.galleryimage').hide();
-        if(count > 1){
-          count--
-        }
-        jQuery('#' + count).show();
-      });
+      jQuery('.arrow-left').on('click', moveLeft);
+
+      jQuery('.miniarrow-left').on('click', moveLeft);
 
     </script>
   </body>

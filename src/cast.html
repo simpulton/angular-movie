@@ -107,11 +107,12 @@
     <script>
       jQuery('.cast-animate').first().show();
       var member = undefined;
-      jQuery('.selectCast').on('click', function(e){
+      function selectCast(e) {
         member = e.target.dataset.cast;
         jQuery('.cast-animate').hide();
         jQuery('#' + member).show();
-      });
+      }
+      jQuery('.selectCast').on('click', selectCast);
     </script>
   </body>
 </html>
