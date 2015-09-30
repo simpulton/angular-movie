@@ -4,17 +4,30 @@ angular.module('Movie', [
     'Movie.gallery',
     'Movie.synopsis',
     'Movie.cast',
-    'Movie.trailer'
+    'Movie.trailer',
+    'Movie.services.movie'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $stateProvider
         .state('Movie', {
             abstract: true,
-            url: ''
+            url: '',
+            resolve: {
+                movie: function (MovieService, $rootScope) {
+                    return MovieService.fetch()
+                        .then(function (response) {
+                            $rootScope.$broadcast('loaded', response.data[0]);
+                            return response.data[0];
+                        });
+                }
+
+            },
         });
 
     $urlRouterProvider.otherwise("/");
 })
-.controller('MainCtrl', function () {
+.constant('ENDPOINT_URI', 'app/data')
+.controller('MainCtrl', function ($rootScope) {
     var main = this;
+    
 });
