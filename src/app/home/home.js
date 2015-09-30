@@ -13,7 +13,7 @@ angular.module('Movie.home', [])
             }
         );
 })
-.controller('AppCtrl', function () {
+.controller('AppCtrl', function ($rootScope) {
     var app = this;
     $rootScope.$on('loaded', function(event, data){
          app.movie = data;
