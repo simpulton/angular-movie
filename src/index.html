@@ -25,27 +25,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body ng-controller="MainCtrl as main">
     <div id="wrapper">
       <!-- animated loader will go here-->
-      <div class="main-content">
-        <div class="home-bg"></div>
-        <div class="container-fluid" id="home">
-          <ul class="text-center nav nav-pills">
-                <li><a href="synopsis.html">SYNOPSIS</a></li>
-                <li><a href="cast.html">CAST</a></li>
-                <li><a href="gallery.html">GALLERY</a></li>
-                <li><a href="trailer.html">TRAILER</a></li>
-            </ul>
-        </div>
 
-        <div class="text-center megatron">
-          <h1>
-            <div class="big">ANGULAR</div>
-            <div class="byline">SEE IT IN realD 3D, HFR 3D AND IMAX 3D</div>
-            <div class="date">09.04.2015</div>
-          </h1>
-        </div>
+        <div ui-view="main" class="main-content"></div>
+
+
       </div>
     </div>
 

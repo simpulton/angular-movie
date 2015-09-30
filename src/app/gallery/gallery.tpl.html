@@ -1,0 +1,100 @@
+<div id="gallery">
+
+  <div class="gallery-wrapper">
+    <img class="galleryimage current-image" src="assets/images/thumb1.jpg" id="1">
+    <img class="galleryimage current-image" src="assets/images/thumb2.jpg" id="2">
+    <img class="galleryimage current-image" src="assets/images/thumb3.jpg" id="3">
+    <img class="galleryimage current-image" src="assets/images/thumb4.jpg" id="4">
+    <img class="galleryimage current-image" src="assets/images/thumb5.jpg" id="5">
+  </div>
+  
+  <div class="container-fluid">
+      <ul class="nav">
+        <li class="back-button btn-left"><a href="index.html">BACK</a></li>
+      </ul>
+  </div>
+  
+  <div class="billboard">
+    <div class="movie-details">
+      <h1>
+        <div class="big">ANGULAR</div>
+        <div class="byline">
+          SEE IT IN realD 3D, HFR 3D AND IMAX 3D</div>
+        <div class="date">09.04.2015</div>
+      </h1>
+    </div>
+  </div>
+  
+  <div class="gallery">
+      <ul>
+          <li>
+            <img width="130" height="85" src="assets/images/thumb1.jpg" data-thumb="1">
+          </li>
+          <li>
+            <img width="130" height="85" src="assets/images/thumb2.jpg" data-thumb="2">
+          </li>
+          <li>
+            <img width="130" height="85" src="assets/images/thumb3.jpg" data-thumb="3">
+          </li>
+          <li>
+            <img width="130" height="85" src="assets/images/thumb4.jpg" data-thumb="4">
+          </li>
+          <li>
+            <img width="130" height="85" src="assets/images/thumb5.jpg" data-thumb="5">
+          </li>
+      </ul>
+      <a class="miniarrow-right">
+          <div class="miniarrow"></div>
+      </a>
+      <a class="miniarrow-left">
+          <div class="miniarrow"></div>
+      </a>
+  </div>
+  
+  <a class="arrow-right">
+      <div class="arrow"></div>
+  </a>
+  <a class="arrow-left">
+      <div class="arrow"></div>
+  </a>
+
+</div>
+      
+<script>
+  var count = 1;
+
+  function moveRight(){
+    jQuery('.galleryimage').hide();
+    if(count < 5){
+      count++
+    }
+    jQuery('#' + count).show();
+  }
+
+  function moveLeft(){
+    jQuery('.galleryimage').hide();
+    if(count > 1){
+      count--
+    }
+    jQuery('#' + count).show();
+  }
+
+  function selectSlide(e){
+    count = e.target.dataset.thumb;
+    jQuery('.galleryimage').hide();
+    jQuery('#' + count).show();
+  }
+
+  jQuery('#' + count).show();
+
+  jQuery('.gallery img').on('click', selectSlide)
+
+  jQuery('.arrow-right').on('click', moveRight);
+
+  jQuery('.miniarrow-right').on('click', moveRight);
+
+  jQuery('.arrow-left').on('click', moveLeft);
+
+  jQuery('.miniarrow-left').on('click', moveLeft);
+
+</script>

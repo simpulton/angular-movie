@@ -14,4 +14,7 @@ angular.module('Movie', [
         });
 
     $urlRouterProvider.otherwise("/");
+})
+.controller('MainCtrl', function () {
+    var main = this;
 });
