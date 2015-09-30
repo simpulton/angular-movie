@@ -13,10 +13,9 @@ angular.module('Movie', [
             abstract: true,
             url: '',
             resolve: {
-                movie: function (MovieService, $rootScope) {
+                movie: function (MovieService) {
                     return MovieService.fetch()
                         .then(function (response) {
-                            $rootScope.$broadcast('loaded', response.data[0]);
                             return response.data[0];
                         });
                 }
@@ -29,5 +28,4 @@ angular.module('Movie', [
 .constant('ENDPOINT_URI', 'app/data')
 .controller('MainCtrl', function ($rootScope) {
     var main = this;
-    
 });
