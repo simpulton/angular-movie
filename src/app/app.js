@@ -5,7 +5,8 @@ angular.module('Movie', [
     'Movie.synopsis',
     'Movie.cast',
     'Movie.trailer',
-    'Movie.services.movie'
+    'Movie.services.movie',
+    'Movie.services.preload'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $stateProvider
@@ -17,6 +18,15 @@ angular.module('Movie', [
                     return MovieService.fetch()
                         .then(function (response) {
                             return response.data[0];
+                        });
+                },
+                loaded: function (PreloadService, movie, $rootScope) {
+                    return PreloadService.loadManifest(movie)
+                        .then(function (response) {
+                            $rootScope.$broadcast('loaded', movie);
+                            return response;
+                        }, function (error) {
+                            console.error(error);
                         });
                 }
 
@@ -36,4 +46,10 @@ angular.module('Movie', [
 .constant('ENDPOINT_URI', 'app/data')
 .controller('MainCtrl', function ($rootScope) {
     var main = this;
+
+    main.loaded = false;
+
+    $rootScope.$on('loaded', function(event, movie) {
+        main.loaded = true;
+    });
 });
