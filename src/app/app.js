@@ -6,7 +6,8 @@ angular.module('Movie', [
     'Movie.cast',
     'Movie.trailer',
     'Movie.services.movie',
-    'Movie.services.preload'
+    'Movie.services.preload',
+    'Movie.directives.billboard'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $stateProvider
