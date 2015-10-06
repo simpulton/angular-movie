@@ -1,5 +1,7 @@
 angular.module('Movie', [
     'ui.router',
+    'ngAudio',
+    'ui.bootstrap',
     'Movie.home',
     'Movie.gallery',
     'Movie.synopsis',
@@ -45,12 +47,33 @@ angular.module('Movie', [
     ]);
 })
 .constant('ENDPOINT_URI', 'app/data')
-.controller('MainCtrl', function ($rootScope) {
+.controller('MainCtrl', function ($rootScope, ngAudio) {
     var main = this;
 
     main.loaded = false;
+    main.showAudio = true;
 
     $rootScope.$on('loaded', function(event, movie) {
         main.loaded = true;
+
+        ngAudio.setUnlock(false);
+
+        main.audio = ngAudio.load(movie.audio[0].src);
+        main.audio.play();
+
+        main.handleAudio = function () {
+            main.audio.paused ? main.audio.play() : main.audio.pause();
+        };
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {
+        if (toState.name == 'Movie.trailer') {
+            main.audio.pause();
+            main.showAudio = false;
+        } else if (fromState.name == "Movie.trailer") {
+            main.audio.play();
+            main.showAudio = true;
+        }
     });
 });
+
