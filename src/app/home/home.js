@@ -13,7 +13,29 @@ angular.module('Movie.home', [])
             }
         );
 })
-.controller('AppCtrl', function ($rootScope, movie) {
+.controller('AppCtrl', function ($rootScope, $sce, $timeout, movie) {
     var app = this;
+
     app.movie = movie;
+
+    app.renderHtml = function (html) {
+        return $sce.trustAsHtml(html);
+    };
+
+    app.showIframe = true;
+
+    // Init cast
+    app.currentCast = 0;
+
+    // Init slideshow
+    app.direction = 'forward';
+    app.currentIndex = 0;
+    app.setCurrentIndex = function (index) {
+        app.direction = (index >= app.currentIndex) ? 'forward' : 'reverse';
+        if (index >= 0 && index < app.movie.images.length) {
+            $timeout(function () {
+                app.currentIndex = index;
+            });
+        }
+    };
 });

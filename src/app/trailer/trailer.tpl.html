@@ -1,8 +1,8 @@
 <div id="trailer">
-	<div class="trailers container-fluid">
-		<iframe src="https://fast.wistia.net/embed/iframe/s9dik6rmo5" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed fade-in" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe>
-		<ul class="nav">
-	  		<li class="back-button"><a href="index.html">BACK</a></li>
-		</ul>
-	</div>
+    <div class="trailers container-fluid">
+        <iframe ng-if="app.showIframe" src="{{app.movie.trailers[0].src}}" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed fade-in" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe>
+        <ul class="nav">
+            <li class="back-button"><a href ui-sref="Movie.home">BACK</a></li>
+        </ul>
+    </div>
 </div>

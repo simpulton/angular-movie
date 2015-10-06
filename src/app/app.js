@@ -24,6 +24,14 @@ angular.module('Movie', [
         });
 
     $urlRouterProvider.otherwise("/");
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads
+        'self',
+        // Allow loading from youtube
+        'https://www.youtube.com/**',
+        'https://fast.wistia.net/**'
+    ]);
 })
 .constant('ENDPOINT_URI', 'app/data')
 .controller('MainCtrl', function ($rootScope) {
