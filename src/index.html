@@ -27,8 +27,8 @@
   </head>
   <body ng-controller="MainCtrl as main">
     <div id="wrapper">
-      <!-- animated loader will go here-->
-
+    
+        <div ng-if="!main.loaded" class="preloader"></div>
         <div ui-view="main" class="main-content"></div>
 
 
