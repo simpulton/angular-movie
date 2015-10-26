@@ -9,7 +9,8 @@ angular.module('Movie', [
     'Movie.trailer',
     'Movie.services.movie',
     'Movie.services.preload',
-    'Movie.directives.billboard'
+    'Movie.directives.billboard',
+    'Movie.animations'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $stateProvider
