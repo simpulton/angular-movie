@@ -4,6 +4,4 @@ angular.module('Movie.home')
 
         homeVm.title = "angular";
         homeVm.release = "09.04.2015";
-
-        console.log('HomeController');
     });
