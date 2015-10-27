@@ -1,6 +1,6 @@
 angular.module('Movie.home')
     .controller('HomeController', function () {
-        var homeCtrl = this;
+        var homeVm = this;
 
         console.log('HomeController');
     });

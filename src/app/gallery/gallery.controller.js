@@ -1,6 +1,6 @@
 angular.module('Movie.gallery')
     .controller('GalleryController', function () {
-        var galleryCtrl = this;
+        var galleryVm = this;
 
         console.log('GalleryController');
     });

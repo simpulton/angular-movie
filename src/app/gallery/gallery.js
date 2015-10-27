@@ -7,7 +7,7 @@ angular.module('Movie.gallery', [])
                     'main@': {
                         templateUrl: 'app/gallery/gallery.tpl.html',
                         controller: 'GalleryController',
-                        controllerAs: 'galleryCtrl'
+                        controllerAs: 'galleryVm'
                     }
                 }
             }

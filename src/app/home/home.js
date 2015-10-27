@@ -7,7 +7,7 @@ angular.module('Movie.home', [])
                     'main@': {
                         templateUrl: 'app/home/home.tpl.html',
                         controller: 'HomeController',
-                        controllerAs: 'homeCtrl'
+                        controllerAs: 'homeVm'
                     }
                 }
             }

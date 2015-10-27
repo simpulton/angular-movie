@@ -7,7 +7,7 @@ angular.module('Movie.synopsis', [])
                     'main@': {
                         templateUrl: 'app/synopsis/synopsis.tpl.html',
                         controller: 'SynopsisController',
-                        controllerAs: 'synopsisCtrl'
+                        controllerAs: 'synopsisVm'
                     }
                 }
             }

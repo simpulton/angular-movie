@@ -7,7 +7,7 @@ angular.module('Movie.cast', [])
                     'main@': {
                         templateUrl: 'app/cast/cast.tpl.html',
                         controller: 'CastController',
-                        controllerAs: 'castCtrl'
+                        controllerAs: 'castVm'
                     }
                 }
             }

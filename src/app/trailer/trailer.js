@@ -7,7 +7,7 @@ angular.module('Movie.trailer', [])
                     'main@': {
                         templateUrl: 'app/trailer/trailer.tpl.html',
                         controller: 'TrailerController',
-                        controllerAs: 'trailerCtrl'
+                        controllerAs: 'trailerVm'
                     }
                 }
             }
