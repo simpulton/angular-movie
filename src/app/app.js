@@ -5,7 +5,8 @@ angular.module('Movie', [
     'Movie.cast',
     'Movie.gallery',
     'Movie.trailer',
-    'Movie.services.movie'
+    'Movie.services.movie',
+    'Movie.directives.billboard'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider

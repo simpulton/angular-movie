@@ -1,6 +1,6 @@
 angular.module('Movie.gallery')
-    .controller('GalleryController', function () {
+    .controller('GalleryController', function (movie) {
         var galleryVm = this;
 
-        console.log('GalleryController');
+        galleryVm.movie = movie;
     });

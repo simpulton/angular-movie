@@ -1,6 +1,6 @@
 angular.module('Movie.cast')
-    .controller('CastController', function () {
+    .controller('CastController', function (movie) {
         var castVm = this;
 
-        console.log('CastController');
+        castVm.movie = movie;
     });

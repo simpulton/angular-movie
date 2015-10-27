@@ -178,6 +178,34 @@ a:visited {
 	opacity:1;
 }
 
+/********* Movie Details Aside *********/
+.billboard {
+	position: absolute;
+	width: 400px;
+	left: 10px;
+	bottom: 130px;
+	text-align: center;
+}
+.movie-details h1 {
+	font-size: 200%;
+}
+.movie-details h1 .big {
+	width: 100%;
+	display: block;
+	line-height: 80%;
+}
+.movie-details .byline {
+	font-family: "Helvetica";
+
+	margin-top: 1%;
+	margin-bottom: 1%;
+	font-size: 20%;
+
+}
+.movie-details .date {
+	font-size: 35%;
+}
+
 /********* Movie Details Home Page **********/
 .home-bg {
   position: absolute;
@@ -211,36 +239,6 @@ a:visited {
 .megatron .date {
   font-size: 15%;
 }
-
-/********* Movie Details Aside *********/
-.billboard {
-	position: absolute;
-	width: 400px;
-	left: 10px;
-	bottom: 130px;
-	text-align: center;
-}
-.movie-details h1 {
-  font-size: 200%;
-}
-.movie-details h1 .big {
-  width: 100%;
-  display: block;
-  line-height: 80%;
-}
-.movie-details .byline {
-  font-family: "Helvetica";
-
-  margin-top: 1%;
-  margin-bottom: 1%;
-  font-size: 20%;
-
-}
-.movie-details .date {
-  font-size: 35%;
-}
-
-
 
 /********* Synopsis *********/
 #synopsis .content {

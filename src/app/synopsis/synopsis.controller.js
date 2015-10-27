@@ -1,6 +1,6 @@
 angular.module('Movie.synopsis')
-    .controller('SynopsisController', function () {
+    .controller('SynopsisController', function (movie) {
         var synopsisVm = this;
 
-        console.log('SynopsisController');
+        synopsisVm.movie = movie;
     });
