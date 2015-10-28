@@ -6,7 +6,8 @@ angular.module('Movie', [
     'Movie.gallery',
     'Movie.trailer',
     'Movie.services.movie',
-    'Movie.directives.billboard'
+    'Movie.directives.billboard',
+    'Movie.services.preload'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -19,10 +20,28 @@ angular.module('Movie', [
                         .then(function (response) {
                             return response.data[0];
                         });
+                },
+                loaded: function (PreloadService, movie, $rootScope) {
+                    return PreloadService.loadManifest(movie)
+                        .then(function (response) {
+                            $rootScope.$broadcast('loaded', movie);
+                            return response;
+                        }, function (error) {
+                            console.error(error);
+                        });
                 }
             }
         });
 
     $urlRouterProvider.otherwise('/');
 })
-.constant('ENDPOINT_URI', 'app/data');
+.constant('ENDPOINT_URI', 'app/data')
+.controller('MainController', function ($rootScope) {
+    var mainCtrl = this;
+
+    mainCtrl.loaded = false;
+
+    $rootScope.$on('loaded', function (event, movie) {
+        mainCtrl.loaded = true;
+    });
+});

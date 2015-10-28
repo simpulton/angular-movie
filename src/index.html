@@ -25,13 +25,15 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body ng-controller="MainController as mainCtrl">
 <div id="wrapper">
 	<!-- animated loader will go here-->
 
+	<div ng-if="!mainCtrl.loaded" class="preloader"></div>
 	<div class="main-content" ui-view="main"></div>
 </div>
 
+<script src="vendor/preloadjs.min.js"></script>
 <script src="vendor/angular.min.js"></script>
 <script src="vendor/angular-ui-router.min.js"></script>
 
@@ -47,6 +49,7 @@
 <script src="app/trailer/trailer.js"></script>
 <script src="app/trailer/trailer.controller.js"></script>
 <script src="app/common/services/movie.service.js"></script>
+<script src="app/common/services/preload.service.js"></script>
 <script src="app/common/directives/billboard.directive.js"></script>
 
 </body>

@@ -78,6 +78,11 @@ a:visited {
 	top: 50%;
 	margin: -35px 0px 0px -35px;
 	background-image: url(../images/preloader.png);
+    -webkit-animation: play 1.5s steps(65) infinite;
+    -moz-animation: play 1.5s steps(65) infinite;
+    -ms-animation: play 1.5s steps(65) infinite;
+    -o-animation: play 1.5s steps(65) infinite;
+    animation: play 1.5s steps(65) infinite;
 }
 			
 @-webkit-keyframes play {
