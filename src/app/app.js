@@ -37,11 +37,11 @@ angular.module('Movie', [
 })
 .constant('ENDPOINT_URI', 'app/data')
 .controller('MainController', function ($rootScope) {
-    var mainCtrl = this;
+    var mainVm = this;
 
-    mainCtrl.loaded = false;
+    mainVm.loaded = false;
 
     $rootScope.$on('loaded', function (event, movie) {
-        mainCtrl.loaded = true;
+        mainVm.loaded = true;
     });
 });

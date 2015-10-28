@@ -25,11 +25,11 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body ng-controller="MainController as mainCtrl">
+<body ng-controller="MainController as mainVm">
 <div id="wrapper">
 	<!-- animated loader will go here-->
 
-	<div ng-if="!mainCtrl.loaded" class="preloader"></div>
+	<div ng-if="!mainVm.loaded" class="preloader"></div>
 	<div class="main-content" ui-view="main"></div>
 </div>
 
