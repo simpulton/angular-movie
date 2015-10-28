@@ -1,7 +1,9 @@
 <div id="gallery">
 
 	<div class="gallery-wrapper">
-		<img class="galleryimage current-image" src="assets/images/thumb1.jpg" id="1">
+		<img class="galleryimage" ng-class="{'current-image': galleryVm.currentIndex === $index}"
+		     ng-if="galleryVm.currentIndex === $index"
+		     ng-repeat="image in galleryVm.movie.images" ng-src="{{image.src}}">
 	</div>
 
 	<div class="container-fluid">
@@ -14,34 +16,25 @@
 
 	<div class="gallery">
 		<ul>
-			<li>
-				<img width="130" height="85" src="assets/images/thumb1.jpg" data-thumb="1">
-			</li>
-			<li>
-				<img width="130" height="85" src="assets/images/thumb2.jpg" data-thumb="2">
-			</li>
-			<li>
-				<img width="130" height="85" src="assets/images/thumb3.jpg" data-thumb="3">
-			</li>
-			<li>
-				<img width="130" height="85" src="assets/images/thumb4.jpg" data-thumb="4">
-			</li>
-			<li>
-				<img width="130" height="85" src="assets/images/thumb5.jpg" data-thumb="5">
+			<li ng-repeat="thumb in galleryVm.movie.images | startIndex: galleryVm.sliderIndex | limitTo: 5">
+				<img ng-click="galleryVm.setCurrentIndex($index + galleryVm.sliderIndex)"
+				     width="130" height="85" ng-src="{{thumb.src}}">
 			</li>
 		</ul>
-		<a class="miniarrow-right">
+		<a href ng-if="galleryVm.rightSliderArrowVisible()"
+		   ng-click="galleryVm.slideRight()" class="miniarrow-right">
 			<div class="miniarrow"></div>
 		</a>
-		<a class="miniarrow-left">
+		<a href ng-if="galleryVm.leftSliderArrowVisible()"
+		   ng-click="galleryVm.slideLeft()" class="miniarrow-left">
 			<div class="miniarrow"></div>
 		</a>
 	</div>
 
-	<a class="arrow-right">
+	<a href ng-click="galleryVm.setCurrentIndex(galleryVm.currentIndex+1)" class="arrow-right">
 		<div class="arrow"></div>
 	</a>
-	<a class="arrow-left">
+	<a href ng-click="galleryVm.setCurrentIndex(galleryVm.currentIndex-1)" class="arrow-left">
 		<div class="arrow"></div>
 	</a>
 
