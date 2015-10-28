@@ -30,12 +30,20 @@
 	<!-- animated loader will go here-->
 
 	<div ng-if="!mainCtrl.loaded" class="preloader"></div>
+	<div ng-if="mainCtrl.loaded && mainCtrl.showAudio" class="play-container">
+		<ul class="nav">
+			<li class="back-button">
+				<a href ng-class="{'fa fa-play-circle': mainCtrl.audio.paused, 'fa fa-pause':!mainCtrl.audio.paused}" ng-click="mainCtrl.handleAudio()"></a>
+			</li>
+		</ul>
+	</div>
 	<div class="main-content" ui-view="main"></div>
 </div>
 
 <script src="vendor/preloadjs.min.js"></script>
 <script src="vendor/angular.min.js"></script>
 <script src="vendor/angular-ui-router.min.js"></script>
+<script src="vendor/angular.audio.js"></script>
 
 <script src="app/app.js"></script>
 <script src="app/home/home.js"></script>
