@@ -1,6 +1,6 @@
 angular.module('Movie.trailer')
-    .controller('TrailerController', function () {
+    .controller('TrailerController', function (movie) {
         var trailerVm = this;
 
-        console.log('TrailerController');
+        trailerVm.movie = movie;
     });

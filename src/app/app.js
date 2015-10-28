@@ -11,7 +11,7 @@ angular.module('Movie', [
     'Movie.services.preload',
     'Movie.filters.startIndex'
 ])
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $stateProvider
         .state('Movie', {
             abstract: true,
@@ -36,6 +36,14 @@ angular.module('Movie', [
         });
 
     $urlRouterProvider.otherwise('/');
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads
+        'self',
+        // Allow loading from youtube
+        'https://www.youtube.com/**',
+        'https://fast.wistia.net/**'
+    ]);
 })
 .constant('ENDPOINT_URI', 'app/data')
 .controller('MainController', function ($rootScope, ngAudio) {
