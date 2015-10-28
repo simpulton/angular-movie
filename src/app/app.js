@@ -40,8 +40,7 @@ angular.module('Movie', [
     $sceDelegateProvider.resourceUrlWhitelist([
         // Allow same origin resource loads
         'self',
-        // Allow loading from youtube
-        'https://www.youtube.com/**',
+        // Allow loading from wistia
         'https://fast.wistia.net/**'
     ]);
 })
