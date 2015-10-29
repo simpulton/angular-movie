@@ -1,5 +1,5 @@
 angular.module('Movie.services.animations', [])
-    .factory('AnimationsService', function($window) {
+    .factory('AnimationsService', function() {
 
         // Note: The "leave" attribute associated with each page transition actually contains the "leave" animation
         //       for the page transition before. This is because when state is changed, the name
@@ -33,6 +33,22 @@ angular.module('Movie.services.animations', [])
                 },
                 leave: function(element, done) {
                     TweenMax.fromTo( element, 1, { x: 0, y: 0, autoAlpha: 1 }, { x: 0, y: element[0].clientHeight, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+                }
+            },
+            "from-home-to-synopsis": {
+                enter: function(element, done) {
+                    TweenMax.fromTo( element, 1, { x: 0, y: -element[0].clientHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
+                },
+                leave: function(element, done) {
+                    TweenMax.to( element, 1, { x: 0, y: element[0].clientHeight, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+                }
+            },
+            "from-synopsis-to-home": {
+                enter: function(element, done) {
+                    TweenMax.fromTo( element, 1, { x: 0, y: element[0].clientHeight, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
+                },
+                leave: function(element, done) {
+                    TweenMax.to( element, 1, { x: 0, y: -element[0].clientHeight, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
                 }
             }
         };
