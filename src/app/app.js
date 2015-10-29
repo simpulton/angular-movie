@@ -1,6 +1,7 @@
 angular.module('Movie', [
     'ui.router',
     'ngAudio',
+    'Movie.animations',
     'Movie.synopsis',
     'Movie.home',
     'Movie.cast',
