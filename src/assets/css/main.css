@@ -384,14 +384,6 @@ a:visited {
   top: 0;
   left: -65px;
 }
-.slider {
-  list-style: none;
-  padding-left: 0;
-}
-.slider img {
-  width: 95%;
-  display: inline-block;
-}
 .gallery {
   display: block;
   background: transparent url(../images/gallery-container.png) no-repeat top left;
@@ -403,13 +395,22 @@ a:visited {
   margin: 0;
 }
 
-.gallery ul {
+.gallery .slider-wrapper {
 	position: absolute;
+	width: 87%;
+	overflow: hidden;
+	height: 100%;
 	left: 65px;
+}
+
+.gallery .slider {
+	position: absolute;
 	top: 10px;
 	margin: 0;
 	padding: 0;
+	width: 500%;
 }
+
 .gallery li {
   display: inline-block;
 }

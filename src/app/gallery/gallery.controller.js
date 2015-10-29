@@ -8,8 +8,12 @@ angular.module('Movie.gallery')
         galleryVm.sliderStep = 5;
 
         galleryVm.setCurrentIndex = function (index) {
+            galleryVm.direction = (index >= galleryVm.currentIndex) ? 'forward' : 'reverse';
+
             if (index >= 0 && index < galleryVm.movie.images.length) {
-                galleryVm.currentIndex = index;
+                $timeout(function () {
+                    galleryVm.currentIndex = index;
+                });
             }
         };
 

@@ -1,7 +1,7 @@
 <div id="gallery">
 
 	<div class="gallery-wrapper">
-		<img class="galleryimage" ng-class="{'current-image': galleryVm.currentIndex === $index}"
+		<img class="{{galleryVm.direction}} galleryimage" ng-class="{'current-image': galleryVm.currentIndex === $index}"
 		     ng-if="galleryVm.currentIndex === $index"
 		     ng-repeat="image in galleryVm.movie.images" ng-src="{{image.src}}">
 	</div>
@@ -15,12 +15,14 @@
 	<billboard class="billboard" movie="galleryVm.movie"></billboard>
 
 	<div class="gallery">
-		<ul>
-			<li ng-repeat="thumb in galleryVm.movie.images | startIndex: galleryVm.sliderIndex | limitTo: 5">
-				<img ng-click="galleryVm.setCurrentIndex($index + galleryVm.sliderIndex)"
-				     width="130" height="85" ng-src="{{thumb.src}}">
-			</li>
-		</ul>
+		<div class="slider-wrapper">
+			<ul class="slider">
+				<li class="slider-image" ng-repeat="thumb in galleryVm.movie.images" ng-if="$index >= galleryVm.sliderIndex && $index < galleryVm.sliderIndex + galleryVm.sliderStep">
+					<img ng-click="galleryVm.setCurrentIndex($index + galleryVm.sliderIndex)"
+					     width="130" height="85" ng-src="{{thumb.src}}">
+				</li>
+			</ul>
+		</div>
 		<a href ng-if="galleryVm.rightSliderArrowVisible()"
 		   ng-click="galleryVm.slideRight()" class="miniarrow-right">
 			<div class="miniarrow"></div>
