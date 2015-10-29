@@ -122,12 +122,8 @@ a:visited {
 	letter-spacing: 1px;
 	background-color: transparent;
 }
-.nav li:not(.back-button) a:focus {
-	background: transparent;
-	color: #000;
-}
 
-.nav li a:hover {
+.nav li a:hover, .nav li a:focus {
   background-color: #000;
   color: #ffcc66;
 }
