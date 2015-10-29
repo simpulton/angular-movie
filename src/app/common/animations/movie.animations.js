@@ -10,4 +10,4 @@ angular.module('Movie.animations', ['ngAnimate'])
                 done();
             }
         }
-    })
+    });
