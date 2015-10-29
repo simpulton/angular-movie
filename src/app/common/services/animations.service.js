@@ -53,6 +53,10 @@ angular.module('Movie.services.animations', [])
             }
         };
 
+        // Synopsis and cast animations are the same
+        animations["from-home-to-cast"] = animations["from-home-to-synopsis"];
+        animations["from-cast-to-home"] = animations["from-synopsis-to-home"];
+
         return {
             getAnimations: getAnimations,
             getCurrentAnimation: getCurrentAnimation,
