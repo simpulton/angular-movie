@@ -10,6 +10,7 @@ angular.module('Movie', [
     'Movie.services.movie',
     'Movie.directives.billboard',
     'Movie.services.preload',
+    'Movie.services.animations',
     'Movie.filters.startIndex'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
@@ -46,7 +47,7 @@ angular.module('Movie', [
     ]);
 })
 .constant('ENDPOINT_URI', 'app/data')
-.controller('MainController', function ($rootScope, ngAudio) {
+.controller('MainController', function ($rootScope, ngAudio, AnimationsService) {
     var mainVm = this;
 
     mainVm.loaded = false;
@@ -63,6 +64,24 @@ angular.module('Movie', [
         mainVm.handleAudio = function () {
             mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
         };
+    });
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        // State handling for animations
+        // Set Default from state to "home"
+        fromState = (fromState.name) ? fromState : {name: "home"};
+
+        var tState = toState.name.split('.'),
+            fState = fromState.name.split('.'),
+            lastIndex = tState.length - 1,
+            fLastIndex = fState.length - 1;
+
+        var tostate = tState[lastIndex];
+        var fromstate = fState[fLastIndex];
+
+        var currentAnimation = "from-" + fromstate + "-to-" + tostate;
+
+        AnimationsService.setCurrentAnimation(currentAnimation);
     });
 
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {

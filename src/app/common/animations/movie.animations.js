@@ -1,11 +1,31 @@
 angular.module('Movie.animations', ['ngAnimate'])
-    .animation('.main-content', function () {
+    .animation('.main-content', function (AnimationsService, $rootScope) {
+        var animations = AnimationsService.getAnimations();
+
         return {
             enter: function (element, done) {
-                TweenMax.fromTo( element, 1, { x:  -element[0].clientWidth, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
+                var finished = function () {
+                    $rootScope.$broadcast('animation-done');
+                    done();
+                };
+
+                var currentAnimation = AnimationsService.getCurrentAnimation();
+
+                if (animations[currentAnimation]) {
+                    animations[currentAnimation].enter(element, finished);
+                } else {
+                    done();
+                }
+
             },
             leave: function (element, done) {
-                TweenMax.fromTo( element, 1, { x: 0, autoAlpha: 1 }, { x: element[0].clientWidth, autoAlpha: 0, ease: Expo.easeInOut, onComplete: done});
+                var currentAnimation = AnimationsService.getCurrentAnimation();
+
+                if (animations[currentAnimation]) {
+                    animations[currentAnimation].leave(element, done);
+                } else {
+                    done();
+                }
             }
         }
     });
