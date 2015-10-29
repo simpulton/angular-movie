@@ -8,8 +8,7 @@ angular.module('Movie.directives.billboard', [])
         restrict: 'E',
         link: link,
         templateUrl: 'app/common/templates/billboard.tpl.html',
-        controller: function () {
-        },
+        controller: function () {},
         controllerAs: 'billboardVm',
         scope: true,
         bindToController: {
