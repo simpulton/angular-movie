@@ -1,5 +1,5 @@
 angular.module('Movie.services.animations', [])
-    .factory('AnimationsService', function($window) {
+    .factory('AnimationsService', function() {
 
         // Note: The "leave" attribute associated with each page transition actually contains the "leave" animation
         //       for the page transition before. This is because when state is changed, the name
