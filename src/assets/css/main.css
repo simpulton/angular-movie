@@ -399,7 +399,6 @@ a:visited {
 	position: absolute;
 	width: 87%;
 	overflow: hidden;
-  overflow-x: scroll;
 	height: 100%;
 	left: 65px;
 }
