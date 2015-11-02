@@ -46,7 +46,7 @@ small {
 a {
   text-decoration: none;
   color: #fff;
-				
+
 }
 a:hover {
   text-decoration: none;
@@ -84,7 +84,7 @@ a:visited {
     -o-animation: play 1.5s steps(65) infinite;
     animation: play 1.5s steps(65) infinite;
 }
-			
+
 @-webkit-keyframes play {
 	from { background-position: 0px 0px; }
 	to { background-position: -4550px 0px }
@@ -139,7 +139,7 @@ a:visited {
 	position: relative;
 	top: -50px;
 	background: transparent;
-			
+
 }
 .nav .back-button a:hover {
 	background: transparent;
@@ -276,11 +276,11 @@ a:visited {
 	margin: 0;
 	max-height: 150px;
 	padding: 0;
-	
+
 	font-family: sans-serif;
 	font-size: 11px;
 	font-weight: 100;
-	
+
 	overflow-y: scroll;
 }
 
@@ -345,7 +345,7 @@ a:visited {
 	left: 30px;
 	margin: 0;
 	padding: 0;
-	
+
 	font-size: 54%;
 	list-style: none;
 }
@@ -358,11 +358,11 @@ a:visited {
 	margin: 0;
 	max-height: 150px;
 	padding: 0;
-	
+
 	font-family: sans-serif;
 	font-size: 11px;
 	font-weight: 100;
-	
+
 	overflow-y: scroll;
 }
 
@@ -399,27 +399,34 @@ a:visited {
 	position: absolute;
 	width: 87%;
 	overflow: hidden;
+  overflow-x: scroll;
 	height: 100%;
 	left: 65px;
 }
 
 .gallery .slider {
 	position: absolute;
+  white-space: nowrap;
 	top: 10px;
 	margin: 0;
 	padding: 0;
-	width: 500%;
 }
 
 .gallery li {
   display: inline-block;
 }
 .gallery img {
+  width: 130px;
+  height: 85px;
   border: 1px solid rgba(255,255,255,0.2);
   margin: 0px 10px 0px 0px;
 }
+.gallery img.active {
+  border: 1px solid white;
+}
+
 .gallery img:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 .gallery-spacer {
   height: 500px;
@@ -446,32 +453,44 @@ a:visited {
 	top: 45%;
 	background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
 	}
-	.arrow {
-		display: block;
-		position: absolute;
-		width: 25px;
-		height: 25px;
-		}
-		.arrow-left .arrow {
-			top: 25px;
-			left: 15px;
-			background: transparent url(../images/arrow-left.png) no-repeat top left;
-			}
-		.arrow-right .arrow {
-			top: 25px;
-			right: 15px;
-			background: transparent url(../images/arrow-right.png) no-repeat top left;
-			}
-			
-		.arrow-left:hover .arrow {
-			background-position: top right;
-			left: 10px;
-		}
-		.arrow-right:hover .arrow {
-			background-position: top right;
-			right: 10px;
-		}
-		
+.arrow {
+	display: block;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+}
+.arrow-left .arrow {
+	top: 25px;
+	left: 15px;
+	background: transparent url(../images/arrow-left.png) no-repeat top left;
+
+	-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	-moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	-o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+}
+.arrow-right .arrow {
+	top: 25px;
+	right: 15px;
+	background: transparent url(../images/arrow-right.png) no-repeat top left;
+
+	-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	-moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	-o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+}
+
+.arrow-left:hover .arrow {
+	background-position: top right;
+	left: 10px;
+}
+.arrow-right:hover .arrow {
+	background-position: top right;
+	right: 10px;
+}
+
 
 .miniarrow-left {
 	position: absolute;
@@ -503,7 +522,7 @@ a:visited {
 			top: 0;
 			background: transparent url(../images/miniarrow-right.png) no-repeat top left;
 			}
-			
+
 		.miniarrow-left:hover .miniarrow {
 			background-position: top right;
 			left: -5px;
@@ -512,4 +531,3 @@ a:visited {
 			background-position: top right;
 			right: -5px;
 		}
-		
