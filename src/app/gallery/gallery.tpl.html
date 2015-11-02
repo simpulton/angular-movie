@@ -1,43 +1,37 @@
 <div id="gallery">
-
 	<div class="gallery-wrapper">
-		<img class="{{galleryVm.direction}} galleryimage" ng-class="{'current-image': galleryVm.currentIndex === $index}"
-		     ng-if="galleryVm.currentIndex === $index"
-		     ng-repeat="image in galleryVm.movie.images" ng-src="{{image.src}}">
+		<img class="galleryimage image-animation"
+		     ng-if="galleryVM.isCurrentSlideIndex($index)"
+		     ng-repeat="image in galleryVM.images" ng-src="{{image.src}}">
 	</div>
 
+	<!-- WHY NOT MAKE THIS A DIRECTIVE!?!?! -->
 	<div class="container-fluid">
-		<ul class="nav">
-			<li class="back-button btn-left"><a ui-sref="Movie.home">BACK</a></li>
+		<ul class="text-center nav">
+			<li class="back-button"><a ui-sref="Movie.home">BACK</a></li>
 		</ul>
 	</div>
 
-	<billboard class="billboard" movie="galleryVm.movie"></billboard>
+	<billboard class="billboard" movie="galleryVM.movie"></billboard>
 
 	<div class="gallery">
 		<div class="slider-wrapper">
 			<ul class="slider">
-				<li class="slider-image" ng-repeat="thumb in galleryVm.movie.images" ng-if="$index >= galleryVm.sliderIndex && $index < galleryVm.sliderIndex + galleryVm.sliderStep">
-					<img ng-click="galleryVm.setCurrentIndex($index + galleryVm.sliderIndex)"
-					     width="130" height="85" ng-src="{{thumb.src}}">
+				<li class="slider-image" ng-repeat="thumb in galleryVM.images">
+					<img
+						ng-class="{'active':galleryVM.isCurrentSlideIndex($index)}"
+						ng-click="galleryVM.setCurrentSlideIndex($index)"
+						ng-src="{{thumb.src}}">
 				</li>
 			</ul>
 		</div>
-		<a href ng-if="galleryVm.rightSliderArrowVisible()"
-		   ng-click="galleryVm.slideRight()" class="miniarrow-right">
-			<div class="miniarrow"></div>
-		</a>
-		<a href ng-if="galleryVm.leftSliderArrowVisible()"
-		   ng-click="galleryVm.slideLeft()" class="miniarrow-left">
-			<div class="miniarrow"></div>
-		</a>
 	</div>
 
-	<a href ng-click="galleryVm.setCurrentIndex(galleryVm.currentIndex+1)" class="arrow-right">
-		<div class="arrow"></div>
-	</a>
-	<a href ng-click="galleryVm.setCurrentIndex(galleryVm.currentIndex-1)" class="arrow-left">
+	<a href ng-click="galleryVM.prevSlide()" class="arrow-left">
 		<div class="arrow"></div>
 	</a>
 
+	<a href ng-click="galleryVM.nextSlide()" class="arrow-right">
+		<div class="arrow"></div>
+	</a>
 </div>

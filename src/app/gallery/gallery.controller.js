@@ -1,35 +1,27 @@
 angular.module('Movie.gallery')
     .controller('GalleryController', function (movie, $timeout) {
-        var galleryVm = this;
+        var galleryVM = this;
 
-        galleryVm.movie = movie;
-        galleryVm.currentIndex = 0;
-        galleryVm.sliderIndex = 0;
-        galleryVm.sliderStep = 5;
+        galleryVM.images = movie.images;
+        galleryVM.direction = 'backward';
+        galleryVM.currentIndex = 0;
 
-        galleryVm.setCurrentIndex = function (index) {
-            galleryVm.direction = (index >= galleryVm.currentIndex) ? 'forward' : 'reverse';
-
-            if (index >= 0 && index < galleryVm.movie.images.length) {
-                $timeout(function () {
-                    galleryVm.currentIndex = index;
-                });
-            }
+        galleryVM.setCurrentSlideIndex = function (index) {
+            galleryVM.direction = (index > galleryVM.currentIndex) ? 'backward' : 'forward';
+            galleryVM.currentIndex = index;
         };
 
-        galleryVm.slideRight = function () {
-            galleryVm.sliderIndex += galleryVm.sliderStep;
+        galleryVM.isCurrentSlideIndex = function (index) {
+            return galleryVM.currentIndex == index;
         };
 
-        galleryVm.slideLeft = function () {
-            galleryVm.sliderIndex -= galleryVm.sliderStep;
+        galleryVM.nextSlide = function () {
+            galleryVM.direction = 'backward';
+            galleryVM.currentIndex = (galleryVM.currentIndex < galleryVM.images.length - 1) ? ++galleryVM.currentIndex : 0;
         };
 
-        galleryVm.rightSliderArrowVisible = function () {
-            return galleryVm.movie.images[galleryVm.sliderIndex + galleryVm.sliderStep];
-        };
-
-        galleryVm.leftSliderArrowVisible = function () {
-            return galleryVm.movie.images[galleryVm.sliderIndex - galleryVm.sliderStep];
+        galleryVM.prevSlide = function () {
+            galleryVM.direction = 'forward';
+            galleryVM.currentIndex = (galleryVM.currentIndex > 0) ? --galleryVM.currentIndex : galleryVM.images.length - 1;
         };
     });
