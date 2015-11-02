@@ -2,6 +2,7 @@ angular.module('Movie.gallery')
     .controller('GalleryController', function (movie, $timeout) {
         var galleryVM = this;
 
+        galleryVM.movie = movie;
         galleryVM.images = movie.images;
         galleryVM.direction = 'backward';
         galleryVM.currentIndex = 0;
