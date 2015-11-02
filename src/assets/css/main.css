@@ -453,31 +453,43 @@ a:visited {
 	top: 45%;
 	background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
 	}
-	.arrow {
-		display: block;
-		position: absolute;
-		width: 25px;
-		height: 25px;
-		}
-		.arrow-left .arrow {
-			top: 25px;
-			left: 15px;
-			background: transparent url(../images/arrow-left.png) no-repeat top left;
-			}
-		.arrow-right .arrow {
-			top: 25px;
-			right: 15px;
-			background: transparent url(../images/arrow-right.png) no-repeat top left;
-			}
+.arrow {
+	display: block;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+}
+.arrow-left .arrow {
+	top: 25px;
+	left: 15px;
+	background: transparent url(../images/arrow-left.png) no-repeat top left;
 
-		.arrow-left:hover .arrow {
-			background-position: top right;
-			left: 10px;
-		}
-		.arrow-right:hover .arrow {
-			background-position: top right;
-			right: 10px;
-		}
+	-webkit-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	-moz-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	-ms-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	-o-transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+	transition: left 0.5s cubic-bezier(0.25,1,0.25,1);
+}
+.arrow-right .arrow {
+	top: 25px;
+	right: 15px;
+	background: transparent url(../images/arrow-right.png) no-repeat top left;
+
+	-webkit-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	-moz-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	-ms-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	-o-transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+	transition: right 0.5s cubic-bezier(0.25,1,0.25,1);
+}
+
+.arrow-left:hover .arrow {
+	background-position: top right;
+	left: 10px;
+}
+.arrow-right:hover .arrow {
+	background-position: top right;
+	right: 10px;
+}
 
 
 .miniarrow-left {
