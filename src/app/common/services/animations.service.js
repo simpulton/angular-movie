@@ -11,7 +11,6 @@ angular.module('Movie.services.animations', [])
 
         var currentAnimation = {};
 
-        // Return page transition animations
         var getAnimations = function() {
             return animations;
         };
@@ -25,8 +24,6 @@ angular.module('Movie.services.animations', [])
         };
 
         var animations = {
-            // All page transition animations go here
-
             "from-home-to-home": {
                 enter: function(element, done) {
                     TweenMax.fromTo( element, 1, { x:  -element[0].clientWidth, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, onComplete: done});
