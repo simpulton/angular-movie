@@ -9,6 +9,7 @@ angular.module('Movie', [
     'Movie.trailer',
     'Movie.services.movie',
     'Movie.directives.billboard',
+    'Movie.directives.nav',
     'Movie.services.preload',
     'Movie.filters.startIndex'
 ])
