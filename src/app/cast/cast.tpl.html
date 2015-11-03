@@ -10,9 +10,15 @@
 
 	<div class="content">
 		<ul>
-			<li ng-repeat="member in castVm.movie.cast"><a href ng-class="{active: castVm.currentCast == $index}" ng-click="castVm.currentCast = $index">{{member.name | uppercase}}</a></li>
+			<li ng-repeat="member in castVm.movie.cast">
+				<a href ng-class="{active: castVm.currentCast == $index}"
+				   ng-click="castVm.currentCast = $index">
+					{{member.name | uppercase}}
+				</a>
+			</li>
 		</ul>
-		<div class="cast-animate" ng-if="castVm.currentCast == $index" ng-repeat="member in castVm.movie.cast">
+		<div class="cast-animate" ng-if="castVm.currentCast == $index"
+		     ng-repeat="member in castVm.movie.cast">
 			<h4>{{member.name | uppercase}}
 				<small>as {{member.character | uppercase}}</small>
 			</h4>
