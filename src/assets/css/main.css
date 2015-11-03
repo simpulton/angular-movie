@@ -372,6 +372,12 @@ a:visited {
 
 
 /********* Gallery *********/
+#gallery .container-fluid li {
+	position: relative;
+	top: 0;
+	left: -65px;
+}
+
 .gallery-wrapper {
 	display: block;
 	position: absolute;
@@ -383,11 +389,7 @@ a:visited {
 	padding: 0;
 	background-color: #000;
 }
-.back-button.btn-left {
-  position: relative;
-  top: 0;
-  left: -65px;
-}
+
 .slider {
   list-style: none;
   padding-left: 0;
