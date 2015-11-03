@@ -11,7 +11,6 @@ angular.module('Movie', [
     'Movie.directives.billboard',
     'Movie.directives.nav',
     'Movie.services.preload',
-    'Movie.filters.startIndex',
     'Movie.directives.back'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
