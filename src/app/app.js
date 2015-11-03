@@ -8,6 +8,7 @@ angular.module('Movie', [
     'Movie.trailer',
     'Movie.services.movie',
     'Movie.directives.billboard',
+    'Movie.directives.back',
     'Movie.services.preload'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
