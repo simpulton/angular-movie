@@ -3,7 +3,11 @@ angular.module('Movie.services.preload', [])
         var queue = new createjs.LoadQueue(true);
 
         var loadBgs = function (manifest) {
-            var bgs = [{src: "assets/images/background.jpg"}, {src: "assets/images/bg-synopsis.jpg"}, {src: "assets/images/bg-cast.jpg"}];
+            var bgs = [
+                {src: "assets/images/background.jpg"},
+                {src: "assets/images/bg-synopsis.jpg"},
+                {src: "assets/images/bg-cast.jpg"}
+            ];
 
             angular.forEach(bgs, function (bg) {
                 manifest.push(bg);
