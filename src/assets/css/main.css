@@ -4,118 +4,169 @@
 }
 
 @-webkit-keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @-moz-keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @-ms-keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @-o-keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
 
 html {
-  background-color: rgba(0,0,0,1);
+    background-color: rgba(0, 0, 0, 1);
 }
+
 [ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important;
+    display: none !important;
 }
+
 body {
-	font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
-	font-size: 2.5em;
-	color: #fff;
-	background: transparent;
+    font-family: 'Black Ops One', Helvetica, Arial, 'sans-serif';
+    font-size: 2.5em;
+    color: #fff;
+    background: transparent;
 }
+
 small {
-  color:#fff !important;
+    color: #fff !important;
 }
+
 a {
-  text-decoration: none;
-  color: #fff;
-				
+    text-decoration: none;
+    color: #fff;
+
 }
+
 a:hover {
-  text-decoration: none;
-  color:#ffcc66;
+    text-decoration: none;
+    color: #ffcc66;
 }
+
 a.active {
-  text-decoration: none;
-  color:#ffcc66;
+    text-decoration: none;
+    color: #ffcc66;
 }
+
 a:visited {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .spacer {
-  height: 300px;
+    height: 300px;
 }
+
 .well {
-  background-color: rgba(0, 0, 0, 0.7);
-  border: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
 }
 
 /********* Preloader *********/
 .preloader {
-	display: block;
-	height: 70px;
-	width: 70px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin: -35px 0px 0px -35px;
-	background-image: url(../images/preloader.png);
+    display: block;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -35px 0px 0px -35px;
+    background-image: url(../images/preloader.png);
 }
-			
+
 @-webkit-keyframes play {
-	from { background-position: 0px 0px; }
-	to { background-position: -4550px 0px }
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -4550px 0px
+    }
 }
 
 @-moz-keyframes play {
-	from { background-position: 0px 0px; }
-	to { background-position: -4550px 0px }
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -4550px 0px
+    }
 }
 
 @-ms-keyframes play {
-	from { background-position: 0px 0px; }
-	to { background-position: -4550px 0px }
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -4550px 0px
+    }
 }
 
 @-o-keyframes play {
-	from { background-position: 0px 0px; }
-	to { background-position: -4550px 0px }
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -4550px 0px
+    }
 }
 
 @keyframes play {
-	from { background-position: 0px 0px; }
-	to { background-position: -4550px 0px }
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -4550px 0px
+    }
 }
+
 .nav {
-  float: none;
-  margin: 0 auto;
+    float: none;
+    margin: 0 auto;
 }
+
 .nav li {
-  float: none;
-  display: inline-block;
+    float: none;
+    display: inline-block;
 }
+
 .nav li a {
-	color: #000;
-	letter-spacing: 1px;
-	background-color: transparent;
+    color: #000;
+    letter-spacing: 1px;
+    background-color: transparent;
 }
 .nav li a:focus {
 	background: transparent;
@@ -123,59 +174,61 @@ a:visited {
 }
 
 .nav li a:hover {
-  background-color: #000;
-  color: #ffcc66;
+    background-color: #000;
+    color: #ffcc66;
 }
 
 .nav .back-button {
-  border-top: 50px solid black;
-  border-right: 50px solid transparent;
-  border-left: 50px solid transparent;
+    border-top: 50px solid black;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
 }
 
 .nav .back-button a {
-	color: #FFFFFF;
-	position: relative;
-	top: -50px;
-	background: transparent;
-			
+    color: #FFFFFF;
+    position: relative;
+    top: -50px;
+    background: transparent;
+
 }
+
 .nav .back-button a:hover {
-	background: transparent;
-	color: #ffcc66;
-	/*margin: -5px 0px 0px 0px;*/
+    background: transparent;
+    color: #ffcc66;
+    /*margin: -5px 0px 0px 0px;*/
 }
 
 .play-container {
-  position: absolute;
-  right: -50px;
-  z-index: 1;
+    position: absolute;
+    right: -50px;
+    z-index: 1;
 }
+
 .play-container .back-button a:focus {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 #wrapper {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	min-width: 1280px;
-	min-height: 720px;
-	overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 1280px;
+    min-height: 720px;
+    overflow: hidden;
 }
 
 .main-content {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/* changed when removing animations */
-	opacity:1;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* changed when removing animations */
+    opacity: 1;
 }
 
 /********* Movie Details Aside *********/
@@ -208,163 +261,171 @@ a:visited {
 
 /********* Movie Details Home Page **********/
 .home-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: transparent url(../images/background.jpg) no-repeat center center;
-  background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: transparent url(../images/background.jpg) no-repeat center center;
+    background-size: cover;
 }
+
 .megatron {
-  position: absolute;
-  top: 40%;
-  left: 0;
-  width: 100%;
-  text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
+
 .megatron h1 {
-  font-size: 800%;
+    font-size: 800%;
 }
+
 .megatron h1 .big {
-  width: 100%;
-  display: block;
-  line-height: 80%;
+    width: 100%;
+    display: block;
+    line-height: 80%;
 }
+
 .megatron h1 .byline {
-  font-family: "Helvetica";
-  font-size: 8%;
-  margin-bottom: 0.5%;
+    font-family: "Helvetica";
+    font-size: 8%;
+    margin-bottom: 0.5%;
 }
+
 .megatron .date {
-  font-size: 15%;
+    font-size: 15%;
 }
 
 /********* Synopsis *********/
 #synopsis .content {
-  background: transparent url(../images/about-container.png) no-repeat top left;
-  position: absolute;
-  width: 710px;
-  height: 235px;
-  right: 20px;
-  bottom: 50px;
-  margin: 0;
+    background: transparent url(../images/about-container.png) no-repeat top left;
+    position: absolute;
+    width: 710px;
+    height: 235px;
+    right: 20px;
+    bottom: 50px;
+    margin: 0;
 }
 
 #synopsis .synopsis-bg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: transparent url(../images/bg-synopsis.jpg) no-repeat center center;
-	background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: transparent url(../images/bg-synopsis.jpg) no-repeat center center;
+    background-size: cover;
 }
 
 #synopsis .content h3 {
-	position: absolute;
-	top: 20px;
-	left: 40px;
-	margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    margin: 0;
 }
+
 #synopsis .content .copy {
-	position: absolute;
-	top: 50px;
-	left: 40px;
-	width: 650px;
-	margin: 0;
-	max-height: 150px;
-	padding: 0;
-	
-	font-family: sans-serif;
-	font-size: 11px;
-	font-weight: 100;
-	
-	overflow-y: scroll;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    width: 650px;
+    margin: 0;
+    max-height: 150px;
+    padding: 0;
+
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 100;
+
+    overflow-y: scroll;
 }
 
 /********* Trailers *********/
 .trailers {
-	position: absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
-	top: 0;
-	left: 0;
+    top: 0;
+    left: 0;
     background-color: #000000;
     padding: 0;
 }
 
 .trailers .back-button {
-  position: absolute;
-  top: 0;
-  right: -50px;
-  z-index: 55;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    z-index: 55;
 }
+
 .trailers iframe {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /********* Cast *********/
 #cast .content {
-  background: transparent url(../images/cast-container.png) no-repeat top left;
-  position: absolute;
-  width: 900px;
-  height: 235px;
-  right: 20px;
-  bottom: 50px;
-  margin: 0;
+    background: transparent url(../images/cast-container.png) no-repeat top left;
+    position: absolute;
+    width: 900px;
+    height: 235px;
+    right: 20px;
+    bottom: 50px;
+    margin: 0;
 }
 
 #cast .cast-bg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: transparent url(../images/bg-cast.jpg) no-repeat center center;
-	background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: transparent url(../images/bg-cast.jpg) no-repeat center center;
+    background-size: cover;
 }
 
 #cast .cast-animate {
     width: 700px;
     float: left;
 }
+
 #cast .content h4 {
-	position: absolute;
-	top: 20px;
-	left: 230px;
-	margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 230px;
+    margin: 0;
 }
+
 #cast .content ul {
-	position: absolute;
-	top: 45px;
-	left: 30px;
-	margin: 0;
-	padding: 0;
-	
-	font-size: 54%;
-	list-style: none;
+    position: absolute;
+    top: 45px;
+    left: 30px;
+    margin: 0;
+    padding: 0;
+
+    font-size: 54%;
+    list-style: none;
 }
 
 #cast .content .copy {
-	position: absolute;
-	top: 50px;
-	left: 230px;
-	width: 650px;
-	margin: 0;
-	max-height: 150px;
-	padding: 0;
-	
-	font-family: sans-serif;
-	font-size: 11px;
-	font-weight: 100;
-	
-	overflow-y: scroll;
-}
+    position: absolute;
+    top: 50px;
+    left: 230px;
+    width: 650px;
+    margin: 0;
+    max-height: 150px;
+    padding: 0;
 
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 100;
+
+    overflow-y: scroll;
+}
 
 /********* Gallery *********/
 #gallery .container-fluid li {
@@ -374,101 +435,114 @@ a:visited {
 }
 
 .gallery-wrapper {
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	background-color: #000;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
 }
 
 .slider {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
+
 .slider img {
-  width: 95%;
-  display: inline-block;
+    width: 95%;
+    display: inline-block;
 }
+
 .gallery {
-  display: block;
-  background: transparent url(../images/gallery-container.png) no-repeat top left;
-  position: absolute;
-  width: 800px;
-  height: 105px;
-  right: 20px;
-  bottom: 130px;
-  margin: 0;
+    display: block;
+    background: transparent url(../images/gallery-container.png) no-repeat top left;
+    position: absolute;
+    width: 800px;
+    height: 105px;
+    right: 20px;
+    bottom: 130px;
+    margin: 0;
 }
 
 .gallery ul {
-	position: absolute;
-	left: 65px;
-	top: 10px;
-	margin: 0;
-	padding: 0;
+    position: absolute;
+    left: 65px;
+    top: 10px;
+    margin: 0;
+    padding: 0;
 }
+
 .gallery li {
-  display: inline-block;
+    display: inline-block;
 }
+
 .gallery img {
-  border: 1px solid rgba(255,255,255,0.2);
-  margin: 0px 10px 0px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0px 10px 0px 0px;
 }
+
 .gallery img:hover {
-  cursor: pointer; 
+    cursor: pointer;
 }
+
 .gallery-spacer {
-  height: 500px;
+    height: 500px;
 }
+
 .galleryimage {
-	position: absolute;
-	width: 100%;
+    position: absolute;
+    width: 100%;
 }
+
 .arrow-right {
-	display: block;
-	position: absolute;
-	width: 50px;
-	height: 105px;
-	right: 0;
-	top: 45%;
-	background: transparent url(../images/bg-galleryright.png) no-repeat top left;
-	}
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 105px;
+    right: 0;
+    top: 45%;
+    background: transparent url(../images/bg-galleryright.png) no-repeat top left;
+}
+
 .arrow-left {
-	display: block;
-	position: absolute;
-	width: 50px;
-	height: 105px;
-	left: 0;
-	top: 45%;
-	background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
-	}
-	.arrow {
-		display: block;
-		position: absolute;
-		width: 25px;
-		height: 25px;
-		}
-		.arrow-left .arrow {
-			top: 25px;
-			left: 15px;
-			background: transparent url(../images/arrow-left.png) no-repeat top left;
-			}
-		.arrow-right .arrow {
-			top: 25px;
-			right: 15px;
-			background: transparent url(../images/arrow-right.png) no-repeat top left;
-			}
-			
-		.arrow-left:hover .arrow {
-			background-position: top right;
-			left: 10px;
-		}
-		.arrow-right:hover .arrow {
-			background-position: top right;
-			right: 10px;
-		}
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 105px;
+    left: 0;
+    top: 45%;
+    background: transparent url(../images/bg-galleryleft.png) no-repeat top left;
+}
+
+.arrow {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}
+
+.arrow-left .arrow {
+    top: 25px;
+    left: 15px;
+    background: transparent url(../images/arrow-left.png) no-repeat top left;
+}
+
+.arrow-right .arrow {
+    top: 25px;
+    right: 15px;
+    background: transparent url(../images/arrow-right.png) no-repeat top left;
+}
+
+.arrow-left:hover .arrow {
+    background-position: top right;
+    left: 10px;
+}
+
+.arrow-right:hover .arrow {
+    background-position: top right;
+    right: 10px;
+}
 		
