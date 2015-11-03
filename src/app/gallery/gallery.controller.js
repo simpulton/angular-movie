@@ -1,28 +1,28 @@
 angular.module('Movie.gallery')
     .controller('GalleryController', function (movie, $timeout) {
-        var galleryVM = this;
+        var galleryVm = this;
 
-        galleryVM.movie = movie;
-        galleryVM.images = movie.images;
-        galleryVM.direction = 'backward';
-        galleryVM.currentIndex = 0;
+        galleryVm.movie = movie;
+        galleryVm.images = movie.images;
+        galleryVm.direction = 'backward';
+        galleryVm.currentIndex = 0;
 
-        galleryVM.setCurrentSlideIndex = function (index) {
-            galleryVM.direction = (index > galleryVM.currentIndex) ? 'backward' : 'forward';
-            galleryVM.currentIndex = index;
+        galleryVm.setCurrentSlideIndex = function (index) {
+            galleryVm.direction = (index > galleryVm.currentIndex) ? 'backward' : 'forward';
+            galleryVm.currentIndex = index;
         };
 
-        galleryVM.isCurrentSlideIndex = function (index) {
-            return galleryVM.currentIndex == index;
+        galleryVm.isCurrentSlideIndex = function (index) {
+            return galleryVm.currentIndex == index;
         };
 
-        galleryVM.nextSlide = function () {
-            galleryVM.direction = 'backward';
-            galleryVM.currentIndex = (galleryVM.currentIndex < galleryVM.images.length - 1) ? ++galleryVM.currentIndex : 0;
+        galleryVm.nextSlide = function () {
+            galleryVm.direction = 'backward';
+            galleryVm.currentIndex = (galleryVm.currentIndex < galleryVm.images.length - 1) ? ++galleryVm.currentIndex : 0;
         };
 
-        galleryVM.prevSlide = function () {
-            galleryVM.direction = 'forward';
-            galleryVM.currentIndex = (galleryVM.currentIndex > 0) ? --galleryVM.currentIndex : galleryVM.images.length - 1;
+        galleryVm.prevSlide = function () {
+            galleryVm.direction = 'forward';
+            galleryVm.currentIndex = (galleryVm.currentIndex > 0) ? --galleryVm.currentIndex : galleryVm.images.length - 1;
         };
     });

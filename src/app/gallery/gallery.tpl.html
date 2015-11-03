@@ -1,8 +1,8 @@
 <div id="gallery">
 	<div class="gallery-wrapper">
 		<img class="galleryimage image-animation"
-		     ng-if="galleryVM.isCurrentSlideIndex($index)"
-		     ng-repeat="image in galleryVM.images" ng-src="{{image.src}}">
+		     ng-if="galleryVm.isCurrentSlideIndex($index)"
+		     ng-repeat="image in galleryVm.images" ng-src="{{image.src}}">
 	</div>
 
 	<!-- WHY NOT MAKE THIS A DIRECTIVE!?!?! -->
@@ -12,26 +12,26 @@
 		</ul>
 	</div>
 
-	<billboard class="billboard" movie="galleryVM.movie"></billboard>
+	<billboard class="billboard" movie="galleryVm.movie"></billboard>
 
 	<div class="gallery">
 		<div class="slider-wrapper">
 			<ul class="slider">
-				<li class="slider-image" ng-repeat="thumb in galleryVM.images">
+				<li class="slider-image" ng-repeat="thumb in galleryVm.images">
 					<img
-						ng-class="{'active':galleryVM.isCurrentSlideIndex($index)}"
-						ng-click="galleryVM.setCurrentSlideIndex($index)"
+						ng-class="{'active':galleryVm.isCurrentSlideIndex($index)}"
+						ng-click="galleryVm.setCurrentSlideIndex($index)"
 						ng-src="{{thumb.src}}">
 				</li>
 			</ul>
 		</div>
 	</div>
 
-	<a href ng-click="galleryVM.prevSlide()" class="arrow-left">
+	<a href ng-click="galleryVm.prevSlide()" class="arrow-left">
 		<div class="arrow"></div>
 	</a>
 
-	<a href ng-click="galleryVM.nextSlide()" class="arrow-right">
+	<a href ng-click="galleryVm.nextSlide()" class="arrow-right">
 		<div class="arrow"></div>
 	</a>
 </div>
