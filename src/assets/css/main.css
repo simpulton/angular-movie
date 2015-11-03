@@ -70,7 +70,6 @@ small {
 a {
     text-decoration: none;
     color: #fff;
-
 }
 
 a:hover {
@@ -500,12 +499,20 @@ a:visited {
     margin: 0;
 }
 
-.gallery ul {
-    position: absolute;
-    left: 65px;
-    top: 10px;
-    margin: 0;
-    padding: 0;
+.gallery .slider-wrapper {
+	position: absolute;
+	width: 87%;
+	overflow: hidden;
+	height: 100%;
+	left: 65px;
+}
+
+.gallery .slider {
+	position: absolute;
+	white-space: nowrap;
+	top: 10px;
+	margin: 0;
+	padding: 0;
 }
 
 .gallery li {
@@ -513,7 +520,9 @@ a:visited {
 }
 
 .gallery img {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 130px;
+    height: 85px;
+    border: 1px solid rgba(255,255,255,0.2);
     margin: 0px 10px 0px 0px;
 }
 
@@ -623,4 +632,3 @@ a:visited {
     background-position: top right;
     right: -5px;
 }
-		
