@@ -6,6 +6,7 @@ angular.module('Movie', [
     'Movie.gallery',
     'Movie.trailer',
     'Movie.services.movie',
+    'Movie.directives.back',
     'Movie.directives.billboard',
     'Movie.services.preload'
 ])
