@@ -497,6 +497,10 @@ a:visited {
     margin: 0px 10px 0px 0px;
 }
 
+.gallery img.active {
+    border: 1px solid white;
+}
+
 .gallery img:hover {
     cursor: pointer;
 }
