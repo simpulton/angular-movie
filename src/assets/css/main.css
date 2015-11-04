@@ -478,20 +478,6 @@ a:visited {
     background-color: #000;
 }
 
-<<<<<<< HEAD
-.back-button.btn-left {
-    position: relative;
-    top: 0;
-    left: -65px;
-}
-
-=======
->>>>>>> 54f8bf0... Turn back button into a directive
-.slider {
-    list-style: none;
-    padding-left: 0;
-}
-
 .slider img {
     width: 95%;
     display: inline-block;
