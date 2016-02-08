@@ -10,60 +10,62 @@ angular.module('Movie', [
     'Movie.directives.back',
     'Movie.directives.billboard',
     'Movie.services.preload'
-])
-.config(function ($stateProvider, $urlRouterProvider) {
+  ])
+  .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('Movie', {
-            abstract: true,
-            url: '',
-            resolve: {
-                movie: function (MovieService) {
-                    return MovieService.fetch()
-                        .then(function (response) {
-                            return response.data[0];
-                        });
-                },
-                loaded: function (PreloadService, movie, $rootScope) {
-                    return PreloadService.loadManifest(movie)
-                        .then(function (response) {
-                            $rootScope.$broadcast('loaded', movie);
-                            return response;
-                        }, function (error) {
-                            console.error(error);
-                        });
-                }
-            }
-        });
+      .state('Movie', {
+        abstract: true,
+        url: '',
+        resolve: {
+          movie: function(MovieService) {
+            return MovieService.fetch()
+              .then(function(response) {
+                return response.data[0];
+              });
+          },
+          loaded: function(PreloadService, movie, $rootScope) {
+            return PreloadService.loadManifest(movie)
+              .then(function(response) {
+                $rootScope.$broadcast('loaded', movie);
+                return response;
+              }, function(error) {
+                console.error(error);
+              });
+          }
+        }
+      });
 
     $urlRouterProvider.otherwise('/');
-})
+  })
+
 .constant('ENDPOINT_URI', 'app/data')
-.controller('MainController', function ($rootScope, ngAudio) {
-    var mainVm = this;
 
-    mainVm.loaded = false;
-    mainVm.showAudio = true;
+.controller('MainController', function($rootScope, ngAudio) {
+  var mainVm = this;
 
-    $rootScope.$on('loaded', function (event, movie) {
-        mainVm.loaded = true;
+  mainVm.loaded = false;
+  mainVm.showAudio = true;
 
-        ngAudio.setUnlock(false);
+  $rootScope.$on('loaded', function(event, movie) {
+    mainVm.loaded = true;
 
-        mainVm.audio = ngAudio.load(movie.audio[0].src);
+    ngAudio.setUnlock(false);
+
+    mainVm.audio = ngAudio.load(movie.audio[0].src);
+    mainVm.audio.play();
+
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toPrarms, fromState, fromParams) {
+      if (toState.name == 'Movie.trailer') {
+        mainVm.audio.pause();
+        mainVm.showAudio = false;
+      } else if (fromState.name == "Movie.trailer") {
         mainVm.audio.play();
-
-        mainVm.handleAudio = function () {
-            mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
-        };
+        mainVm.showAudio = true;
+      }
     });
 
-    $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {
-        if (toState.name == 'Movie.trailer') {
-            mainVm.audio.pause();
-            mainVm.showAudio = false;
-        } else if (fromState.name == "Movie.trailer") {
-            mainVm.audio.play();
-            mainVm.showAudio = true;
-        }
-    });
+    mainVm.handleAudio = function() {
+      mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
+    };
+  });
 });
