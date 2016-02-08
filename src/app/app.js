@@ -7,6 +7,7 @@ angular.module('Movie', [
     'Movie.trailer',
     'Movie.services.movie'
 ])
+
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('Movie', {
@@ -24,4 +25,5 @@ angular.module('Movie', [
 
     $urlRouterProvider.otherwise('/');
 })
+
 .constant('ENDPOINT_URI', 'app/data');
