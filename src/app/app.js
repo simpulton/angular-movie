@@ -37,25 +37,22 @@ angular.module('Movie', [
 
     $urlRouterProvider.otherwise('/');
 })
+
 .constant('ENDPOINT_URI', 'app/data')
+
 .controller('MainController', function ($rootScope, ngAudio) {
-    var mainVm = this;
+  var mainVm = this;
 
-    mainVm.loaded = false;
-    mainVm.showAudio = true;
+  mainVm.loaded = false;
+  mainVm.showAudio = true;
 
-    $rootScope.$on('loaded', function (event, movie) {
-        mainVm.loaded = true;
+  $rootScope.$on('loaded', function(event, movie) {
+    mainVm.loaded = true;
 
-        ngAudio.setUnlock(false);
+    ngAudio.setUnlock(false);
 
-        mainVm.audio = ngAudio.load(movie.audio[0].src);
-        mainVm.audio.play();
-
-        mainVm.handleAudio = function () {
-            mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
-        };
-    });
+    mainVm.audio = ngAudio.load(movie.audio[0].src);
+    mainVm.audio.play();
 
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {
         if (toState.name == 'Movie.trailer') {
@@ -66,4 +63,9 @@ angular.module('Movie', [
             mainVm.showAudio = true;
         }
     });
+
+    mainVm.handleAudio = function() {
+      mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
+    };
+  });
 });
