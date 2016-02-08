@@ -1,4 +1,5 @@
 angular.module('Movie.directives.billboard', [])
+
 .directive('billboard', function() {
   return {
     restrict: 'E',

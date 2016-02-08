@@ -9,6 +9,7 @@ angular.module('Movie', [
     'Movie.directives.back',
     'Movie.directives.billboard'
 ])
+
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('Movie', {
@@ -26,4 +27,5 @@ angular.module('Movie', [
 
     $urlRouterProvider.otherwise('/');
 })
+
 .constant('ENDPOINT_URI', 'app/data');
