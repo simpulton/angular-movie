@@ -6,12 +6,13 @@ angular.module('Movie', [
     'Movie.gallery',
     'Movie.trailer'
 ])
-.config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-        .state('Movie', {
-            abstract: true,
-            url: ''
-        });
 
-    $urlRouterProvider.otherwise('/');
+.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('Movie', {
+      abstract: true,
+      url: ''
+    });
+
+  $urlRouterProvider.otherwise('/');
 });
