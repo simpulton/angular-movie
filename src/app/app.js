@@ -12,58 +12,57 @@ angular.module('Movie', [
     'Movie.services.preload',
     'Movie.directives.back'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
-    $stateProvider
-        .state('Movie', {
-            abstract: true,
-            url: '',
-            resolve: {
-                movie: function (MovieService) {
-                    return MovieService.fetch()
-                        .then(function (response) {
-                            return response.data[0];
-                        });
-                },
-                loaded: function (PreloadService, movie, $rootScope) {
-                    return PreloadService.loadManifest(movie)
-                        .then(function (response) {
-                            $rootScope.$broadcast('loaded', movie);
-                            return response;
-                        }, function (error) {
-                            console.error(error);
-                        });
-                }
-            }
-        });
 
-    $urlRouterProvider.otherwise('/');
-
-    $sceDelegateProvider.resourceUrlWhitelist([
-        // Allow same origin resource loads
-        'self',
-        // Allow loading from wistia
-        'https://fast.wistia.net/**'
-    ]);
-})
-.constant('ENDPOINT_URI', 'app/data')
-.controller('MainController', function ($rootScope, ngAudio) {
-    var mainVm = this;
-
-    mainVm.loaded = false;
-    mainVm.showAudio = true;
-
-    $rootScope.$on('loaded', function (event, movie) {
-        mainVm.loaded = true;
-
-        ngAudio.setUnlock(false);
-
-        mainVm.audio = ngAudio.load(movie.audio[0].src);
-        mainVm.audio.play();
-
-        mainVm.handleAudio = function () {
-            mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
-        };
+.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+  $stateProvider
+    .state('Movie', {
+      abstract: true,
+      url: '',
+      resolve: {
+        movie: function(MovieService) {
+          return MovieService.fetch()
+            .then(function(response) {
+              return response.data[0];
+            });
+        },
+        loaded: function(PreloadService, movie, $rootScope) {
+          return PreloadService.loadManifest(movie)
+            .then(function(response) {
+              $rootScope.$broadcast('loaded', movie);
+              return response;
+            }, function(error) {
+              console.error(error);
+            });
+        }
+      }
     });
+
+  $urlRouterProvider.otherwise('/');
+
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads
+    'self',
+    // Allow loading from wistia
+    'https://fast.wistia.net/**'
+  ]);
+})
+
+.constant('ENDPOINT_URI', 'app/data')
+
+
+.controller('MainController', function ($rootScope, ngAudio) {
+  var mainVm = this;
+
+  mainVm.loaded = false;
+  mainVm.showAudio = true;
+
+  $rootScope.$on('loaded', function(event, movie) {
+    mainVm.loaded = true;
+
+    ngAudio.setUnlock(false);
+
+    mainVm.audio = ngAudio.load(movie.audio[0].src);
+    mainVm.audio.play();
 
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toPrarms, fromState, fromParams) {
         if (toState.name == 'Movie.trailer') {
@@ -74,4 +73,8 @@ angular.module('Movie', [
             mainVm.showAudio = true;
         }
     });
+    mainVm.handleAudio = function() {
+      mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
+    };
+  });
 });
