@@ -1,10 +1,11 @@
 angular.module('Movie.synopsis')
-    .controller('SynopsisController', function (movie, $sce) {
-        var synopsisVm = this;
 
-        synopsisVm.movie = movie;
+.controller('SynopsisController', function(movie, $sce) {
+  var synopsisVm = this;
 
-        synopsisVm.renderHtml = function (html) {
-            return $sce.trustAsHtml(html);
-        }
-    });
+  synopsisVm.movie = movie;
+
+  synopsisVm.renderHtml = function(html) {
+    return $sce.trustAsHtml(html);
+  }
+});
