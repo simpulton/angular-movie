@@ -9,7 +9,8 @@ function MovieService($q, $http, ENDPOINT_URI) {
   }
 
   function cacheResults(result) {
-    return movie = result.data;
+    movie = result.data;
+    return movie;
   }
 
   function fetch() {

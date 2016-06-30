@@ -19,7 +19,7 @@ function MainController($rootScope, ngAudio, AnimationsService) {
     mainVm.audio.play();
 
     mainVm.handleAudio = function() {
-      mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
+      return mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
     };
 
     $rootScope.$on('$stateChangeSuccess', handleStateChangeAudio);

@@ -26,7 +26,7 @@ function mainContent(AnimationsService, $rootScope) {
         done();
       }
     }
-  }
+  };
 }
 
 angular.module('Movie.animations', ['ngAnimate'])

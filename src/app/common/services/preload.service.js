@@ -2,14 +2,14 @@ function PreloadService($rootScope, $q) {
   var queue = new createjs.LoadQueue(true);
 
   this.loadManifest = loadManifest;
-  
+
   function loadBgs() {
     return [
       { src: "assets/images/background.jpg" },
       { src: "assets/images/bg-synopsis.jpg" },
       { src: "assets/images/bg-cast.jpg "}
     ];
-  };
+  }
 
   function loadManifest(movie) {
     var deferred = $q.defer(),
@@ -19,7 +19,7 @@ function PreloadService($rootScope, $q) {
       manifest.push(image);
     });
 
-    if (manifest.length == 0) deferred.resolve();
+    if (manifest.length === 0) deferred.resolve();
 
     queue.on('complete', function () {
       deferred.resolve();

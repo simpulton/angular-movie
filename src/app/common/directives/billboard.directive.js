@@ -13,7 +13,7 @@ function billboard() {
     bindToController: {
         movie: '='
     }
-  }
+  };
 }
 
 angular.module('Movie.directives.billboard', [])
