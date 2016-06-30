@@ -22,19 +22,10 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body ng-controller="MainController as mainVm">
+<body>
 <div id="wrapper">
 	<!-- animated loader will go here-->
-
-	<div ng-if="!mainVm.loaded" class="preloader"></div>
-	<div ng-if="mainVm.loaded && mainVm.showAudio" class="play-container">
-		<ul class="nav">
-			<li class="back-button">
-				<a href ng-class="{'fa fa-play-circle': mainVm.audio.paused, 'fa fa-pause':!mainVm.audio.paused}" ng-click="mainVm.handleAudio()"></a>
-			</li>
-		</ul>
-	</div>
-	<div class="main-content" ui-view="main"></div>
+	<app></app>
 </div>
 
 <script src="vendor/TweenMax.min.js"></script>
@@ -45,16 +36,23 @@
 <script src="vendor/angular-animate.min.js"></script>
 
 <script src="app/app.js"></script>
+<script src="app/app.component.js"></script>
+<script src="app/app.controller.js"></script>
 <script src="app/home/home.js"></script>
+<script src="app/home/home.component.js"></script>
 <script src="app/home/home.controller.js"></script>
 <script src="app/home/nav.directive.js"></script>
 <script src="app/synopsis/synopsis.js"></script>
+<script src="app/synopsis/synopsis.component.js"></script>
 <script src="app/synopsis/synopsis.controller.js"></script>
 <script src="app/cast/cast.js"></script>
+<script src="app/cast/cast.component.js"></script>
 <script src="app/cast/cast.controller.js"></script>
 <script src="app/gallery/gallery.js"></script>
+<script src="app/gallery/gallery.component.js"></script>
 <script src="app/gallery/gallery.controller.js"></script>
 <script src="app/trailer/trailer.js"></script>
+<script src="app/trailer/trailer.component.js"></script>
 <script src="app/trailer/trailer.controller.js"></script>
 <script src="app/common/services/movie.service.js"></script>
 <script src="app/common/services/preload.service.js"></script>

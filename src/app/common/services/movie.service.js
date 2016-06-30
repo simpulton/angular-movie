@@ -1,13 +1,21 @@
-angular.module('Movie.services.movie', [])
+function MovieService($q, $http, ENDPOINT_URI) {
+  var resource = '/movie.json',
+      movie = [];
 
-.service('MovieService', function($http, ENDPOINT_URI) {
-  var resource = '/movie.json';
+  this.fetch = fetch;
 
-  var getUrl = function() {
+  function getUrl() {
     return ENDPOINT_URI + resource;
-  };
+  }
 
-  this.fetch = function() {
-    return $http.get(getUrl());
-  };
-});
+  function cacheResults(result) {
+    return movie = result.data;
+  }
+
+  function fetch() {
+    return movie.length ? $q.when(movie) : $http.get(getUrl()).then(cacheResults);
+  }
+}
+
+angular.module('Movie.services.movie', [])
+.service('MovieService', MovieService);

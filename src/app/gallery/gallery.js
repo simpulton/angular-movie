@@ -1,20 +1,16 @@
-angular.module('Movie.gallery', [])
-
-.config(function ($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('Movie.gallery', {
       url: '/gallery',
       views: {
         'main@': {
-          templateUrl: 'app/gallery/gallery.tpl.html',
-          controller: 'GalleryController',
-          controllerAs: 'galleryVm'
+          template: '<gallery></gallery>'
         }
       }
     });
-})
+}
 
-.animation('.image-animation', function ($window) {
+function imageAnimation($window) {
   return {
     enter: function (element, done) {
       // inbound picture animation
@@ -30,4 +26,8 @@ angular.module('Movie.gallery', [])
       TweenMax.to(element, 1, {x: x, ease: Expo.easeInOut, onComplete: done});
     }
   };
-});
+}
+
+angular.module('Movie.gallery', [])
+.config(config)
+.animation('.image-animation', imageAnimation);

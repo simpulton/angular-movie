@@ -1,20 +1,16 @@
-angular.module('Movie.cast', [])
-
-.config(function($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('Movie.cast', {
       url: '/cast',
       views: {
         'main@': {
-          templateUrl: 'app/cast/cast.tpl.html',
-          controller: 'CastController',
-          controllerAs: 'castVm'
+          template: '<cast></cast>'
         }
       }
     });
-})
+}
 
-.animation('.cast-animate', function () {
+function castAnimate() {
   // animation for the cast section
   return {
     enter: function (element, done) {
@@ -29,4 +25,8 @@ angular.module('Movie.cast', [])
       TweenMax.to(element, .25, {autoAlpha: 0, onComplete: done});
     }
   };
-});
+}
+
+angular.module('Movie.cast', [])
+.config(config)
+.animation('.cast-animate', castAnimate);

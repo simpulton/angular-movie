@@ -1,21 +1,4 @@
-angular.module('Movie', [
-  'ui.router',
-  'ngAudio',
-  'Movie.animations',
-  'Movie.synopsis',
-  'Movie.home',
-  'Movie.cast',
-  'Movie.gallery',
-  'Movie.trailer',
-  'Movie.services.movie',
-  'Movie.directives.billboard',
-  'Movie.directives.nav',
-  'Movie.services.preload',
-  'Movie.services.animations',
-  'Movie.directives.back'
-])
-
-.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+function config($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
   $stateProvider
     .state('Movie', {
       abstract: true,
@@ -24,7 +7,7 @@ angular.module('Movie', [
         movie: function(MovieService) {
           return MovieService.fetch()
             .then(function(response) {
-              return response.data[0];
+              return response[0];
             });
         },
         loaded: function(PreloadService, movie, $rootScope) {
@@ -47,30 +30,12 @@ angular.module('Movie', [
     // Allow loading from wistia
     'https://fast.wistia.net/**'
   ]);
-})
+}
 
-.constant('ENDPOINT_URI', 'app/data')
+function run($rootScope, AnimationsService) {
+  $rootScope.$on('$stateChangeStart', setUpAnimationsService);
 
-.controller('MainController', function($rootScope, ngAudio, AnimationsService) {
-  var mainVm = this;
-
-  mainVm.loaded = false;
-  mainVm.showAudio = true;
-
-  $rootScope.$on('loaded', function(event, movie) {
-    mainVm.loaded = true;
-
-    ngAudio.setUnlock(false);
-
-    mainVm.audio = ngAudio.load(movie.audio[0].src);
-    mainVm.audio.play();
-
-    mainVm.handleAudio = function() {
-      mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
-    };
-  });
-
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+  function setUpAnimationsService(event, toState, toParams, fromState, fromParams) {
     // State handling for animations
     // Set Default from state to "home"
     fromState = (fromState.name) ? fromState : {
@@ -88,15 +53,25 @@ angular.module('Movie', [
     var currentAnimation = "from-" + fromstate + "-to-" + tostate;
 
     AnimationsService.setCurrentAnimation(currentAnimation);
-  });
+  }
+}
 
-  $rootScope.$on('$stateChangeSuccess', function(event, toState, toPrarms, fromState, fromParams) {
-    if (toState.name == 'Movie.trailer') {
-      mainVm.audio.pause();
-      mainVm.showAudio = false;
-    } else if (fromState.name == "Movie.trailer") {
-      mainVm.audio.play();
-      mainVm.showAudio = true;
-    }
-  });
-});
+angular.module('Movie', [
+  'ui.router',
+  'ngAudio',
+  'Movie.animations',
+  'Movie.synopsis',
+  'Movie.home',
+  'Movie.cast',
+  'Movie.gallery',
+  'Movie.trailer',
+  'Movie.services.movie',
+  'Movie.directives.billboard',
+  'Movie.directives.nav',
+  'Movie.services.preload',
+  'Movie.services.animations',
+  'Movie.directives.back'
+])
+.config(config)
+.run(run)
+.constant('ENDPOINT_URI', 'app/data');

@@ -1,0 +1,11 @@
+<div class="main-content">
+  <div ng-if="!mainVm.loaded" class="preloader"></div>
+  <div ng-if="mainVm.loaded && mainVm.showAudio" class="play-container">
+    <ul class="nav">
+      <li class="back-button">
+        <a href ng-class="{'fa fa-play-circle': mainVm.audio.paused, 'fa fa-pause':!mainVm.audio.paused}" ng-click="mainVm.handleAudio()"></a>
+      </li>
+    </ul>
+  </div>
+  <div class="main-content" ui-view="main"></div>
+</div>

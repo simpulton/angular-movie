@@ -1,9 +1,9 @@
-angular.module('Movie.services.preload', [])
-
-.service('PreloadService', function ($rootScope, $q) {
+function PreloadService($rootScope, $q) {
   var queue = new createjs.LoadQueue(true);
 
-  var loadBgs = function () {
+  this.loadManifest = loadManifest;
+  
+  function loadBgs() {
     return [
       { src: "assets/images/background.jpg" },
       { src: "assets/images/bg-synopsis.jpg" },
@@ -11,7 +11,7 @@ angular.module('Movie.services.preload', [])
     ];
   };
 
-  this.loadManifest = function (movie) {
+  function loadManifest(movie) {
     var deferred = $q.defer(),
         manifest = loadBgs();
 
@@ -28,5 +28,8 @@ angular.module('Movie.services.preload', [])
     queue.loadManifest(manifest);
 
     return deferred.promise;
-  };
-});
+  }
+}
+
+angular.module('Movie.services.preload', [])
+.service('PreloadService', PreloadService);

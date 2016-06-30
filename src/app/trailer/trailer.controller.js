@@ -1,13 +1,26 @@
-angular.module('Movie.trailer')
-
-.controller('TrailerController', function(movie, $scope) {
+function TrailerController(MovieService, $scope) {
   var trailerVm = this;
 
-  trailerVm.movie = movie;
+  $scope.$on('animation-done', showIframe);
 
-  $scope.$on('animation-done', function() {
+  getMovie();
+
+  function getMovie() {
+    MovieService
+      .fetch()
+      .then(getResults);
+  }
+
+  function getResults(movie) {
+    trailerVm.movie = movie[0];
+  }
+
+  function showIframe() {
     $scope.$apply(function() {
       trailerVm.showIframe = true;
     });
-  });
-});
+  }
+}
+
+angular.module('Movie.trailer')
+.controller('TrailerController', TrailerController);

@@ -1,6 +1,4 @@
-angular.module('Movie.animations', ['ngAnimate'])
-
-.animation('.main-content', function(AnimationsService, $rootScope) {
+function mainContent(AnimationsService, $rootScope) {
   var animations = AnimationsService.getAnimations();
 
   return {
@@ -29,4 +27,7 @@ angular.module('Movie.animations', ['ngAnimate'])
       }
     }
   }
-});
+}
+
+angular.module('Movie.animations', ['ngAnimate'])
+.animation('.main-content', mainContent);

@@ -1,15 +1,14 @@
-angular.module('Movie.trailer', [])
-
-.config(function($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('Movie.trailer', {
       url: '/trailer',
       views: {
         'main@': {
-          templateUrl: 'app/trailer/trailer.tpl.html',
-          controller: 'TrailerController',
-          controllerAs: 'trailerVm'
+          template: '<trailer></trailer>'
         }
       }
     });
-});
+}
+
+angular.module('Movie.trailer', [])
+.config(config);

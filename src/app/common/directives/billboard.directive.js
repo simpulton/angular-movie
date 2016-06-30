@@ -1,6 +1,4 @@
-angular.module('Movie.directives.billboard', [])
-
-.directive('billboard', function() {
+function billboard() {
   function link(scope, element, attrs) {
     TweenMax.fromTo( element, 1, { x: -500, y: 0, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut, delay: 0.5 });
   }
@@ -16,4 +14,7 @@ angular.module('Movie.directives.billboard', [])
         movie: '='
     }
   }
-});
+}
+
+angular.module('Movie.directives.billboard', [])
+.directive('billboard', billboard);

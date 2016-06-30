@@ -1,7 +1,18 @@
-angular.module('Movie.home')
-
-.controller('HomeController', function(movie) {
+function HomeController(MovieService) {
   var homeVm = this;
 
-  homeVm.movie = movie;
-});
+  getMovie();
+
+  function getMovie() {
+    MovieService
+      .fetch()
+      .then(getResults);
+  }
+
+  function getResults(movie) {
+    homeVm.movie = movie[0];
+  }
+}
+
+angular.module('Movie.home')
+.controller('HomeController', HomeController);

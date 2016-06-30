@@ -1,15 +1,14 @@
-angular.module('Movie.home', [])
-
-.config(function($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('Movie.home', {
       url: '/',
       views: {
         'main@': {
-          templateUrl: 'app/home/home.tpl.html',
-          controller: 'HomeController',
-          controllerAs: 'homeVm'
+          template: '<home></home>'
         }
       }
     });
-});
+}
+
+angular.module('Movie.home', [])
+.config(config);

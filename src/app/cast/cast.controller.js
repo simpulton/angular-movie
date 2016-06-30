@@ -1,12 +1,25 @@
-angular.module('Movie.cast')
-
-.controller('CastController', function(movie, $sce) {
+function CastController(MovieService, $sce) {
   var castVm = this;
 
-  castVm.movie = movie;
   castVm.currentCast = 0;
+  castVm.renderHtml = renderHtml;
 
-  castVm.renderHtml = function(html) {
+  getMovie();
+
+  function getMovie() {
+    MovieService
+      .fetch()
+      .then(getResults);
+  }
+
+  function getResults(movie) {
+    castVm.movie = movie[0];
+  }
+
+  function renderHtml(html) {
     return $sce.trustAsHtml(html);
-  };
-});
+  }
+}
+
+angular.module('Movie.cast')
+.controller('CastController', CastController);
