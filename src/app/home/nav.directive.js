@@ -1,6 +1,4 @@
-angular.module('Movie.directives.nav', [])
-
-.directive('navButton', function() {
+function navButton() {
 	var linker = function(scope, element, attrs) {
 
 		scope.play = function() {
@@ -16,4 +14,7 @@ angular.module('Movie.directives.nav', [])
 		scope: true,
 		link: linker
 	};
-});
+}
+
+angular.module('Movie.directives.nav', [])
+.directive('navButton', navButton);
