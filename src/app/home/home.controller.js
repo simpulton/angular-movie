@@ -1,7 +1,9 @@
 function HomeController(MovieService) {
   var homeVm = this;
 
-  getMovie();
+  homeVm.$onInit = function () {
+    getMovie();
+  };
 
   function getMovie() {
     MovieService

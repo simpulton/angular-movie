@@ -1,9 +1,11 @@
 function SynopsisController(MovieService, $sce) {
   var synopsisVm = this;
 
-  synopsisVm.renderHtml = renderHtml;
+  synopsisVm.$onInit = function () {
+    getMovie();
+  };
 
-  getMovie();
+  synopsisVm.renderHtml = renderHtml;
 
   function getMovie() {
     MovieService

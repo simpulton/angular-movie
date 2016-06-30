@@ -1,14 +1,16 @@
 function GalleryController(MovieService) {
   var galleryVm = this;
 
-  galleryVm.direction = 'backward';
-  galleryVm.currentIndex = 0;
-  galleryVm.setCurrentSlideIndex = setCurrentSlideIndex;
-  galleryVm.isCurrentSlideIndex = isCurrentSlideIndex;
-  galleryVm.nextSlide = nextSlide;
-  galleryVm.prevSlide = prevSlide;
+  galleryVm.$onInit = function () {
+    galleryVm.direction = 'backward';
+    galleryVm.currentIndex = 0;
+    galleryVm.setCurrentSlideIndex = setCurrentSlideIndex;
+    galleryVm.isCurrentSlideIndex = isCurrentSlideIndex;
+    galleryVm.nextSlide = nextSlide;
+    galleryVm.prevSlide = prevSlide;
 
-  getMovie();
+    getMovie();
+  };
 
   function getMovie() {
     MovieService

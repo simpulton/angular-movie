@@ -1,9 +1,11 @@
 function TrailerController(MovieService, $scope) {
   var trailerVm = this;
 
-  $scope.$on('animation-done', showIframe);
+  trailverVm.$onInit = function () {
+    getMovie();
+  };
 
-  getMovie();
+  $scope.$on('animation-done', showIframe);
 
   function getMovie() {
     MovieService
