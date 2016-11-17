@@ -2,7 +2,7 @@ var trailer = {
   selector: 'trailer',
   controller: 'TrailerController',
   controllerAs: 'trailerVm',
-  templateUrl: 'app/trailer/trailer.tpl.html'
+  templateUrl: 'app/trailer/trailer.html'
 };
 
 angular.module('Movie.trailer')

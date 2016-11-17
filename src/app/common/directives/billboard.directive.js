@@ -6,7 +6,7 @@ function billboard() {
   return {
     restrict: 'E',
     link: link,
-    templateUrl: 'app/common/templates/billboard.tpl.html',
+    templateUrl: 'app/common/templates/billboard.html',
     controller: function () {},
     controllerAs: 'billboardVm',
     scope: true,

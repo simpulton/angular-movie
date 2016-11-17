@@ -2,7 +2,7 @@ var home = {
   selector: 'home',
   controller: 'HomeController',
   controllerAs: 'homeVm',
-  templateUrl: 'app/home/home.tpl.html'
+  templateUrl: 'app/home/home.html'
 };
 
 angular.module('Movie.home')
