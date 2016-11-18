@@ -4,7 +4,7 @@
   "description": "A movie showcase, built on AngularJS and using GreenSock Animation Platform (GSAP) for advanced animations.",
   "main": "src/app/app.js",
   "scripts": {
-    "start": "serve src"
+    "start": "browser-sync start --files '**/**.*' --server src"
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,12 @@
   },
   "homepage": "https://github.com/simpulton/angular-movie#readme",
   "dependencies": {
-    "angular": "^1.5.7",
-    "angular-animate": "^1.5.7",
-    "angular-ui-router": "^0.3.1",
-    "angularjs": "0.0.1",
-    "gsap": "^1.18.5",
-    "preload-js": "^0.6.3"
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-ui-router": "0.3.2",
+    "gsap": "1.19.0"
+  },
+  "devDependencies": {
+    "browser-sync": "2.18.1"
   }
 }
