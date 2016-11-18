@@ -50,10 +50,10 @@ function run($transitions, AnimationsService) {
       lastIndex = tState.length - 1,
       fLastIndex = fState.length - 1;
 
-    var tostate = tState[lastIndex];
-    var fromstate = fState[fLastIndex];
+    var finalToState = tState[lastIndex];
+    var finalFromState = fState[fLastIndex];
 
-    var currentAnimation = "from-" + fromstate + "-to-" + tostate;
+    var currentAnimation = "from-" + finalFromState + "-to-" + finalToState;
 
     AnimationsService.setCurrentAnimation(currentAnimation);
   }
