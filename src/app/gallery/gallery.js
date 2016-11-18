@@ -1,13 +1,14 @@
+var galleryState = {
+  parent: 'Movie',
+  name: 'gallery',
+  url: '/gallery',
+  views: {
+    'main@': 'gallery'
+  }
+};
+
 function config($stateProvider) {
-  $stateProvider
-    .state('Movie.gallery', {
-      url: '/gallery',
-      views: {
-        'main@': {
-          template: '<gallery></gallery>'
-        }
-      }
-    });
+  $stateProvider.state(galleryState);
 }
 
 function imageAnimation($window) {

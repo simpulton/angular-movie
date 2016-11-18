@@ -1,4 +1,7 @@
 var home = {
+  bindings: {
+    movie: '<'
+  },
   selector: 'home',
   controller: 'HomeController',
   controllerAs: 'homeVm',

@@ -1,4 +1,7 @@
 var gallery = {
+  bindings: {
+    movie: '<'
+  },
   selector: 'gallery',
   controller: 'GalleryController',
   controllerAs: 'galleryVm',

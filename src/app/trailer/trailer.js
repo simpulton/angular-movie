@@ -1,13 +1,14 @@
+var trailerState = {
+  parent: 'Movie',
+  name: 'trailer',
+  url: '/trailer',
+  views: {
+    'main@': 'trailer'
+  }
+};
+
 function config($stateProvider) {
-  $stateProvider
-    .state('Movie.trailer', {
-      url: '/trailer',
-      views: {
-        'main@': {
-          template: '<trailer></trailer>'
-        }
-      }
-    });
+  $stateProvider.state(trailerState);
 }
 
 angular.module('Movie.trailer', [])

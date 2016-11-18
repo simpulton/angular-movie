@@ -1,20 +1,4 @@
-function HomeController(MovieService) {
-  var homeVm = this;
-
-  homeVm.$onInit = function () {
-    getMovie();
-  };
-
-  function getMovie() {
-    MovieService
-      .fetch()
-      .then(getResults);
-  }
-
-  function getResults(movie) {
-    homeVm.movie = movie[0];
-  }
-}
+function HomeController() {}
 
 angular.module('Movie.home')
 .controller('HomeController', HomeController);

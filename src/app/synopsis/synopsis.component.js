@@ -1,4 +1,7 @@
 var synopsis = {
+  bindings: {
+    movie: '<'
+  },
   selector: 'synopsis',
   controller: 'SynopsisController',
   controllerAs: 'synopsisVm',

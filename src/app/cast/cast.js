@@ -1,13 +1,14 @@
+var castState = {
+  parent: 'Movie',
+  name: 'cast',
+  url: '/cast',
+  views: {
+    'main@': 'cast'
+  }
+};
+
 function config($stateProvider) {
-  $stateProvider
-    .state('Movie.cast', {
-      url: '/cast',
-      views: {
-        'main@': {
-          template: '<cast></cast>'
-        }
-      }
-    });
+  $stateProvider.state(castState);
 }
 
 function castAnimate() {

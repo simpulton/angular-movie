@@ -1,22 +1,10 @@
-function CastController(MovieService, $sce) {
+function CastController($sce) {
   var castVm = this;
 
   castVm.$onInit = function () {
     castVm.currentCast = 0;
     castVm.renderHtml = renderHtml;
-
-    getMovie();
   };
-
-  function getMovie() {
-    MovieService
-      .fetch()
-      .then(getResults);
-  }
-
-  function getResults(movie) {
-    castVm.movie = movie[0];
-  }
 
   function renderHtml(html) {
     return $sce.trustAsHtml(html);

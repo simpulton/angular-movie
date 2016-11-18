@@ -1,4 +1,4 @@
-function MainController($rootScope, ngAudio, AnimationsService) {
+function MainController($rootScope, ngAudio, $transitions) {
   var mainVm = this;
 
   mainVm.$onInit = function () {
@@ -22,14 +22,17 @@ function MainController($rootScope, ngAudio, AnimationsService) {
       return mainVm.audio.paused ? mainVm.audio.play() : mainVm.audio.pause();
     };
 
-    $rootScope.$on('$stateChangeSuccess', handleStateChangeAudio);
+    $transitions.onSuccess({}, handleStateChangeAudio);
   }
 
-  function handleStateChangeAudio(event, toState, toPrarms, fromState, fromParams) {
-    if (toState.name == 'Movie.trailer') {
+  function handleStateChangeAudio($transition$) {
+    var toState = $transition$.$to(),
+      fromState = $transition$.$from();
+
+    if (toState.name == 'trailer') {
       mainVm.audio.pause();
       mainVm.showAudio = false;
-    } else if (fromState.name == "Movie.trailer") {
+    } else if (fromState.name == 'trailer') {
       mainVm.audio.play();
       mainVm.showAudio = true;
     }

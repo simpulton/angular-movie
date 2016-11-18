@@ -1,4 +1,4 @@
-function GalleryController(MovieService) {
+function GalleryController() {
   var galleryVm = this;
 
   galleryVm.$onInit = function () {
@@ -8,20 +8,7 @@ function GalleryController(MovieService) {
     galleryVm.isCurrentSlideIndex = isCurrentSlideIndex;
     galleryVm.nextSlide = nextSlide;
     galleryVm.prevSlide = prevSlide;
-
-    getMovie();
   };
-
-  function getMovie() {
-    MovieService
-    .fetch()
-    .then(getResults);
-  }
-
-  function getResults(movie) {
-    galleryVm.movie = movie[0];
-    galleryVm.images = galleryVm.movie.images;
-  }
 
   function setCurrentSlideIndex(index) {
     galleryVm.direction = (index > galleryVm.currentIndex) ? 'backward' : 'forward';
@@ -34,12 +21,12 @@ function GalleryController(MovieService) {
 
   function nextSlide() {
     galleryVm.direction = 'backward';
-    galleryVm.currentIndex = (galleryVm.currentIndex < galleryVm.images.length - 1) ? ++galleryVm.currentIndex : 0;
+    galleryVm.currentIndex = (galleryVm.currentIndex < galleryVm.movie.images.length - 1) ? ++galleryVm.currentIndex : 0;
   }
 
   function prevSlide() {
     galleryVm.direction = 'forward';
-    galleryVm.currentIndex = (galleryVm.currentIndex > 0) ? --galleryVm.currentIndex : galleryVm.images.length - 1;
+    galleryVm.currentIndex = (galleryVm.currentIndex > 0) ? --galleryVm.currentIndex : galleryVm.movie.images.length - 1;
   }
 }
 

@@ -1,4 +1,7 @@
 var trailer = {
+  bindings: {
+    movie: '<'
+  },
   selector: 'trailer',
   controller: 'TrailerController',
   controllerAs: 'trailerVm',

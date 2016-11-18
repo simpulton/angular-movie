@@ -1,4 +1,7 @@
 var cast = {
+  bindings: {
+    movie: '<'
+  },
   selector: 'cast',
   controller: 'CastController',
   controllerAs: 'castVm',

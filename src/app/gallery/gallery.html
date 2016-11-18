@@ -2,7 +2,7 @@
 	<div class="gallery-wrapper">
 		<img class="galleryimage image-animation"
 		     ng-if="galleryVm.isCurrentSlideIndex($index)"
-		     ng-repeat="image in galleryVm.images" ng-src="{{image.src}}">
+		     ng-repeat="image in galleryVm.movie.images" ng-src="{{image.src}}">
 	</div>
 
 	<!-- WHY NOT MAKE THIS A DIRECTIVE!?!?! -->
@@ -15,7 +15,7 @@
 	<div class="gallery">
 		<div class="slider-wrapper">
 			<ul class="slider">
-				<li class="slider-image" ng-repeat="thumb in galleryVm.images">
+				<li class="slider-image" ng-repeat="thumb in galleryVm.movie.images">
 					<img
 						ng-class="{'active':galleryVm.isCurrentSlideIndex($index)}"
 						ng-click="galleryVm.setCurrentSlideIndex($index)"

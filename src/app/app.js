@@ -1,26 +1,26 @@
+var movieState = {
+  name: 'Movie',
+  resolve: {
+    movie: function(MovieService) {
+      return MovieService.fetch()
+        .then(function(response) {
+          return response[0];
+        });
+    },
+    loaded: function(PreloadService, movie, $rootScope) {
+      return PreloadService.loadManifest(movie)
+        .then(function(response) {
+          $rootScope.$broadcast('loaded', movie);
+          return response;
+        }, function(error) {
+          console.error(error);
+        });
+    }
+  }
+};
+
 function config($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
-  $stateProvider
-    .state('Movie', {
-      abstract: true,
-      url: '',
-      resolve: {
-        movie: function(MovieService) {
-          return MovieService.fetch()
-            .then(function(response) {
-              return response[0];
-            });
-        },
-        loaded: function(PreloadService, movie, $rootScope) {
-          return PreloadService.loadManifest(movie)
-            .then(function(response) {
-              $rootScope.$broadcast('loaded', movie);
-              return response;
-            }, function(error) {
-              console.error(error);
-            });
-        }
-      }
-    });
+  $stateProvider.state(movieState);
 
   $urlRouterProvider.otherwise('/');
 
@@ -32,10 +32,13 @@ function config($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
   ]);
 }
 
-function run($rootScope, AnimationsService) {
-  $rootScope.$on('$stateChangeStart', setUpAnimationsService);
+function run($transitions, AnimationsService) {
+  $transitions.onStart({}, setUpAnimationsService);
 
-  function setUpAnimationsService(event, toState, toParams, fromState, fromParams) {
+  function setUpAnimationsService($transition$) {
+    var fromState = $transition$.$from(),
+      toState = $transition$.$to();
+
     // State handling for animations
     // Set Default from state to "home"
     fromState = (fromState.name) ? fromState : {
