@@ -66,11 +66,11 @@ angular.module('Movie', [
   'Movie.gallery',
   'Movie.trailer',
   'Movie.services.movie',
-  'Movie.directives.billboard',
+  'Movie.components.billboard',
+  'Movie.components.back',
   'Movie.directives.nav',
   'Movie.services.preload',
-  'Movie.services.animations',
-  'Movie.directives.back'
+  'Movie.services.animations'
 ])
 .config(config)
 .run(run)

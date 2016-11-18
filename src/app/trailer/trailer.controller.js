@@ -1,7 +1,7 @@
 function TrailerController(MovieService, $scope) {
   var trailerVm = this;
 
-  trailverVm.$onInit = function () {
+  trailerVm.$onInit = function () {
     getMovie();
   };
 
