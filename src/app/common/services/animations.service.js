@@ -57,7 +57,7 @@ var ANIMATIONS = {
   }
 };
 
-function AnimationsService(ANIMATIONS) {
+function AnimationsService() {
 
   // Note: The "leave" attribute associated with each page transition actually contains the "leave" animation
   //       for the page transition before. This is because when state is changed, the name
@@ -67,33 +67,24 @@ function AnimationsService(ANIMATIONS) {
   //       current page transition is changed from "from-home-to-home" to "from-home-to-synopsis";
   //       THEN the "leave" attribute is selected and the associated animation is run.
 
-  var animations = ANIMATIONS,
-      currentAnimation = {},
-      service = {
-        getAnimations: getAnimations,
-        getCurrentAnimation: getCurrentAnimation,
-        setCurrentAnimation: setCurrentAnimation
-      };
+  var currentAnimation = {};
 
   // Synopsis and cast animations are the same
-  animations["from-home-to-cast"] = animations["from-home-to-synopsis"];
-  animations["from-cast-to-home"] = animations["from-synopsis-to-home"];
+  ANIMATIONS["from-home-to-cast"] = ANIMATIONS["from-home-to-synopsis"];
+  ANIMATIONS["from-cast-to-home"] = ANIMATIONS["from-synopsis-to-home"];
 
-  return service;
+  this.getAnimations = function() {
+    return ANIMATIONS;
+  };
 
-  function getAnimations() {
-    return animations;
-  }
-
-  function getCurrentAnimation() {
+  this.getCurrentAnimation = function() {
     return currentAnimation;
-  }
+  };
 
-  function setCurrentAnimation(animation) {
+  this.setCurrentAnimation = function(animation) {
     currentAnimation = animation;
-  }
+  };
 }
 
 angular.module('Movie.services.animations', [])
-.factory('AnimationsService', AnimationsService)
-.constant('ANIMATIONS', ANIMATIONS);
+.service('AnimationsService', AnimationsService);
